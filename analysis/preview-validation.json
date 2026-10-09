@@ -1,0 +1,39 @@
+{
+  "scope": "Native OpenGL smoke checks, not original-renderer equivalence",
+  "matching_builds": [
+    "O0",
+    "O2"
+  ],
+  "captures": [
+    {
+      "animation": 11,
+      "seconds": 0,
+      "orbit": 0,
+      "sha256": "7995c5c0a3c421ab07b5795d253385832abf0470ea8c947006222cd25477581c"
+    },
+    {
+      "animation": 1,
+      "seconds": 0.25,
+      "orbit": 0,
+      "sha256": "21058809fda557e7c61ff3e83423265f2bf88a3ed8db4e13bfd1060e34f49ca6"
+    },
+    {
+      "animation": 1,
+      "seconds": 0.3,
+      "orbit": 0,
+      "sha256": "5d01f0b7c4bc4e301599456018ea613af737bcc74efc4fb9405d668ba4828d7b"
+    },
+    {
+      "animation": 0,
+      "seconds": 0.35,
+      "orbit": 0,
+      "sha256": "eb64a4ebc3f01827a2ee6eeb2e40a0809066bb58c5c7eaf7c08702fbecd16284"
+    },
+    {
+      "animation": 0,
+      "seconds": 0.35,
+      "orbit": 3.14159265,
+      "sha256": "272581d24ee72eb548a111b15273b70ed98310b44db103b350b32fe8a3cffddf"
+    }
+  ]
+}

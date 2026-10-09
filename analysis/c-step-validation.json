@@ -1,0 +1,29 @@
+{
+  "cases": {
+    "animation": 6000,
+    "collision_helpers": 18000,
+    "walk_orchestration": 6000
+  },
+  "total_per_build": 30000,
+  "builds": [
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
+      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+    },
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
+      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+    }
+  ],
+  "seed": 19961007,
+  "seconds": 3.75,
+  "original_sha256": "99503b7c4c7d88fdc2877c071b135ef041781fd76459de6b1cbf8b887ffe0fac",
+  "limits": "Synthetic animation/contact data. Sound/effect callbacks and room/vault/slide services use identical controlled doubles on both sides. No PHD loader, world collision or full playable integration validated.",
+  "source_sha256": {
+    "src\\animation.c": "ff0bf4f7c591fd687bc1bcb76b5365cbc42e13544c962d0d01eeb4f5cb43458e",
+    "src\\collision.c": "2f1ca1761e13caa0c0a61fb14d0449469c8d0d346f0fb232d8a4aa34ad3dc303",
+    "src\\step.h": "aaaf21287f1fe09467bf9b176211bc89449c0a5aac3a92f878e22b9987a0bac8",
+    "src\\fixed.h": "d36204eb3db6d90fe4de88c4887e19ccda6f762efb03a9ed309ffbc9f912504e",
+    "tests\\compare_step.py": "3e870146bf137cc7d03a5335567fc12a6ac43dc8fc359becd260b67b1147e707"
+  }
+}

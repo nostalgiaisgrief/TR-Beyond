@@ -1,0 +1,169 @@
+{
+  "static_flags": [
+    {
+      "id": 0,
+      "mesh": 151,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 1,
+      "mesh": 152,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 2,
+      "mesh": 153,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 3,
+      "mesh": 154,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 4,
+      "mesh": 155,
+      "flags": 3,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 10,
+      "mesh": 156,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 11,
+      "mesh": 157,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 12,
+      "mesh": 158,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 13,
+      "mesh": 159,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 14,
+      "mesh": 160,
+      "flags": 3,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 15,
+      "mesh": 161,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 16,
+      "mesh": 162,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 17,
+      "mesh": 163,
+      "flags": 0,
+      "dos_draw_enabled": false
+    },
+    {
+      "id": 18,
+      "mesh": 164,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 19,
+      "mesh": 165,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 30,
+      "mesh": 166,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 31,
+      "mesh": 167,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 32,
+      "mesh": 168,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 33,
+      "mesh": 169,
+      "flags": 2,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 34,
+      "mesh": 170,
+      "flags": 3,
+      "dos_draw_enabled": true
+    },
+    {
+      "id": 35,
+      "mesh": 171,
+      "flags": 2,
+      "dos_draw_enabled": true
+    }
+  ],
+  "hidden_gym_placements": [
+    {
+      "room": 7,
+      "placement": [
+        43520,
+        -1280,
+        52736,
+        0,
+        4096,
+        17
+      ]
+    },
+    {
+      "room": 7,
+      "placement": [
+        45568,
+        -1280,
+        52736,
+        0,
+        4096,
+        17
+      ]
+    }
+  ],
+  "object_clip_rectangles": [
+    [
+      0.0,
+      0.0,
+      1279.0,
+      719.0
+    ],
+    [
+      0.0,
+      0.0,
+      1279.0,
+      719.0
+    ]
+  ],
+  "scope": "Original flag branch and viewport setup executed; transform/lighting/rasterisation not exercised. No live DOS screenshot comparison."
+}

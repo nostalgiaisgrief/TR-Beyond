@@ -1,0 +1,13 @@
+{
+  "preparation_control": 6000,
+  "preparation_collision": 6000,
+  "upward_control": 6000,
+  "upward_collision": 6000,
+  "builds": 2,
+  "scope": "Isolated DOS routines; floor probe, query, grab and landing services doubled. No full-frame equivalence.",
+  "sources": {
+    "src\\air.c": "8df6c708cc3bcdf156592b1974895a94273bd5ba0a34460a9626ade36907ae42",
+    "src\\air.h": "6fa14d66540f6deb91c6920769d1d07d22823c7e7c678a557a6be4588e0090ee",
+    "tests\\compare_standing_jump.py": "d379bb20872fd46bf9a4367f14c10aa5867ba2527d329202fe2250f29d395e6a"
+  }
+}

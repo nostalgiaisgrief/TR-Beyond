@@ -1,0 +1,7 @@
+{
+  "controls": 9000,
+  "pullup_decisions": 12000,
+  "pullup_collision": 6000,
+  "builds": 2,
+  "scope": "Original instructions; maintenance doubled for clearance tail, query doubled for pull-up collision."
+}

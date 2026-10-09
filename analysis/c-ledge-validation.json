@@ -1,0 +1,16 @@
+{
+  "grab_cases": 24000,
+  "successful_grabs": [
+    568,
+    446
+  ],
+  "reach_control": 6000,
+  "reach_collision": 6000,
+  "builds": 2,
+  "scope": "Isolated DOS comparisons with animation bounds, swing-space, world query and landing service doubles. Action/grabbing is not enabled in preview.",
+  "sources": {
+    "src\\ledge.c": "77f20d6fe34e3bd141d4ffadbd1ebde6153d3bfa35b54083b0a9b1a21f660b87",
+    "src\\ledge.h": "f2518b99b48c4593d89206b839209a5fd43222083cc55de406c55c8589543c3c",
+    "tests\\compare_ledge.py": "ac7f9b44f3960e2e2600f2e9bcb094f20b2008939522f353a019834e5e37a29a"
+  }
+}

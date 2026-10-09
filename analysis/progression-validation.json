@@ -1,0 +1,5 @@
+{
+  "cases_per_build": 3500,
+  "builds": 2,
+  "scope": "DOS floor completion/secrets and real PC music dispatch; device calls stubbed."
+}

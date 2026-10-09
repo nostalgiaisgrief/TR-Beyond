@@ -1,0 +1,161 @@
+PLAYTEST 26 - MAIN-LEVEL CD AUDIO
+
+New level starts and R restart now select the original DOS background track.
+All 15 campaign entries follow the original level table; Caves and City use
+logical track 57 / CD track 3. Physical CD tracks repeat, while gym voice
+samples remain one-shot. Existing floor-trigger track dispatch is retained.
+
+PLAYTEST 25 - SHARED CONTROLS
+
+Lara's Home now uses the same saved key bindings as every campaign level:
+Numpad 8/2 move, 4/6 turn, 7/9 sidestep; A walk; D jump/swim; W roll;
+Numpad 0 look; S/Enter action; Space draw weapons; E inventory; P pause.
+Alt+Enter fullscreen and R development restart remain available.
+The old gym WASD, J/Alt jump, Ctrl action, Shift walk, Tab reset, orbit-camera
+and animation-viewer keyboard shortcuts have been removed.
+
+PLAYTEST 24 - INTERFACE FIDELITY PASS
+
+DOS-derived panels, bevel borders, row spacing and selection highlights replace
+placeholder option lists. Detail reads High/Medium/Low; sound uses the original
+music/speaker glyphs. Controls use two columns; Left/Right switches columns.
+Your bindings and modern resolution settings are retained.
+Passport page labels appear at the bottom without overlapping Game text.
+Save/load uses the original high-resolution ten-row requester layout.
+4:3 startup and Alt+Enter fullscreen from playtest 23 are retained.
+
+PLAYTEST 23 - WINDOW AND FULLSCREEN
+
+Starts with a 960x720 (4:3) client area. Alt+Enter toggles borderless fullscreen
+on the current monitor, using its desktop resolution and aspect ratio.
+Alt+Enter again restores the previous window size and position.
+The vertical field of view stays fixed in either mode.
+
+PLAYTEST 22 - ASPECT RATIO
+
+The vertical view now stays anchored to the original DOS 640x480 projection.
+Wider windows show more at the sides instead of cropping floor and ceiling.
+World, inventory models, portal bounds and static-object visibility use the
+same projection. Camera movement and gameplay rules are unchanged.
+
+PLAYTEST 21 - TITLE, PASSPORT AND SAVES
+
+Play.cmd opens the original title ring. Choose-level.cmd retains the all-level
+picker. Use Numpad 4/6 (or Left/Right), S/Enter to select, E/Esc to go back.
+In the game inventory, Numpad 2 opens Options; Numpad 8 returns to Inventory.
+The passport pages are Load Game, Save Game/New Game, and Exit to Title/Game.
+Numpad 4/6 turns pages; Numpad 8/2 selects a save slot. There are 16 slots.
+Saves are stored in this package's saves folder; they are reconstruction saves,
+not compatible with DOS SAVEGAME files. Earlier packages are preserved.
+Controls and volume settings persist in settings.ini. Your requested bindings
+remain the defaults. Detail Levels uses modern render resolution: 320 / 640 /
+window width. High retains the existing rendering.
+Death opens the passport after ten seconds, or after two seconds with input.
+Lara's Home retains the older gym controls; Esc opens its inventory.
+
+The Caves/City component and integration checks pass. Full uninterrupted DOS
+route comparison and exact menu layout/pixel acceptance are still pending.
+Lost Valley and subsequent levels remain incomplete even though selectable.
+
+PREVIOUS GAMEPLAY NOTES (historical package references below)
+
+Playtest 20 - automatic interest look, City blades and Lost Valley transition
+
+Run Play.cmd, choose a level, then press Enter or click Play. Double-click also
+starts a level; Escape or Cancel exits. All 15 original levels and Lara's Home
+are included. This is a development picker, separate from the DOS game menu.
+Later levels have incomplete enemies, puzzles, hazards and progression.
+Restart the application to choose another level. Home retains its old controls.
+
+Original assets, independent C engine. These bindings also apply
+to the City transition build. The Gym retains its previous controls.
+
+Numpad 8: forward; underwater tilt down; inventory to Items ring.
+Numpad 2: hop back; surface swim backwards; underwater tilt up; Items to main ring.
+Numpad 4 / 6: turn left/right; rotate inventory ring.
+Numpad 7 / 9: sidestep left/right; swim sideways at the surface.
+A: walk modifier (combine with Numpad 8/2).
+D: jump / swim / dive. Hold A + D + Numpad 8 for a forward swan dive.
+Short dives land into a roll; high head-first impacts are fatal.
+W: roll (standing or running).
+Hold Numpad 0: look while standing or treading water. While held, Numpad 4/6
+looks left/right, Numpad 8 looks up, and Numpad 2 looks down. Release to
+return to the normal camera; Lara's head/torso relax back to centre.
+S or Enter: action, shoot, collect, operate switches, grab/hold, select/use
+inventory items, return from open compass, continue after level completion.
+Hold S/Enter + Numpad 8 to climb when hanging or at a suitable edge.
+Space: draw/holster pistols.
+E or Esc: open inventory, back out/close inventory.
+Left/Right arrows: inventory rotation only. Up/Down: inventory ring change.
+P: pause/resume gameplay.
+R: restart current level with its starting inventory.
+Alt+F4 or window close: quit.
+
+Numpad bindings work with Num Lock on or off. Keyboard focus loss releases
+held gameplay keys. Orbit, zoom, camera-centre and animation-viewer keys are
+removed from Caves/City. J, Alt, Ctrl, Shift and Tab have no gameplay binding.
+
+Caves test shortcuts (reset progress and test state):
+F1: small medipack.
+S+F1 or Enter+F1: large medipack.
+A+F1: level exit.
+F2: bridge. A+F2: automatic point-of-interest look in the snowy Caves room.
+F3: collapsing floor. F4: dart corridor.
+F5: wolf. F6: bear. F12: bat.
+F7/F8: slope facing downhill/uphill.
+F9: first switch. F10: timed switch/camera. F11: later switch/camera.
+Use S or Enter to operate switches or collect pickups.
+
+Inventory uses original ring motion, item models/animations and menu sounds.
+Roll uses original animations, both collision phases, and the frame-triggered
+180-degree turn. Look uses the DOS camera path, view limits and wall constraints.
+The compass lid/needle correction from playtest 12 is retained. Gameplay
+sound remains suspended during inventory while menu effects play.
+
+Pistols, Caves enemies/hazards, pickups, secrets and completion are connected.
+City block, switches, keys/idol, trapdoors, swinging blades and exit are connected.
+Full Caves/City route acceptance remains; Lost Valley gameplay is still incomplete.
+DOS inventory names/counts, medipack health display, health/air bars, pickup
+icons and end-level statistics are connected. Pistols show no ammo counter,
+as in DOS. The compass opens/closes without an invented statistics panel;
+kills, pickups, secrets and time appear at level completion. Press S or Enter
+to continue. Ground sidesteps now use original controls and collision limits.
+Saves, options, title screen and final full-route acceptance remain pending. DOS gameplay/camera design remains the reference; modern Windows
+rendering and audio backends do not imply revised gameplay rules.
+
+City of Vilcabamba additions:
+F1: reset and move to the pushable block. Hold S or Enter without a direction
+until Lara is ready, then keep Action held and use Numpad 8 to push or
+Numpad 2 to pull. Release Action to let go.
+F2 / F3: reset and move to the first / second underwater switch. Hold S or
+Enter to approach and operate it; release once the animation starts.
+The first switch opens its door; the second now opens its underwater hatch.
+F4: reset and move to the Silver Key pickup.
+F5: reset and move to the Gold Idol pickup.
+F6: reset and move to the keyhole with a Silver Key in inventory.
+F7: reset and move to the idol receptacle with a Gold Idol in inventory.
+F8: reset and move to the swinging-blade corridor; run forward to test.
+F9: reset and move to the City exit for completion/transition testing.
+All City shortcuts reset progress; F6/F7 supply an item only for testing.
+Use S/Enter to collect. At the matching hole, press S/Enter, select the item
+with S/Enter, and let the insertion animation finish. E/Esc cancels.
+The item is consumed once; the door trigger waits for Lara's hands to be free.
+The idol appears in its receptacle at the original animation frame.
+You can also open E, press Numpad 8 to see carried quest items, and Numpad 2
+to return to the main inventory. Selecting an item away from a hole does not
+consume it or leave a pending selection for a later interaction.
+City's three trapdoors animate, change floor/ceiling support, close, and reset.
+The three swinging blades use original animations/sounds and contact damage.
+On City completion, press S/Enter to continue into Lost Valley. Weapons,
+ammo and medipacks carry over; quest items and level statistics reset, as does
+Lara's health. R in Lost Valley restores the inventory carried into that level.
+Full-route DOS acceptance remains pending.
+
+Playtest 18 checks direct neighbouring rooms for block/switch interactions.
+The City doorway regression covers repeated pulls, grabbing across the room
+boundary, pushing back, pulling again and resetting.
+
+Automatic point-of-interest look is now connected separately from fixed shots.
+Lara turns her head/torso toward a trigger target within the original angle
+limits; the look camera follows. A seen target does not replay on re-entry.
+Manual Look and combat retain priority. Reset clears the seen-target state.

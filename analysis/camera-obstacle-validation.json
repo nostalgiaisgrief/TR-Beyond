@@ -1,0 +1,7 @@
+{
+  "box_cases": 12000,
+  "builds": 2,
+  "pitch_projection_cases": 1010,
+  "max_projection_error": 2.8262020455804304,
+  "scope": "DOS camera box-shift arithmetic and pitch projection, using original instructions.\nGeometry clearance is tested separately by follow_camera_test; no full-camera\nDOS equivalence is implied by these isolated arithmetic probes.\n"
+}

@@ -1,0 +1,5 @@
+{
+  "cases_per_build": 10000,
+  "builds": 2,
+  "scope": "Original 0x2d2b4 through 0x2d50d, including real RNG/distance math; before channel allocation and hardware playback."
+}

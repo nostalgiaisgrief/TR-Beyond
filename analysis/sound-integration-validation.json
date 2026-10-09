@@ -1,0 +1,13 @@
+{
+  "frames": 1741950,
+  "seconds": 39.5,
+  "nonzero_samples": 819162,
+  "peak": 19167,
+  "clipped_samples": 0,
+  "debug_optimized_identical": true,
+  "sha256": "b04f569524a43b3c93a33b783ad9dc65e1c5a9bee3d5ed5ac0a5b0f3092b0ee2",
+  "device_open_pause_resume_reset_close": true,
+  "subjective_listening": "Pending user playtest",
+  "full_regression_passed": true,
+  "packaged_smoke_and_hashes_passed": true
+}

@@ -1,0 +1,5 @@
+{
+  "cases": 10000,
+  "builds": 2,
+  "scope": "Compare tutorial conditions/latches/completion against DOS 0x18ce8.\nOnly physical playback/stop services are replaced, identically on both sides.\n"
+}

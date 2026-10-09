@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "build": "release",
+      "camera_ticks": 1260
+    },
+    {
+      "build": "_debug",
+      "camera_ticks": 1260
+    }
+  ],
+  "scope": "Execute original Caves switch lists, RefreshCamera and FixedCamera timer.\nCamera LOS/movement and CD playback are doubled; target identity, one-shot,\nspeed, timer, leaving/re-entering and switch gates use original instructions.\n"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "build": "release",
+    "combat_camera_cases": 2000
+  },
+  {
+    "build": "_debug",
+    "combat_camera_cases": 2000
+  }
+]

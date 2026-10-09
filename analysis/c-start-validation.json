@@ -1,0 +1,98 @@
+{
+  "total_per_build": 2002,
+  "levels": [
+    {
+      "level": "GYM.PHD",
+      "cases_per_build": 1001,
+      "start": {
+        "actor": {
+          "x": 37376,
+          "y": -1280,
+          "z": 51712,
+          "current": 2,
+          "goal": 2,
+          "animation": 11,
+          "frame": 185,
+          "speed": 0,
+          "fall_speed": 0,
+          "yaw": -16384,
+          "room": 7,
+          "flags": 0
+        },
+        "item_index": 0,
+        "sector_floor": -1280,
+        "services_pending": 3,
+        "health": 1000,
+        "air": 1800,
+        "water_status": 0,
+        "turn_rate": 0,
+        "move_angle": 0,
+        "fall_override": 0,
+        "pitch": 0,
+        "lean": 0,
+        "head_yaw": 0,
+        "head_pitch": 0,
+        "head_roll": 0,
+        "torso_yaw": 0,
+        "torso_pitch": 0,
+        "torso_roll": 0
+      },
+      "rejections_across_builds": 10
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "cases_per_build": 1001,
+      "start": {
+        "actor": {
+          "x": 75264,
+          "y": 3072,
+          "z": 3584,
+          "current": 2,
+          "goal": 2,
+          "animation": 11,
+          "frame": 185,
+          "speed": 0,
+          "fall_speed": 0,
+          "yaw": 0,
+          "room": 0,
+          "flags": 0
+        },
+        "item_index": 0,
+        "sector_floor": 3072,
+        "services_pending": 3,
+        "health": 1000,
+        "air": 1800,
+        "water_status": 0,
+        "turn_rate": 0,
+        "move_angle": 0,
+        "fall_override": 0,
+        "pitch": 0,
+        "lean": 0,
+        "head_yaw": 0,
+        "head_pitch": 0,
+        "head_roll": 0,
+        "torso_yaw": 0,
+        "torso_pitch": 0,
+        "torso_roll": 0
+      },
+      "rejections_across_builds": 10
+    }
+  ],
+  "seconds": 0.33,
+  "limits": "Fresh ordinary Lara placement movement state. Inventory/weapon/mesh setup and scratch allocator are service doubles. No save restoration, camera, rendering or playable simulation.",
+  "builds": [
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
+      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+    },
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
+      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+    }
+  ],
+  "sources": {
+    "src\\lara_start.c": "10bc7b0c91976e955b070643d3454d25ed2682c9a9f4a4ca53ca9b29a4c0102c",
+    "src\\lara_start.h": "0ddd16c8d1b57fcb102234d439466a92a8780b1f883632c10e6b8899b5bf8856",
+    "tests\\compare_start.py": "05e2661e783b65e5ffdb62a595b364ec45b572133982f598cb9141affbf53a48"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "builds": 2,
+  "original_helper_ticks": 108040,
+  "spin_cases_per_build": 2000,
+  "compass_cases_per_build": 1000,
+  "scope": "DOS ring initialization/motion/rotation/selection and item animation helpers.\nFull screen rendering and main inventory input loop are not emulated here.\n"
+}

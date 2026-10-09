@@ -1,0 +1,20 @@
+[
+  {
+    "build": "release",
+    "projection_widths": 3937,
+    "effect_updates": 300,
+    "dart_ticks": 284,
+    "animation_cases": 320,
+    "emitter_cases": 1200,
+    "falling_floor_ticks": 176
+  },
+  {
+    "build": "_debug",
+    "projection_widths": 3937,
+    "effect_updates": 300,
+    "dart_ticks": 284,
+    "animation_cases": 320,
+    "emitter_cases": 1200,
+    "falling_floor_ticks": 176
+  }
+]

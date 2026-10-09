@@ -1,0 +1,50 @@
+{
+  "recordings": {
+    "build_seconds": 9.0666666667,
+    "dos_seconds": 12.6293333333
+  },
+  "comparison": "Source-sample correlation with pitch search and local time alignment; separate actions and random sample/pitch choices, not identical input replays.",
+  "build_sound_27": {
+    "first_event_pitch_percent": 100,
+    "first_event_alignment_offsets_seconds": [
+      2.8402,
+      2.8438,
+      2.8457,
+      2.8493
+    ],
+    "second_event_pitch_percent": 103,
+    "second_event_alignment_offsets_seconds": [
+      6.6402,
+      6.6422,
+      6.6441,
+      6.6477
+    ]
+  },
+  "dos_sound_27": {
+    "event_pitch_percent": 108,
+    "alignment_offset_seconds": 7.584,
+    "alignment": "Stable across the clean interior of the event."
+  },
+  "device_test_runs": [
+    {
+      "build": "debug",
+      "elapsed_seconds": 3.0157,
+      "played_samples": 132994,
+      "starvations": 0
+    },
+    {
+      "build": "release",
+      "elapsed_seconds": 3.0049,
+      "played_samples": 132521,
+      "starvations": 0
+    },
+    {
+      "build": "release-repeat",
+      "elapsed_seconds": 3.0056,
+      "played_samples": 132551,
+      "starvations": 0
+    }
+  ],
+  "offline_mix_identical_to_playtest_03": true,
+  "new_playtest_recording": "Pending user listening; device clock and independent feeder verified."
+}

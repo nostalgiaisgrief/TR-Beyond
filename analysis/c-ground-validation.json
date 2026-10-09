@@ -1,0 +1,6 @@
+{
+  "damping_cases_per_build": 6000,
+  "collision_cases_per_build": 18000,
+  "builds": 2,
+  "scope": "Original damping block and ground collision routines. Query, vault and slide are controlled doubles; no full-frame equivalence."
+}

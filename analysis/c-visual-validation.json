@@ -1,0 +1,119 @@
+{
+  "levels": [
+    {
+      "level": "GYM.PHD",
+      "rooms": 19,
+      "meshes": 172,
+      "tiles": 9,
+      "textures": 926,
+      "room_vertices": 3967,
+      "room_faces": 3423,
+      "decoded_keys_per_build": 2426,
+      "models": 24,
+      "lara_mesh_selections": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          14
+        ]
+      ],
+      "rejections_across_builds": 10,
+      "sha256": "52ff324648a3af7f6f48729108406d2811c632a3257ccf71f1196c05d98932fe"
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "rooms": 38,
+      "meshes": 217,
+      "tiles": 11,
+      "textures": 897,
+      "room_vertices": 8349,
+      "room_faces": 7459,
+      "decoded_keys_per_build": 3992,
+      "models": 42,
+      "lara_mesh_selections": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          14
+        ]
+      ],
+      "rejections_across_builds": 10,
+      "sha256": "75306547c82d8e142f6dc80d85703d1fd5a5871071e4d04233660347865d26c7"
+    }
+  ],
+  "seconds": 0.19,
+  "limits": "Visual views and local pose keys, not interpolated skeletons or rendered pixels. Mesh selection checked against original 0x29070 for unarmed standard/gym profiles only.",
+  "builds": [
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
+      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+    },
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
+      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+    }
+  ],
+  "sources": {
+    "src\\visual.c": "71ce68e4689c4362f3aa7cb7a3c73b0bb167c9aee0113c37274687db2d219793",
+    "src\\visual.h": "69e42c7810b62971ddeee3312627a90a5fb47aa72d725926ff5b661a0f291b4f",
+    "tests\\compare_visual.py": "cc048408445e4ade883af5e3a49412f0645122234bf78dae5d9681638b9e3c00"
+  }
+}

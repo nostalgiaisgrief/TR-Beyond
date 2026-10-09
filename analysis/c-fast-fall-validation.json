@@ -1,0 +1,12 @@
+{
+  "control": 6000,
+  "deflection": 6000,
+  "collision": 6000,
+  "builds": 2,
+  "scope": "Original state 9 instructions, query/landing/audio service doubles; not full-frame equivalence.",
+  "sources": {
+    "src\\air.c": "8df6c708cc3bcdf156592b1974895a94273bd5ba0a34460a9626ade36907ae42",
+    "src\\air.h": "6fa14d66540f6deb91c6920769d1d07d22823c7e7c678a557a6be4588e0090ee",
+    "tests\\compare_fast_fall.py": "45e1366cb6ba289a0413436236ca42c9d2a4cf9df6c596fde48f5ef0e3e1c4bd"
+  }
+}

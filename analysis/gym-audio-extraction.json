@@ -1,0 +1,156 @@
+{
+  "source": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\work\\reference-assets\\DATA\\GYM.PHD",
+  "mapping": "DOS 0x38cf7: track+148 sound ID",
+  "tracks": [
+    {
+      "track": 26,
+      "sample": 51,
+      "seconds": 2.5607256235827665,
+      "sha256": "399a71039c90dec0348ae506b134c09ac3fc9f7fcaa9fe78475d90361e70babe"
+    },
+    {
+      "track": 27,
+      "sample": 52,
+      "seconds": 2.30140589569161,
+      "sha256": "f034c3f86d12054c890f10c84ef24819e22392f3ae9002bc2e65b31a4735e048"
+    },
+    {
+      "track": 28,
+      "sample": 53,
+      "seconds": 3.328888888888889,
+      "sha256": "6658b2cbd649d2c8d60ede40278c63553c90445e07a1a9606c144f3f266f5f35"
+    },
+    {
+      "track": 29,
+      "sample": 54,
+      "seconds": 3.7257142857142855,
+      "sha256": "e4944ae2fc86ab2bbcfb36b0025f07c126a2aa37d6b03c45be81f3093dd6dea0"
+    },
+    {
+      "track": 30,
+      "sample": 55,
+      "seconds": 5.9721541950113375,
+      "sha256": "8eb5075113be0356204851c16086ec4e328abecdaa31be2cdd5b08bb61f4e001"
+    },
+    {
+      "track": 31,
+      "sample": 56,
+      "seconds": 5.000090702947846,
+      "sha256": "bdabe56a351745e2b7f09984174e83d714a6702395d29c175f4f876544cae569"
+    },
+    {
+      "track": 32,
+      "sample": 57,
+      "seconds": 7.497505668934241,
+      "sha256": "71d216f809b6db7f5b865d582a330f1c34e7f26e375db0ab1a75a95b1c977b21"
+    },
+    {
+      "track": 33,
+      "sample": 58,
+      "seconds": 7.555827664399093,
+      "sha256": "28845582f9abdd3623e2a68768b7f28b2c2b33d91f0200431d6a787b7236bab0"
+    },
+    {
+      "track": 34,
+      "sample": 59,
+      "seconds": 5.621224489795918,
+      "sha256": "20cfae81e1b982299242aa7882f5ed63b6d9cad8d06e3ba6c99416e66db3436c"
+    },
+    {
+      "track": 35,
+      "sample": 60,
+      "seconds": 5.174693877551021,
+      "sha256": "f173377cd3f6aea19d02e7a83f8d59c0f5319b0992d6ed4b71bb067d716ad68b"
+    },
+    {
+      "track": 36,
+      "sample": 61,
+      "seconds": 14.943492063492064,
+      "sha256": "889b1cf1749b93485e327e170c6bc19447e6df586fb07e2ca29c5dc6d71b4a9c"
+    },
+    {
+      "track": 37,
+      "sample": 62,
+      "seconds": 1.6103401360544218,
+      "sha256": "51e942b28348a1b7e4b80cf478a96c2eda43372d57782a41ff5148d8cbd4e134"
+    },
+    {
+      "track": 38,
+      "sample": 63,
+      "seconds": 3.1281632653061227,
+      "sha256": "b27c6b9ae3f8e44429fd05e7d2a86a0548ecbadd584cba7528aa3ef3c55f58f6"
+    },
+    {
+      "track": 39,
+      "sample": 64,
+      "seconds": 14.066757369614512,
+      "sha256": "f2e027c563c50ac261c42fe20eb6447a1696d828cdacaa32b4f36c53f8bce994"
+    },
+    {
+      "track": 40,
+      "sample": 65,
+      "seconds": 8.530884353741497,
+      "sha256": "69dc7db23df2a8a21d15e33abf6ba624517388e57684ac815d326b5fb58d14a9"
+    },
+    {
+      "track": 41,
+      "sample": 66,
+      "seconds": 0.468390022675737,
+      "sha256": "bbf60f94a3f342da787716ecdeb4b8b525b4d5ffe187b841663c118944ac1b28"
+    },
+    {
+      "track": 42,
+      "sample": 67,
+      "seconds": 4.279002267573696,
+      "sha256": "6d3bea516a1feda5ae41d682fd0f5f7b0833e66fa0abc631610627c42c36e350"
+    },
+    {
+      "track": 43,
+      "sample": 68,
+      "seconds": 7.16063492063492,
+      "sha256": "0a34a018999ab1767080b5b49f5a6ba8f4faf82823c842b1ed35c0fd9240358b"
+    },
+    {
+      "track": 44,
+      "sample": 69,
+      "seconds": 6.307301587301588,
+      "sha256": "890d84e92bcea3c6c45d35c51396e3d71d367d6e99bc8b3c311d906917741ef9"
+    },
+    {
+      "track": 45,
+      "sample": 70,
+      "seconds": 7.8782766439909295,
+      "sha256": "2e59a7f8ea9a4f7351829c4e856b8b1cbd88825ca495c1ba35c2665d363fa4c5"
+    },
+    {
+      "track": 46,
+      "sample": 71,
+      "seconds": 0.7993650793650794,
+      "sha256": "c62bf629a692767a8de586dc952af18259c383805e88cf044212895794102ddf"
+    },
+    {
+      "track": 47,
+      "sample": 72,
+      "seconds": 1.091156462585034,
+      "sha256": "bbc5becdb04f97240ff20d7e9d75821feabd565f235feb2f9cf5bba15062fc2a"
+    },
+    {
+      "track": 48,
+      "sample": 73,
+      "seconds": 3.4351927437641723,
+      "sha256": "0a239b4365b9ae766f69139a20bfad73b8a7ff74f4e6788f2139d228837274fa"
+    },
+    {
+      "track": 49,
+      "sample": 74,
+      "seconds": 13.943945578231293,
+      "sha256": "f32dd9e8c7ddc5d0036600a22b47418fb66966923eaa306e515d6525d3f62f39"
+    },
+    {
+      "track": 50,
+      "sample": 75,
+      "seconds": 2.3699773242630386,
+      "sha256": "a6e14e0588fcdd4dd34d70b4b1b257785b0659239a235072a3f0b5acd45cffa6"
+    }
+  ]
+}

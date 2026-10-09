@@ -1,0 +1,7 @@
+{
+  "hanging_cases": 12000,
+  "shimmy_cases": 24000,
+  "bounds_frames": 9158,
+  "builds": 2,
+  "scope": "Hang queries/bounds doubled; bounds interpolation uses actual GYM and LEVEL1 frames in DOS."
+}

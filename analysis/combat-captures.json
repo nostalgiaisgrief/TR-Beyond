@@ -1,0 +1,47 @@
+[
+  {
+    "fixture": 1,
+    "ticks": 8,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 1,
+    "ticks": 25,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 1,
+    "ticks": 120,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 8,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 25,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 160,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 3,
+    "ticks": 8,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 3,
+    "ticks": 25,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 3,
+    "ticks": 160,
+    "debug_release_identical": true
+  }
+]

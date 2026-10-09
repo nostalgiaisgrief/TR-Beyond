@@ -1,0 +1,15 @@
+{
+  "scope": "DOS CreatureCollision: articulated spheres, touch masks and pushes.\nTerrain correction and room update are doubled; native routes use real terrain.\n",
+  "results": [
+    {
+      "build": "release",
+      "contact_cases": 3600,
+      "touches": 777
+    },
+    {
+      "build": "_debug",
+      "contact_cases": 3600,
+      "touches": 777
+    }
+  ]
+}

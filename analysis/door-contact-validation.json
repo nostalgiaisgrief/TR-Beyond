@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "build": "release",
+      "sphere_poses": 900,
+      "push_cases": 3000,
+      "door_contacts": 3200,
+      "hit_reactions": 60,
+      "angle_cases": 10000
+    },
+    {
+      "build": "_debug",
+      "sphere_poses": 900,
+      "push_cases": 3000,
+      "door_contacts": 3200,
+      "hit_reactions": 54,
+      "angle_cases": 10000
+    }
+  ],
+  "scope": "Actual DOS nearest pose / mesh spheres and local push arithmetic.\nPush terrain query and room update are explicit doubles; integration exercises\nthe real terrain separately. No full renderer equivalence is claimed.\n"
+}

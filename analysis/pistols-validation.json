@@ -1,0 +1,10 @@
+[
+  {
+    "build": "release",
+    "gun_control_cases": 3000
+  },
+  {
+    "build": "_debug",
+    "gun_control_cases": 3000
+  }
+]

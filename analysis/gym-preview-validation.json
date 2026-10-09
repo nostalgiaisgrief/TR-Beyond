@@ -1,0 +1,126 @@
+{
+  "captures": 12,
+  "debug_optimized_identical": true,
+  "scenes": [
+    {
+      "scene": "fatal",
+      "last": {
+        "tick": "179",
+        "x": "46592",
+        "y": "0",
+        "z": "41472",
+        "yaw": "-16384",
+        "state": "8",
+        "animation": "25",
+        "frame": "417",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "-1",
+        "water": "0",
+        "pitch": "0",
+        "air": "-1"
+      }
+    },
+    {
+      "scene": "drown",
+      "last": {
+        "tick": "89",
+        "x": "40448",
+        "y": "4355",
+        "z": "60928",
+        "yaw": "-16384",
+        "state": "44",
+        "animation": "124",
+        "frame": "2599",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "-1",
+        "water": "1",
+        "pitch": "0",
+        "air": "-1"
+      }
+    },
+    {
+      "scene": "drowned",
+      "last": {
+        "tick": "239",
+        "x": "40448",
+        "y": "3680",
+        "z": "60928",
+        "yaw": "-16384",
+        "state": "44",
+        "animation": "124",
+        "frame": "2665",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "-1",
+        "water": "1",
+        "pitch": "0",
+        "air": "-1"
+      }
+    },
+    {
+      "scene": "tutorial-camera",
+      "last": {
+        "tick": "59",
+        "x": "50688",
+        "y": "0",
+        "z": "46592",
+        "yaw": "-16384",
+        "state": "2",
+        "animation": "103",
+        "frame": "1667",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      }
+    },
+    {
+      "scene": "camera-return",
+      "last": {
+        "tick": "219",
+        "x": "50688",
+        "y": "0",
+        "z": "46592",
+        "yaw": "-16384",
+        "state": "2",
+        "animation": "103",
+        "frame": "1620",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      }
+    },
+    {
+      "scene": "gym-complete",
+      "last": {
+        "tick": "529",
+        "x": "40448",
+        "y": "3328",
+        "z": "63588",
+        "yaw": "0",
+        "state": "2",
+        "animation": "103",
+        "frame": "1612",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      }
+    }
+  ]
+}

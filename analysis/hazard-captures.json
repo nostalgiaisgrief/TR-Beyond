@@ -1,0 +1,32 @@
+[
+  {
+    "fixture": 1,
+    "ticks": 1,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 1,
+    "ticks": 90,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 1,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 45,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 2,
+    "ticks": 85,
+    "debug_release_identical": true
+  },
+  {
+    "fixture": 3,
+    "ticks": 20,
+    "debug_release_identical": true
+  }
+]

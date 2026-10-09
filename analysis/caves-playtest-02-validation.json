@@ -1,0 +1,16 @@
+{
+  "package": "caves-playtest-02",
+  "preview_sha256": "37d90b86fa5dd77f316b2b16e49d4e5d0be97991e26cda5c3c9f69c98a6871ab",
+  "native_debug": "passed",
+  "native_release": "passed",
+  "packaged_smoke_ticks": 120,
+  "packaged_smoke_blocked_ticks": 0,
+  "manifest": "verified",
+  "render_captures_inspected": [
+    "switch-first.png",
+    "door-first-open.png",
+    "switch-timed-fixed.png",
+    "switch-final.png"
+  ],
+  "scope": "Door/switch trigger progression; detailed moving leaf contact, non-door objects and music/fixed-camera actions remain pending."
+}

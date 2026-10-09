@@ -1,0 +1,10 @@
+[
+  {
+    "build": "release",
+    "movement_cases": 2800
+  },
+  {
+    "build": "_debug",
+    "movement_cases": 2800
+  }
+]

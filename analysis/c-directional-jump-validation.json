@@ -1,0 +1,11 @@
+{
+  "control": 6000,
+  "collision": 12000,
+  "builds": 2,
+  "scope": "Isolated original states 25/26/27, with query and landing services doubled; no full-frame equivalence.",
+  "sources": {
+    "src\\air.c": "8df6c708cc3bcdf156592b1974895a94273bd5ba0a34460a9626ade36907ae42",
+    "src\\air.h": "6fa14d66540f6deb91c6920769d1d07d22823c7e7c678a557a6be4588e0090ee",
+    "tests\\compare_directional_jump.py": "9cb9ab653aac88d291685d1e6d5141c32bf4f955271b5a825d6f478b2203979e"
+  }
+}

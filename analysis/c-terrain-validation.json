@@ -1,0 +1,60 @@
+{
+  "levels": [
+    {
+      "level": "GYM.PHD",
+      "sha256": "52ff324648a3af7f6f48729108406d2811c632a3257ccf71f1196c05d98932fe",
+      "cases_per_build": 16016,
+      "contact_types": {
+        "1": 11252,
+        "32": 348,
+        "0": 4210,
+        "2": 88,
+        "4": 118
+      },
+      "tilt_pairs": 11,
+      "queries_with_deferred_objects": 0
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "sha256": "75306547c82d8e142f6dc80d85703d1fd5a5871071e4d04233660347865d26c7",
+      "cases_per_build": 32208,
+      "contact_types": {
+        "1": 22198,
+        "0": 8969,
+        "32": 560,
+        "4": 249,
+        "2": 225,
+        "8": 7
+      },
+      "tilt_pairs": 64,
+      "queries_with_deferred_objects": 1755
+    }
+  ],
+  "synthetic_cases_per_build": 27,
+  "synthetic_contact_types": {
+    "16": 4,
+    "0": 5,
+    "1": 8,
+    "8": 1,
+    "32": 9
+  },
+  "seconds": 13.7,
+  "seed": 19961008,
+  "limits": "Structural contact classifier only. Static mesh routine replaced by explicit no-contact service; object height callbacks unset. No vault/slide or full-frame integration.",
+  "builds": [
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
+      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+    },
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
+      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+    }
+  ],
+  "source_sha256": {
+    "src\\terrain.c": "d5f38d24dc0f2474f7e69d7e7507db9ba7d912813526eac8acb340c76db8bc9b",
+    "src\\geometry.c": "22fb0ec306d0fc6a864ba01fada5daaa53dc8569485780fe8f92fc102ab58f9d",
+    "src\\level.h": "e132ac18eb7332b0a8ed5d3be4979e4b8c0b70f07a2b262cef4891cb30845804",
+    "tests\\compare_terrain.py": "f8f09465bdab4620585e00fd21e61ba343ac7f5351f6aca28906c270105aa9f9"
+  }
+}

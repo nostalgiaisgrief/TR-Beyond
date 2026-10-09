@@ -1,0 +1,327 @@
+{
+  "install": "F:\\TombRaiG\\TOMBRAID",
+  "cd_image": "F:\\TombRaiG\\cd\\tombeng.bin",
+  "exe_sha256": "99503b7c4c7d88fdc2877c071b135ef041781fd76459de6b1cbf8b887ffe0fac",
+  "exe_size": 768563,
+  "le_offset": 11408,
+  "entry_object": 1,
+  "entry_offset": 239108,
+  "objects": [
+    {
+      "number": 1,
+      "virtual_size": 522958,
+      "base": 65536,
+      "flags": 8261,
+      "first_page": 1,
+      "pages": 128
+    },
+    {
+      "number": 2,
+      "virtual_size": 616,
+      "base": 589824,
+      "flags": 69,
+      "first_page": 129,
+      "pages": 1
+    },
+    {
+      "number": 3,
+      "virtual_size": 8,
+      "base": 655360,
+      "flags": 8259,
+      "first_page": 130,
+      "pages": 0
+    },
+    {
+      "number": 4,
+      "virtual_size": 3072,
+      "base": 720896,
+      "flags": 8257,
+      "first_page": 130,
+      "pages": 1
+    },
+    {
+      "number": 5,
+      "virtual_size": 526512,
+      "base": 786432,
+      "flags": 8259,
+      "first_page": 131,
+      "pages": 11
+    }
+  ],
+  "cd_volume": "NEW",
+  "files": [
+    {
+      "path": "AUTORUN.INF",
+      "sector": 86169,
+      "size": 47
+    },
+    {
+      "path": "DATA/CRED1.PCX",
+      "sector": 29,
+      "size": 106587
+    },
+    {
+      "path": "DATA/CRED2.PCX",
+      "sector": 82,
+      "size": 196985
+    },
+    {
+      "path": "DATA/CRED3.PCX",
+      "sector": 179,
+      "size": 174908
+    },
+    {
+      "path": "DATA/CUT1.PHD",
+      "sector": 265,
+      "size": 599840
+    },
+    {
+      "path": "DATA/CUT2.PHD",
+      "sector": 558,
+      "size": 354320
+    },
+    {
+      "path": "DATA/CUT3.PHD",
+      "sector": 732,
+      "size": 512104
+    },
+    {
+      "path": "DATA/CUT4.PHD",
+      "sector": 983,
+      "size": 879582
+    },
+    {
+      "path": "DATA/EIDOSPC.PCX",
+      "sector": 1413,
+      "size": 22700
+    },
+    {
+      "path": "DATA/END.PCX",
+      "sector": 1425,
+      "size": 102512
+    },
+    {
+      "path": "DATA/GYM.PHD",
+      "sector": 1476,
+      "size": 3237128
+    },
+    {
+      "path": "DATA/INSTALL.PCX",
+      "sector": 3057,
+      "size": 168100
+    },
+    {
+      "path": "DATA/LEVEL1.PHD",
+      "sector": 3140,
+      "size": 2533634
+    },
+    {
+      "path": "DATA/LEVEL10A.PHD",
+      "sector": 4378,
+      "size": 3224138
+    },
+    {
+      "path": "DATA/LEVEL10B.PHD",
+      "sector": 5953,
+      "size": 3094342
+    },
+    {
+      "path": "DATA/LEVEL10C.PHD",
+      "sector": 7464,
+      "size": 3532024
+    },
+    {
+      "path": "DATA/LEVEL2.PHD",
+      "sector": 9189,
+      "size": 2873450
+    },
+    {
+      "path": "DATA/LEVEL3A.PHD",
+      "sector": 10593,
+      "size": 2934730
+    },
+    {
+      "path": "DATA/LEVEL3B.PHD",
+      "sector": 12026,
+      "size": 2738258
+    },
+    {
+      "path": "DATA/LEVEL4.PHD",
+      "sector": 13364,
+      "size": 3030872
+    },
+    {
+      "path": "DATA/LEVEL5.PHD",
+      "sector": 14844,
+      "size": 2718540
+    },
+    {
+      "path": "DATA/LEVEL6.PHD",
+      "sector": 16172,
+      "size": 3074376
+    },
+    {
+      "path": "DATA/LEVEL7A.PHD",
+      "sector": 17674,
+      "size": 2817612
+    },
+    {
+      "path": "DATA/LEVEL7B.PHD",
+      "sector": 19050,
+      "size": 3389096
+    },
+    {
+      "path": "DATA/LEVEL8A.PHD",
+      "sector": 20705,
+      "size": 2880564
+    },
+    {
+      "path": "DATA/LEVEL8B.PHD",
+      "sector": 22112,
+      "size": 2886756
+    },
+    {
+      "path": "DATA/LEVEL8C.PHD",
+      "sector": 23522,
+      "size": 3105450
+    },
+    {
+      "path": "DATA/TITLE.PHD",
+      "sector": 25039,
+      "size": 316460
+    },
+    {
+      "path": "DATA/TITLEH.PCX",
+      "sector": 25194,
+      "size": 115980
+    },
+    {
+      "path": "DOS4GW.EXE",
+      "sector": 86170,
+      "size": 265396
+    },
+    {
+      "path": "FMV/CAFE.RPL",
+      "sector": 25251,
+      "size": 15995851
+    },
+    {
+      "path": "FMV/CANYON.RPL",
+      "sector": 33062,
+      "size": 32413718
+    },
+    {
+      "path": "FMV/CORE.RPL",
+      "sector": 48890,
+      "size": 1877283
+    },
+    {
+      "path": "FMV/END.RPL",
+      "sector": 49807,
+      "size": 10158823
+    },
+    {
+      "path": "FMV/ESCAPE.RPL",
+      "sector": 54768,
+      "size": 1062180
+    },
+    {
+      "path": "FMV/LIFT.RPL",
+      "sector": 55287,
+      "size": 17919663
+    },
+    {
+      "path": "FMV/MANSION.RPL",
+      "sector": 64037,
+      "size": 2895565
+    },
+    {
+      "path": "FMV/PRISON.RPL",
+      "sector": 65451,
+      "size": 13764300
+    },
+    {
+      "path": "FMV/PYRAMID.RPL",
+      "sector": 72172,
+      "size": 1330206
+    },
+    {
+      "path": "FMV/SNOW.RPL",
+      "sector": 72822,
+      "size": 16352839
+    },
+    {
+      "path": "FMV/VISION.RPL",
+      "sector": 80807,
+      "size": 10979902
+    },
+    {
+      "path": "HMIDET.386",
+      "sector": 86300,
+      "size": 83774
+    },
+    {
+      "path": "HMIDRV.386",
+      "sector": 86341,
+      "size": 317317
+    },
+    {
+      "path": "HMISET.CFG",
+      "sector": 86496,
+      "size": 247
+    },
+    {
+      "path": "INSTALL.BAT",
+      "sector": 86497,
+      "size": 64
+    },
+    {
+      "path": "INSTALL.EXE",
+      "sector": 86498,
+      "size": 214281
+    },
+    {
+      "path": "INSTALL.ICO",
+      "sector": 86603,
+      "size": 3382
+    },
+    {
+      "path": "README1ST.HTML",
+      "sector": 86605,
+      "size": 19829
+    },
+    {
+      "path": "TOMB.EXE",
+      "sector": 86615,
+      "size": 768611
+    },
+    {
+      "path": "TOMB.SP",
+      "sector": 86991,
+      "size": 11888
+    }
+  ],
+  "extracted": [
+    {
+      "path": "DATA/GYM.PHD",
+      "sector": 1476,
+      "size": 3237128,
+      "sha256": "52ff324648a3af7f6f48729108406d2811c632a3257ccf71f1196c05d98932fe",
+      "first_u32": 32
+    },
+    {
+      "path": "DATA/LEVEL1.PHD",
+      "sector": 3140,
+      "size": 2533634,
+      "sha256": "75306547c82d8e142f6dc80d85703d1fd5a5871071e4d04233660347865d26c7",
+      "first_u32": 32
+    },
+    {
+      "path": "DATA/TITLE.PHD",
+      "sector": 25039,
+      "size": 316460,
+      "sha256": "f2f8d28e2803d69ce096df0d34e9fbe70406e93cd838e045e491805bfe52ad39",
+      "first_u32": 32
+    }
+  ]
+}

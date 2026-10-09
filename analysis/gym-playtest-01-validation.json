@@ -1,0 +1,11 @@
+{
+  "full_regression_exit_code": 0,
+  "native_movement_captures": 66,
+  "native_gym_service_captures": 12,
+  "debug_optimized_traces_and_images_identical": true,
+  "package_manifest_files_verified": 28,
+  "zip_verified": true,
+  "package_external_working_directory_smoke_test": true,
+  "packaged_pool_completion_matches_development_build": true,
+  "manual_full_route_acceptance": "pending user playtest"
+}

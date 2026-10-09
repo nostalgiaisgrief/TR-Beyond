@@ -1,0 +1,15 @@
+{
+  "package": "caves-playtest-01",
+  "preview_sha256": "760c404346158e8c3088f9f4d9b8a9fbb0815448a4de8191ed5088d234f5adb5",
+  "native_debug": "passed",
+  "native_release": "passed",
+  "dos_slide_comparisons": 26000,
+  "packaged_smoke_ticks": 180,
+  "packaged_smoke_blocked_ticks": 0,
+  "captures_inspected": [
+    "caves-start.png",
+    "caves-slide.png",
+    "caves-backslide.png"
+  ],
+  "scope": "Movement only. Dynamic objects/triggers, combat, enemies and gameflow pending."
+}

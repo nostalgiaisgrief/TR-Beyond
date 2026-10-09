@@ -1,0 +1,57 @@
+{
+  "captures": 30,
+  "cases": [
+    {
+      "name": "backflip",
+      "tick": 23,
+      "pixels_changed": true
+    },
+    {
+      "name": "backflip",
+      "tick": 24,
+      "pixels_changed": false
+    },
+    {
+      "name": "backflip",
+      "tick": 25,
+      "pixels_changed": true
+    },
+    {
+      "name": "backflip",
+      "tick": 26,
+      "pixels_changed": false
+    },
+    {
+      "name": "backflip",
+      "tick": 27,
+      "pixels_changed": true
+    },
+    {
+      "name": "swim",
+      "tick": 57,
+      "pixels_changed": true
+    },
+    {
+      "name": "swim",
+      "tick": 58,
+      "pixels_changed": true
+    },
+    {
+      "name": "swim",
+      "tick": 59,
+      "pixels_changed": true
+    },
+    {
+      "name": "swim",
+      "tick": 60,
+      "pixels_changed": true
+    },
+    {
+      "name": "swim",
+      "tick": 61,
+      "pixels_changed": true
+    }
+  ],
+  "gameplay_traces_identical": true,
+  "debug_optimized_images_identical": true
+}

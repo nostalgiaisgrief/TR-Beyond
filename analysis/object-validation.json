@@ -1,0 +1,16 @@
+[
+  {
+    "build": "step_test.dll",
+    "timer_switch_activation_cases": 18000,
+    "doors_initialized": 8,
+    "animation_cases": 1178,
+    "door_control_ticks": 2400
+  },
+  {
+    "build": "step_test_debug.dll",
+    "timer_switch_activation_cases": 18000,
+    "doors_initialized": 8,
+    "animation_cases": 1178,
+    "door_control_ticks": 2400
+  }
+]

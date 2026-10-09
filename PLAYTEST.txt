@@ -1,0 +1,48 @@
+TOMB RECONSTRUCTION - GYM PLAYTEST 06
+
+Run Play.cmd. Keep the build and work folders together. No DOSBox, CD mount,
+Python or compiler is needed to play this Windows build. Source and build tools
+remain in the main tomb-reconstruction project.
+
+CHANGES IN 06
+Projection now matches the DOS 80-degree horizontal FOV and near/far planes.
+Immediate camera cuts remain immediate.
+Chase, swimming and fixed-shot camera positions follow reconstructed DOS
+routines at 30 Hz: original animation-bound focus, pitch, distance, sector/box
+clearance, integer smoothing and vertical correction. Rendering interpolates
+between these camera states. Custom wall/doorway recovery and framing have
+been removed. Debug arrow-key orbit/zoom remains optional for testing.
+Earlier audio, movement and graphics fixes are included.
+
+CONTROLS
+W run; S hop backward; A/D turn; Shift+W/S walk.
+J or Alt jump; Ctrl action / catch / hold a ledge.
+Underwater: J/Alt swim, W/S pitch down/up, A/D turn.
+Surface: W/S forward/back, Q/E sideways, J/Alt dive, Ctrl climb out at an edge.
+Arrow keys temporarily orbit / zoom; C recenter.
+P pause; R restart the gym; Esc close. F6 skips to the pool for testing.
+
+FULL-ROUTE ACCEPTANCE PLAYTEST
+1. Start normally and follow the spoken gym instructions. Listen for missing,
+   repeated, interrupted or incorrectly timed prompts.
+2. Complete the movement, jump and climbing exercises. Check landings on the
+   upper platform, normal/handstand pull-ups, hanging and sideways movement.
+3. Check windows, pillars and doorways. Look for unrelated geometry, disappearing
+   connected rooms, a stuck camera or repeated camera zooming near walls.
+4. Enter the pool, pitch up/down, swim, surface, dive and climb out. Finish the
+   pool exercise and wait for the title to show Gym complete. Press R and verify
+   the starting position, health and tutorial are reset.
+5. Fatal falls are covered by automation; no special gym fall is required.
+   Drowning can be checked in the pool. R should restart cleanly. Space/focus loss
+   should pause speech and effects; reset/close should stop both.
+
+KNOWN LIMITATIONS
+This is a development playtest, not a finished full-game replacement. Swan dives
+from land, sliding, general object interactions, object/environment sound effects outside the gym, inventory,
+saves, menus, combat and FMVs are not implemented. Avoid Shift during a forward
+jump: that requests the unsupported swan dive. Other unsupported behaviour is
+reported in the window title. Rendering, lighting and some camera details differ
+from DOS. No manual full-route acceptance pass is claimed yet.
+
+For a bug report, include a screenshot with the window title, the exercise or
+location, which keys were held, and whether it also happens after R/reset.

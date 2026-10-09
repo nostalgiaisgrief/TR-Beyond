@@ -1,0 +1,828 @@
+{
+  "exe_sha256": "99503b7c4c7d88fdc2877c071b135ef041781fd76459de6b1cbf8b887ffe0fac",
+  "passed": 40,
+  "scope": "Original isolated x86 handlers; no animation advancement, collision or full-frame simulation",
+  "results": [
+    {
+      "handler": "walk",
+      "inputs": "0x0",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x81",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0
+      },
+      "actual": {
+        "goal": 0,
+        "rate": 0,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x1",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 1
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 0,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x85",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0,
+        "rate": -409
+      },
+      "actual": {
+        "goal": 0,
+        "rate": -409,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x89",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0,
+        "rate": 409
+      },
+      "actual": {
+        "goal": 0,
+        "rate": 409,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x8d",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": -409
+      },
+      "actual": {
+        "goal": 0,
+        "rate": -409,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x85",
+      "initial_rate": -600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": -728
+      },
+      "actual": {
+        "goal": 0,
+        "rate": -728,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x89",
+      "initial_rate": 600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": 728
+      },
+      "actual": {
+        "goal": 0,
+        "rate": 728,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "walk",
+      "inputs": "0x85",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 0,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2,
+        "rate": 0
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 0,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x0",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x1",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 1
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x81",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0
+      },
+      "actual": {
+        "goal": 0,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x5",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": -409,
+        "lean": -273
+      },
+      "actual": {
+        "goal": 1,
+        "rate": -409,
+        "lean": -273,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x9",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": 409,
+        "lean": 273
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 409,
+        "lean": 273,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x5",
+      "initial_rate": -1400,
+      "initial_lean": -1900,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": -1456,
+        "lean": -2002
+      },
+      "actual": {
+        "goal": 1,
+        "rate": -1456,
+        "lean": -2002,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x9",
+      "initial_rate": 1400,
+      "initial_lean": 1900,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "rate": 1456,
+        "lean": 2002
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 1456,
+        "lean": 2002,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x11",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 3
+      },
+      "actual": {
+        "goal": 3,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x11",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": true,
+      "gun": 0,
+      "expected": {
+        "goal": 1
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x1000",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2,
+        "current": 45,
+        "animation": 146,
+        "frame": 3857
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 45,
+        "animation": 146,
+        "frame": 3857
+      }
+    },
+    {
+      "handler": "run",
+      "inputs": "0x1",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 0,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 8
+      },
+      "actual": {
+        "goal": 8,
+        "rate": 0,
+        "lean": 0,
+        "current": 1,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x0",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x1",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 1
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x81",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0
+      },
+      "actual": {
+        "goal": 0,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x4",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 7
+      },
+      "actual": {
+        "goal": 7,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x8",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 6
+      },
+      "actual": {
+        "goal": 6,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x10",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 15
+      },
+      "actual": {
+        "goal": 15,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x1000",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2,
+        "current": 45,
+        "animation": 146,
+        "frame": 3857
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 45,
+        "animation": 146,
+        "frame": 3857
+      }
+    },
+    {
+      "handler": "stop",
+      "inputs": "0x1",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 0,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 8
+      },
+      "actual": {
+        "goal": 8,
+        "rate": 0,
+        "lean": 0,
+        "current": 2,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x8",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 6,
+        "rate": 409
+      },
+      "actual": {
+        "goal": 6,
+        "rate": 409,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x4",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 7,
+        "rate": -409
+      },
+      "actual": {
+        "goal": 7,
+        "rate": -409,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x8",
+      "initial_rate": 600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 20,
+        "rate": 1009
+      },
+      "actual": {
+        "goal": 20,
+        "rate": 1009,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x4",
+      "initial_rate": -600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 20,
+        "rate": -1009
+      },
+      "actual": {
+        "goal": 20,
+        "rate": -1009,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x88",
+      "initial_rate": 600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 6,
+        "rate": 728
+      },
+      "actual": {
+        "goal": 6,
+        "rate": 728,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x84",
+      "initial_rate": -600,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 7,
+        "rate": -728
+      },
+      "actual": {
+        "goal": 7,
+        "rate": -728,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x9",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 1
+      },
+      "actual": {
+        "goal": 1,
+        "rate": 409,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x85",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 0
+      },
+      "actual": {
+        "goal": 0,
+        "rate": -409,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x0",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 409,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x0",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 1000,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2
+      },
+      "actual": {
+        "goal": 2,
+        "rate": -409,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_right",
+      "inputs": "0x8",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 0,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2,
+        "rate": 0
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 6,
+        "animation": 0,
+        "frame": 0
+      }
+    },
+    {
+      "handler": "turn_left",
+      "inputs": "0x4",
+      "initial_rate": 0,
+      "initial_lean": 0,
+      "hp": 0,
+      "gravity": false,
+      "gun": 0,
+      "expected": {
+        "goal": 2,
+        "rate": 0
+      },
+      "actual": {
+        "goal": 2,
+        "rate": 0,
+        "lean": 0,
+        "current": 7,
+        "animation": 0,
+        "frame": 0
+      }
+    }
+  ]
+}

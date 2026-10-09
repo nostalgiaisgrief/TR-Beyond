@@ -1,0 +1,4094 @@
+{
+  "scope": "Read-only coverage audit of every floor-data chain used by Caves/City.\nThis is a route-content audit, not an uninterrupted playthrough comparison.\nBridge references 68..70 use static height callbacks, not moving controllers.\n",
+  "levels": [
+    {
+      "level": "LEVEL1.PHD",
+      "rooms": 38,
+      "items": 60,
+      "objects": {
+        "0": 1,
+        "9": 7,
+        "169": 2,
+        "40": 10,
+        "60": 1,
+        "55": 3,
+        "57": 3,
+        "58": 3,
+        "70": 4,
+        "69": 4,
+        "68": 4,
+        "7": 6,
+        "59": 1,
+        "93": 5,
+        "8": 1,
+        "83": 1,
+        "35": 2,
+        "94": 2
+      },
+      "unique_floor_chains": 1504,
+      "trigger_lists": 110,
+      "action_counts": {
+        "8": 12,
+        "0": 112,
+        "6": 9,
+        "7": 2,
+        "1": 2,
+        "10": 5
+      },
+      "unimplemented_action_lists": [],
+      "triggers": [
+        {
+          "room": 0,
+          "sector": 61,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 5,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 2,
+          "sector": 44,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 1,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 2,
+          "sector": 64,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 1,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 2,
+          "sector": 84,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 1,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 2,
+          "sector": 104,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 1,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 14,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 15,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 24,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 25,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 34,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 35,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 44,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 45,
+          "type": 0,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 6,
+              "value": 4,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 31,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 5,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 32,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 33,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 7,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 34,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 8,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 46,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 5,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 47,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 48,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 7,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 49,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 8,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 61,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 5,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 62,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 63,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 7,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 64,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 8,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 76,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 5,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 77,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 78,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 7,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 79,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 8,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 9,
+          "sector": 9,
+          "type": 2,
+          "gate": 10,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 9,
+              "object": 60
+            },
+            {
+              "action": 8,
+              "value": 11,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 10,
+          "sector": 127,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 11,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 11,
+          "sector": 10,
+          "type": 6,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 35,
+              "object": 57
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 11,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 7,
+              "value": 0,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 11,
+          "sector": 18,
+          "type": 6,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 35,
+              "object": 57
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 11,
+          "sector": 20,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 7,
+              "value": 0,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 235,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 27,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 26,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 236,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 27,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 26,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 69,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 20,
+              "object": 70
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 70,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 21,
+              "object": 69
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 71,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 24,
+              "object": 68
+            },
+            {
+              "action": 0,
+              "value": 22,
+              "object": 68
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 72,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 23,
+              "object": 69
+            },
+            {
+              "action": 0,
+              "value": 24,
+              "object": 68
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 73,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 23,
+              "object": 69
+            },
+            {
+              "action": 0,
+              "value": 23,
+              "object": 69
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 74,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 25,
+              "object": 70
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 159,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 19,
+              "object": 70
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 160,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 18,
+              "object": 69
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 161,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 17,
+              "object": 68
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 162,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 15,
+              "object": 69
+            },
+            {
+              "action": 0,
+              "value": 16,
+              "object": 68
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 163,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 15,
+              "object": 69
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 164,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 14,
+              "object": 70
+            }
+          ]
+        },
+        {
+          "room": 17,
+          "sector": 17,
+          "type": 1,
+          "gate": null,
+          "flags": 15874,
+          "actions": [
+            {
+              "action": 0,
+              "value": 28,
+              "object": 59
+            }
+          ]
+        },
+        {
+          "room": 18,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 31,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 57,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 58,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 65,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 66,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 73,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 74,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 32,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 18,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 28,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 38,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 48,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 58,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 68,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 78,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 88,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 98,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 30,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 48,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 49,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 50,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 39,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 52,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 40,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 68,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 69,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 70,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 39,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 72,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 40,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 88,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 89,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 90,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 39,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 92,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 40,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 108,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 109,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 110,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 39,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 24,
+          "sector": 112,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 40,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 26,
+          "sector": 46,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 8,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 45,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 46,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 26,
+          "sector": 273,
+          "type": 2,
+          "gate": 42,
+          "flags": 15894,
+          "actions": [
+            {
+              "action": 8,
+              "value": 12,
+              "object": null
+            },
+            {
+              "action": 1,
+              "value": 1,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 44,
+              "object": 57
+            },
+            {
+              "action": 0,
+              "value": 43,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 28,
+          "sector": 21,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 0,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 49,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 28,
+          "sector": 26,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 0,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 49,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 28,
+          "sector": 31,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 0,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 49,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 32,
+          "sector": 50,
+          "type": 0,
+          "gate": null,
+          "flags": 15876,
+          "actions": [
+            {
+              "action": 0,
+              "value": 50,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 32,
+          "sector": 51,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 51,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 33,
+          "sector": 23,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 16,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 53,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 33,
+          "sector": 42,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 16,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 53,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 33,
+          "sector": 54,
+          "type": 2,
+          "gate": 52,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 0,
+              "value": 36,
+              "object": 58
+            },
+            {
+              "action": 6,
+              "value": 41,
+              "object": 169
+            },
+            {
+              "action": 1,
+              "value": 0,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 35,
+              "object": 57
+            }
+          ]
+        },
+        {
+          "room": 33,
+          "sector": 61,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 16,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 53,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 33,
+          "sector": 80,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 16,
+              "object": null
+            },
+            {
+              "action": 0,
+              "value": 53,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 22,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 56,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 23,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 55,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 27,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 8,
+              "value": 9,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 37,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 56,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 38,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 55,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 42,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 8,
+              "value": 9,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 52,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 56,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 53,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 55,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 57,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 8,
+              "value": 9,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 67,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 56,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 68,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 55,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 34,
+          "sector": 72,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 8,
+              "value": 9,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 35,
+          "sector": 25,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 57,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 35,
+          "sector": 34,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 57,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 36,
+          "sector": 6,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 1,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 2,
+              "object": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": "LEVEL2.PHD",
+      "rooms": 94,
+      "items": 95,
+      "objects": {
+        "48": 1,
+        "9": 16,
+        "94": 2,
+        "83": 2,
+        "7": 11,
+        "93": 6,
+        "58": 5,
+        "137": 1,
+        "55": 7,
+        "110": 1,
+        "129": 1,
+        "35": 14,
+        "65": 3,
+        "56": 2,
+        "60": 1,
+        "40": 3,
+        "89": 1,
+        "36": 3,
+        "59": 2,
+        "169": 2,
+        "57": 1,
+        "118": 1,
+        "8": 2,
+        "90": 1,
+        "91": 1,
+        "61": 2,
+        "62": 2,
+        "0": 1
+      },
+      "unique_floor_chains": 1417,
+      "trigger_lists": 142,
+      "action_counts": {
+        "0": 169,
+        "6": 17,
+        "10": 5,
+        "8": 7,
+        "1": 6,
+        "7": 1
+      },
+      "unimplemented_action_lists": [],
+      "triggers": [
+        {
+          "room": 1,
+          "sector": 11,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 13,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 14,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 15,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 16,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 20,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 21,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 22,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 23,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 24,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 25,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 29,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 30,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 38,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 39,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 2,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 47,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 1,
+          "sector": 48,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 3,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 2,
+          "sector": 4,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 26,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 25,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 24,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 34,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 35,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 4,
+          "sector": 37,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 34,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 35,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 21,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 22,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 23,
+          "type": 3,
+          "gate": 9,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 8,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 41,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 42,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 5,
+          "sector": 53,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 6,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 31,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 12,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 10,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 34,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 11,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 43,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 17,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 46,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 11,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 6,
+          "sector": 49,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 12,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 10,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 5,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 35,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 34,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 6,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 35,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 34,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 9,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 37,
+              "object": 9
+            },
+            {
+              "action": 0,
+              "value": 36,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 13,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 7,
+          "sector": 14,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 8,
+          "sector": 9,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 8,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 38,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 9,
+          "sector": 26,
+          "type": 2,
+          "gate": 16,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 15,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 11,
+          "sector": 11,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 17,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 12,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 17,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 12,
+          "sector": 31,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 17,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 41,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 21,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 18,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 14,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 13,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 54,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 21,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 18,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 14,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 13,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 67,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 21,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 18,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 14,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 13,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 13,
+          "sector": 80,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 21,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 18,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 14,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 13,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 14,
+          "sector": 34,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 1,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 176,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 177,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 178,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 181,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 182,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 15,
+          "sector": 183,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 8,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 9,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 10,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 15,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 16,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 17,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 18,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 24,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 23,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 22,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 23,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 24,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 29,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 30,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 19,
+          "sector": 31,
+          "type": 1,
+          "gate": null,
+          "flags": 15882,
+          "actions": [
+            {
+              "action": 6,
+              "value": 0,
+              "object": 48
+            }
+          ]
+        },
+        {
+          "room": 20,
+          "sector": 8,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 26,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 20,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 25,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 20,
+          "sector": 15,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 26,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 20,
+          "sector": 19,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 25,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 16,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 1,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 17,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 1,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 22,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 1,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 21,
+          "sector": 23,
+          "type": 2,
+          "gate": 28,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 22,
+              "object": 58
+            }
+          ]
+        },
+        {
+          "room": 23,
+          "sector": 4,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 3,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 26,
+          "sector": 13,
+          "type": 2,
+          "gate": 31,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 27,
+              "object": 65
+            },
+            {
+              "action": 1,
+              "value": 0,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 26,
+          "sector": 154,
+          "type": 2,
+          "gate": 30,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 1,
+              "value": 1,
+              "object": null
+            },
+            {
+              "action": 6,
+              "value": 32,
+              "object": 60
+            },
+            {
+              "action": 0,
+              "value": 32,
+              "object": 60
+            }
+          ]
+        },
+        {
+          "room": 30,
+          "sector": 13,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 5,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 30,
+          "sector": 14,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 5,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 31,
+          "sector": 4,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 32,
+          "sector": 4,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 86,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 11,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 13,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 14,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 15,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 16,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 42,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 41,
+              "object": 7
+            },
+            {
+              "action": 0,
+              "value": 40,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 66,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 44,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 67,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 44,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 68,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 44,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 75,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 44,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 76,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 43,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 37,
+          "sector": 77,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 44,
+              "object": 7
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 11,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 45,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 12,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 45,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 13,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 45,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 16,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 47,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 17,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 47,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 18,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 47,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 21,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 46,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 22,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 46,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 40,
+          "sector": 23,
+          "type": 1,
+          "gate": null,
+          "flags": 15873,
+          "actions": [
+            {
+              "action": 0,
+              "value": 46,
+              "object": 40
+            }
+          ]
+        },
+        {
+          "room": 43,
+          "sector": 40,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 4,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 44,
+          "sector": 7,
+          "type": 0,
+          "gate": null,
+          "flags": 16128,
+          "actions": [
+            {
+              "action": 8,
+              "value": 9,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 53,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 51,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 58,
+          "sector": 8,
+          "type": 2,
+          "gate": 53,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 50,
+              "object": 58
+            },
+            {
+              "action": 8,
+              "value": 12,
+              "object": null
+            },
+            {
+              "action": 6,
+              "value": 50,
+              "object": 58
+            },
+            {
+              "action": 1,
+              "value": 2,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 60,
+          "sector": 6,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 55,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 16,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 82,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 17,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 82,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 18,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 82,
+              "object": 8
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 32,
+          "type": 1,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 56,
+              "object": 36
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 37,
+          "type": 1,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 57,
+              "object": 36
+            }
+          ]
+        },
+        {
+          "room": 61,
+          "sector": 42,
+          "type": 1,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 58,
+              "object": 36
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 9,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 66,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 75,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 15,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 65,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 16,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 74,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 21,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 64,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 22,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 73,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 25,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 67,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 26,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 68,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 27,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 69,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 62,
+          "sector": 28,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 70,
+              "object": 35
+            },
+            {
+              "action": 0,
+              "value": 76,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 63,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 77,
+              "object": 35
+            }
+          ]
+        },
+        {
+          "room": 67,
+          "sector": 8,
+          "type": 2,
+          "gate": 71,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 49,
+              "object": 58
+            },
+            {
+              "action": 8,
+              "value": 12,
+              "object": null
+            },
+            {
+              "action": 6,
+              "value": 49,
+              "object": 58
+            },
+            {
+              "action": 1,
+              "value": 3,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 70,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 85,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 70,
+          "sector": 11,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 85,
+              "object": 9
+            }
+          ]
+        },
+        {
+          "room": 71,
+          "sector": 18,
+          "type": 3,
+          "gate": 79,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 78,
+              "object": 57
+            }
+          ]
+        },
+        {
+          "room": 77,
+          "sector": 73,
+          "type": 2,
+          "gate": 60,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 62,
+              "object": 65
+            }
+          ]
+        },
+        {
+          "room": 77,
+          "sector": 74,
+          "type": 2,
+          "gate": 60,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 62,
+              "object": 65
+            },
+            {
+              "action": 0,
+              "value": 61,
+              "object": 65
+            }
+          ]
+        },
+        {
+          "room": 79,
+          "sector": 45,
+          "type": 2,
+          "gate": 83,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 58,
+              "object": 36
+            },
+            {
+              "action": 0,
+              "value": 56,
+              "object": 36
+            },
+            {
+              "action": 0,
+              "value": 57,
+              "object": 36
+            },
+            {
+              "action": 1,
+              "value": 4,
+              "object": null
+            },
+            {
+              "action": 6,
+              "value": 63,
+              "object": 169
+            }
+          ]
+        },
+        {
+          "room": 81,
+          "sector": 29,
+          "type": 2,
+          "gate": 84,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 59,
+              "object": 59
+            },
+            {
+              "action": 1,
+              "value": 5,
+              "object": null
+            },
+            {
+              "action": 6,
+              "value": 81,
+              "object": 169
+            },
+            {
+              "action": 0,
+              "value": 80,
+              "object": 59
+            }
+          ]
+        },
+        {
+          "room": 87,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 7,
+              "value": 0,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 88,
+          "sector": 7,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 0,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 89,
+          "sector": 12,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 10,
+              "value": 2,
+              "object": null
+            }
+          ]
+        },
+        {
+          "room": 90,
+          "sector": 10,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 94,
+              "object": 62
+            },
+            {
+              "action": 0,
+              "value": 92,
+              "object": 61
+            }
+          ]
+        },
+        {
+          "room": 90,
+          "sector": 17,
+          "type": 0,
+          "gate": null,
+          "flags": 15872,
+          "actions": [
+            {
+              "action": 0,
+              "value": 94,
+              "object": 62
+            },
+            {
+              "action": 0,
+              "value": 92,
+              "object": 61
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

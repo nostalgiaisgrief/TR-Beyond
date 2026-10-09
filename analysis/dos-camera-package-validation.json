@@ -1,0 +1,12 @@
+[
+  {
+    "package": "gym-playtest-05",
+    "manifest_verified": true,
+    "capture": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\gym-playtest-05-smoke.ppm"
+  },
+  {
+    "package": "caves-playtest-04",
+    "manifest_verified": true,
+    "capture": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\caves-playtest-04-smoke.ppm"
+  }
+]

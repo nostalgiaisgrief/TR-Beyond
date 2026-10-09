@@ -1,0 +1,37 @@
+[
+  {
+    "name": "walk",
+    "state": 0,
+    "address": 151900,
+    "file_offset": 278364,
+    "confidence": "strong static identification plus isolated machine-code probes"
+  },
+  {
+    "name": "run",
+    "state": 1,
+    "address": 152044,
+    "file_offset": 278508,
+    "confidence": "strong static identification plus isolated machine-code probes"
+  },
+  {
+    "name": "stop",
+    "state": 2,
+    "address": 152312,
+    "file_offset": 278776,
+    "confidence": "strong static identification plus isolated machine-code probes"
+  },
+  {
+    "name": "turn_right",
+    "state": 6,
+    "address": 153020,
+    "file_offset": 279484,
+    "confidence": "strong static identification plus isolated machine-code probes"
+  },
+  {
+    "name": "turn_left",
+    "state": 7,
+    "address": 153156,
+    "file_offset": 279620,
+    "confidence": "strong static identification plus isolated machine-code probes"
+  }
+]

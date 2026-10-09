@@ -1,0 +1,413 @@
+{
+  "build": [
+    {
+      "burst": [
+        0.94,
+        1.01
+      ],
+      "correlation": 0.8921683425295815,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 120.0,
+      "start": 0.9485833333333332
+    },
+    {
+      "burst": [
+        1.9,
+        1.96
+      ],
+      "correlation": 0.9800150677636157,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 100.0,
+      "start": 1.9034166666666668
+    },
+    {
+      "burst": [
+        2.28,
+        2.34
+      ],
+      "correlation": 0.8089925865010222,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 94.0,
+      "start": 2.27825
+    },
+    {
+      "burst": [
+        2.63,
+        2.69
+      ],
+      "correlation": 0.9831903048135198,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 96.0,
+      "start": 2.6334166666666667
+    },
+    {
+      "burst": [
+        2.84,
+        3.07
+      ],
+      "correlation": 0.6936804343525445,
+      "sound": 27,
+      "sample": 15,
+      "pitch_percent": 101.5,
+      "start": 2.845083333333333
+    },
+    {
+      "burst": [
+        4.03,
+        4.1
+      ],
+      "correlation": 0.9934862263411397,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 94.0,
+      "start": 4.034166666666667
+    },
+    {
+      "burst": [
+        4.18,
+        4.24
+      ],
+      "correlation": 0.9366448070286755,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 92.0,
+      "start": 4.178083333333333
+    },
+    {
+      "burst": [
+        5.02,
+        5.09
+      ],
+      "correlation": 0.9771006639749328,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 91.0,
+      "start": 5.016833333333333
+    },
+    {
+      "burst": [
+        5.13,
+        5.2
+      ],
+      "correlation": 0.9408125148706353,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 92.0,
+      "start": 5.1365
+    },
+    {
+      "burst": [
+        5.6,
+        5.66
+      ],
+      "correlation": 0.6373216717684004,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 88.5,
+      "start": 5.598999999999999
+    },
+    {
+      "burst": [
+        5.98,
+        6.05
+      ],
+      "correlation": 0.9688765103057633,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 92.5,
+      "start": 5.9774166666666675
+    },
+    {
+      "burst": [
+        6.33,
+        6.42
+      ],
+      "correlation": 0.9973097825648171,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 98.0,
+      "start": 6.3334166666666665
+    },
+    {
+      "burst": [
+        6.64,
+        6.86
+      ],
+      "correlation": 0.7624952897572227,
+      "sound": 27,
+      "sample": 15,
+      "pitch_percent": 103.0,
+      "start": 6.642166666666666
+    },
+    {
+      "burst": [
+        7.96,
+        8.04
+      ],
+      "correlation": 0.995333383009945,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 97.0,
+      "start": 7.963416666666666
+    },
+    {
+      "burst": [
+        8.11,
+        8.18
+      ],
+      "correlation": 0.9718247214206814,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 90.0,
+      "start": 8.107416666666666
+    },
+    {
+      "burst": [
+        8.94,
+        9.02
+      ],
+      "correlation": 0.9245040619645264,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 97.0,
+      "start": 8.935833333333333
+    }
+  ],
+  "dos": [
+    {
+      "burst": [
+        1.19,
+        1.25
+      ],
+      "correlation": 0.9980605969085737,
+      "sound": 4,
+      "sample": 6,
+      "pitch_percent": 99.0,
+      "start": 1.1875833333333334
+    },
+    {
+      "burst": [
+        2.62,
+        2.7
+      ],
+      "correlation": 0.9923224633904365,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 95.0,
+      "start": 2.619
+    },
+    {
+      "burst": [
+        2.99,
+        3.06
+      ],
+      "correlation": 0.98795925395507,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 90.0,
+      "start": 2.9850833333333338
+    },
+    {
+      "burst": [
+        3.35,
+        3.64
+      ],
+      "correlation": 0.9684321074632837,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 94.0,
+      "start": 3.3527500000000003
+    },
+    {
+      "burst": [
+        4.05,
+        4.11
+      ],
+      "correlation": 0.9613631092846947,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 92.0,
+      "start": 4.052416666666667
+    },
+    {
+      "burst": [
+        4.98,
+        5.06
+      ],
+      "correlation": 0.9907042389183986,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 104.0,
+      "start": 4.985083333333334
+    },
+    {
+      "burst": [
+        5.12,
+        5.2
+      ],
+      "correlation": 0.9899931712808374,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 103.0,
+      "start": 5.119166666666667
+    },
+    {
+      "burst": [
+        5.95,
+        6.02
+      ],
+      "correlation": 0.9894900587569326,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 104.0,
+      "start": 5.95125
+    },
+    {
+      "burst": [
+        6.08,
+        6.15
+      ],
+      "correlation": 0.9538487077615407,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 96.0,
+      "start": 6.084333333333333
+    },
+    {
+      "burst": [
+        6.55,
+        6.62
+      ],
+      "correlation": 0.983856973388931,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 109.0,
+      "start": 6.55125
+    },
+    {
+      "burst": [
+        6.92,
+        6.98
+      ],
+      "correlation": 0.9838140039286944,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 109.0,
+      "start": 6.918
+    },
+    {
+      "burst": [
+        7.28,
+        7.34
+      ],
+      "correlation": 0.7142368033145085,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 92.0,
+      "start": 7.284083333333333
+    },
+    {
+      "burst": [
+        7.58,
+        7.79
+      ],
+      "correlation": 0.9844638666461469,
+      "sound": 27,
+      "sample": 15,
+      "pitch_percent": 108.0,
+      "start": 7.5840000000000005
+    },
+    {
+      "burst": [
+        8.85,
+        8.91
+      ],
+      "correlation": 0.9775116695998477,
+      "sound": 0,
+      "sample": 2,
+      "pitch_percent": 96.0,
+      "start": 8.850833333333332
+    },
+    {
+      "burst": [
+        8.98,
+        9.06
+      ],
+      "correlation": 0.9899759088487308,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 101.0,
+      "start": 8.984250000000001
+    },
+    {
+      "burst": [
+        9.82,
+        9.89
+      ],
+      "correlation": 0.991139422978204,
+      "sound": 0,
+      "sample": 3,
+      "pitch_percent": 108.0,
+      "start": 9.818
+    },
+    {
+      "burst": [
+        9.95,
+        10.0
+      ],
+      "correlation": 0.731011189938974,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 102.5,
+      "start": 9.951166666666666
+    },
+    {
+      "burst": [
+        10.41,
+        10.47
+      ],
+      "correlation": 0.7013729272100037,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 107.0,
+      "start": 10.418000000000001
+    },
+    {
+      "burst": [
+        10.78,
+        10.85
+      ],
+      "correlation": 0.9828365428558755,
+      "sound": 0,
+      "sample": 1,
+      "pitch_percent": 97.0,
+      "start": 10.783999999999999
+    },
+    {
+      "burst": [
+        11.15,
+        11.21
+      ],
+      "correlation": 0.7544957765647315,
+      "sound": 0,
+      "sample": 0,
+      "pitch_percent": 97.0,
+      "start": 11.150916666666667
+    },
+    {
+      "burst": [
+        11.46,
+        11.66
+      ],
+      "correlation": 0.5706194604896677,
+      "sound": 55,
+      "sample": 38,
+      "pitch_percent": 92.5,
+      "start": 11.501916666666668
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "cases": 4000,
+  "span": "0x13608..0x13669",
+  "normal_chase_divisor": 12,
+  "scope": "coordinate update only, not complete DOS camera equivalence"
+}

@@ -1,0 +1,22 @@
+/work/
+/build/
+__pycache__/
+*.pyc
+
+# Local game assets, distributions, runtime state and reverse-engineering dumps
+/dist/
+/saves/
+/settings.ini
+/analysis/*.asm
+*.exe
+*.dll
+*.pdb
+*.phd
+*.PHD
+*.bin
+*.cue
+*.wav
+*.pcx
+*.PCX
+*.rpl
+*.zip

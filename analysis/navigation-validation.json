@@ -1,0 +1,12 @@
+[
+  {
+    "build": "release",
+    "search_and_target_ticks": 1400,
+    "info_and_mood_ticks": 2100
+  },
+  {
+    "build": "_debug",
+    "search_and_target_ticks": 1400,
+    "info_and_mood_ticks": 2100
+  }
+]

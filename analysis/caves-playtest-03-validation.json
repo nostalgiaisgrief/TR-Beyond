@@ -1,0 +1,10 @@
+{
+  "package": "caves-playtest-03",
+  "manifest_verified": true,
+  "packaged_camera_capture": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\caves03-package-smoke.ppm",
+  "native_release": "build/step03-preview-release.log",
+  "native_debug": "build/step03-preview-debug.log",
+  "regression_suite": "build/step03-tests.log",
+  "door_comparisons": "analysis/door-contact-validation.json",
+  "camera_comparisons": "analysis/switch-camera-validation.json"
+}

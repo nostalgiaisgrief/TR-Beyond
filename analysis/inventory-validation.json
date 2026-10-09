@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "build": "release",
+      "inventory_operations": 2800
+    },
+    {
+      "build": "_debug",
+      "inventory_operations": 2800
+    }
+  ],
+  "pickup_cases_per_build": 2500,
+  "scope": "Execute original DOS add/use and pickup instructions; OS/UI list services are doubles."
+}

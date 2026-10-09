@@ -1,0 +1,58 @@
+{
+  "levels": [
+    {
+      "level": "GYM.PHD",
+      "sha256": "52ff324648a3af7f6f48729108406d2811c632a3257ccf71f1196c05d98932fe",
+      "rooms": 19,
+      "sectors": 2002,
+      "animations": 190,
+      "geometry_comparisons_per_build": 20020,
+      "room_changes": 974,
+      "geometry_declined": 0,
+      "queries_with_deferred_objects": 0,
+      "slope_categories": {
+        "0": 17510,
+        "2": 510,
+        "1": 2000
+      },
+      "real_animation_cases_per_build": 1460,
+      "rejected_malformed_prefixes": 16
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "sha256": "75306547c82d8e142f6dc80d85703d1fd5a5871071e4d04233660347865d26c7",
+      "rooms": 38,
+      "sectors": 4026,
+      "animations": 277,
+      "geometry_comparisons_per_build": 40260,
+      "room_changes": 3176,
+      "geometry_declined": 0,
+      "queries_with_deferred_objects": 1570,
+      "slope_categories": {
+        "0": 33555,
+        "1": 5770,
+        "2": 935
+      },
+      "real_animation_cases_per_build": 2032,
+      "rejected_malformed_prefixes": 16
+    }
+  ],
+  "seconds": 4.81,
+  "dlls": [
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
+      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+    },
+    {
+      "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
+      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+    }
+  ],
+  "limits": "Structural geometry without instantiated object height callbacks; pending object references explicitly flagged. Real animation data with controlled sound/effect services. Full contact classifier, vault, slide and gameplay integration remain pending.",
+  "source_sha256": {
+    "src\\level.h": "e132ac18eb7332b0a8ed5d3be4979e4b8c0b70f07a2b262cef4891cb30845804",
+    "src\\level.c": "8f25a8b3a658858418e68481f5b09875b349d8086f33bf07e5d7772c8c5cb780",
+    "src\\geometry.c": "22fb0ec306d0fc6a864ba01fada5daaa53dc8569485780fe8f92fc102ab58f9d",
+    "tests\\compare_level.py": "ea01936749ee48b8f33078a901fdb73c42444d45ecae19d9c31c00ab9c9c0e76"
+  }
+}

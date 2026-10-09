@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "level": "GYM.PHD",
+      "build": "release",
+      "los": 2500,
+      "adjust": 2500,
+      "move": 2000,
+      "full_updates": 2400
+    },
+    {
+      "level": "GYM.PHD",
+      "build": "_debug",
+      "los": 2500,
+      "adjust": 2500,
+      "move": 2000,
+      "full_updates": 2400
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "build": "release",
+      "los": 2500,
+      "adjust": 2500,
+      "move": 2000,
+      "full_updates": 2400
+    },
+    {
+      "level": "LEVEL1.PHD",
+      "build": "_debug",
+      "los": 2500,
+      "adjust": 2500,
+      "move": 2000,
+      "full_updates": 2400
+    }
+  ],
+  "gameplay_route_ticks": 1800,
+  "scope": "DOS LOS, box adjustment, movement and complete chase/fixed camera update.\nOriginal geometry/LOS/box/movement/bounds instructions execute on PHD assets.\nOnly audio and final view-matrix generation are stubbed in full camera tests.\n"
+}

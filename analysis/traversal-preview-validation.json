@@ -1,0 +1,226 @@
+{
+  "builds": 2,
+  "cases": [
+    {
+      "name": "forward-reach",
+      "ticks": 43,
+      "last": {
+        "tick": "42",
+        "x": "47616",
+        "y": "240",
+        "z": "35941",
+        "yaw": "-32768",
+        "state": "11",
+        "animation": "94",
+        "frame": "1486",
+        "blocked": "0",
+        "flags": "8",
+        "fall_speed": "-4",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "5c6e9afc79b6441929d36cba8fec8c90436f80aefe02b168b0caec7119b53a80"
+    },
+    {
+      "name": "forward-catch",
+      "ticks": 75,
+      "last": {
+        "tick": "74",
+        "x": "47616",
+        "y": "725",
+        "z": "35941",
+        "yaw": "-32768",
+        "state": "10",
+        "animation": "96",
+        "frame": "1511",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "3e1a68f4bf2671c4168f3aaafb54767db2ecfc42563aec8faa2d96027d747ce8"
+    },
+    {
+      "name": "vault-low",
+      "ticks": 15,
+      "last": {
+        "tick": "14",
+        "x": "42907",
+        "y": "-1280",
+        "z": "52736",
+        "yaw": "16384",
+        "state": "19",
+        "animation": "50",
+        "frame": "773",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "9ccb7d902b0346153fade5ea057f39a4a072e31f145fbce15161d131c8313e93"
+    },
+    {
+      "name": "vault-high",
+      "ticks": 30,
+      "last": {
+        "tick": "29",
+        "x": "49664",
+        "y": "2560",
+        "z": "40859",
+        "yaw": "0",
+        "state": "19",
+        "animation": "42",
+        "frame": "643",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "448f5ee1e4c1334901884f6c02b11e7a7e64709e5b52a6b1752d045da8d72712"
+    },
+    {
+      "name": "vault-grab",
+      "ticks": 40,
+      "last": {
+        "tick": "39",
+        "x": "47616",
+        "y": "726",
+        "z": "35941",
+        "yaw": "-32768",
+        "state": "10",
+        "animation": "96",
+        "frame": "1514",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "aafa7290d8e2b8d87a76deb8ce0d50254cbb9cd1fea9d9e36699c3dd81b67dbb"
+    },
+    {
+      "name": "pool-enter",
+      "ticks": 45,
+      "last": {
+        "tick": "44",
+        "x": "40448",
+        "y": "4498",
+        "z": "59396",
+        "yaw": "0",
+        "state": "35",
+        "animation": "112",
+        "frame": "1909",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "135",
+        "health": "1000",
+        "water": "1",
+        "pitch": "-8372",
+        "air": "1786"
+      },
+      "trace_sha256": "0b2d6109c8d753064e549c0f7c7cc2527dd92b3c9b0ec7150e62299a54188353"
+    },
+    {
+      "name": "pool-swim",
+      "ticks": 90,
+      "last": {
+        "tick": "89",
+        "x": "40448",
+        "y": "5100",
+        "z": "61118",
+        "yaw": "0",
+        "state": "17",
+        "animation": "86",
+        "frame": "1427",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "200",
+        "health": "1000",
+        "water": "1",
+        "pitch": "3640",
+        "air": "1741"
+      },
+      "trace_sha256": "498c8e57765724fa501bb68683fdb7d86415e4e800f588841431bb88349ce4ea"
+    },
+    {
+      "name": "pool-surface",
+      "ticks": 150,
+      "last": {
+        "tick": "149",
+        "x": "40448",
+        "y": "3585",
+        "z": "62086",
+        "yaw": "0",
+        "state": "34",
+        "animation": "118",
+        "frame": "2034",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "60",
+        "health": "1000",
+        "water": "2",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "cb090c3c96b858ba7c656e3257c526549b6efdd0229559705b64eaf5e7a9fec3"
+    },
+    {
+      "name": "pool-exit",
+      "ticks": 250,
+      "last": {
+        "tick": "249",
+        "x": "40448",
+        "y": "3323",
+        "z": "63588",
+        "yaw": "0",
+        "state": "55",
+        "animation": "111",
+        "frame": "1862",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "ae29a7025183fe60463cd44a37e8c775845e33861bb89a6a3f7e5c21efdf3006"
+    },
+    {
+      "name": "pool-stand",
+      "ticks": 350,
+      "last": {
+        "tick": "349",
+        "x": "40448",
+        "y": "3328",
+        "z": "63588",
+        "yaw": "0",
+        "state": "2",
+        "animation": "103",
+        "frame": "1674",
+        "blocked": "0",
+        "flags": "0",
+        "fall_speed": "0",
+        "health": "1000",
+        "water": "0",
+        "pitch": "0",
+        "air": "1800"
+      },
+      "trace_sha256": "f16f74b25c82b14cfdc019782c2bdbbbd881d274468442577d246094e609e1eb"
+    }
+  ],
+  "scope": "Native real-level integration, not whole-frame DOS equivalence"
+}

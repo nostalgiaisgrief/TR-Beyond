@@ -1,0 +1,18 @@
+[
+  {
+    "build": "step_test.dll",
+    "cases": {
+      "start": 6000,
+      "collision": 6000,
+      "control": 1000
+    }
+  },
+  {
+    "build": "step_test_debug.dll",
+    "cases": {
+      "start": 6000,
+      "collision": 6000,
+      "control": 1000
+    }
+  }
+]
