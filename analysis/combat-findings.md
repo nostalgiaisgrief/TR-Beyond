@@ -12,7 +12,7 @@ The original game executable remains unchanged; package 06 is preserved.
   arm lock cones, line of sight, original spread and articulated mesh spheres.
 - Blood from shot positions and original creature bite joints; ricochet sounds.
 - DOS combat camera (including its retained chase-radius value) at 30 Hz.
-- Creature placement, trigger activation, eight AI slots and distance eviction.
+- Creature placement, trigger activation, eight creature-controller slots and distance eviction.
 - Original species state decisions, mood changes, LOT navigation/corridor
   clipping, five-node search budget, radius tests, step/drop limits and flight.
 - Touch masks, terrain-validated pushing, attacks, damage, death and reset.

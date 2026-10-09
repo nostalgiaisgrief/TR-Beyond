@@ -3,7 +3,7 @@
 
 # Animated doors and switch cameras — 9 October 2026
 
-Independent C reconstruction using the user's DOS executable and LEVEL1.PHD.
+Independent C reconstruction using the original DOS executable and LEVEL1.PHD.
 TRX source was not used for this change.
 
 ## Door contact

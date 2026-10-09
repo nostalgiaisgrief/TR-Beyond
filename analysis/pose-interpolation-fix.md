@@ -1,7 +1,7 @@
 # Animation pose interpolation fix
 
 Reproduced the reported brief pose corruption in native captures of the standing
-backflip and underwater swimming, without a user video.
+backflip and underwater swimming.
 
 The preview interpolated the three packed Euler angles independently. The
 original keyframes sometimes encode nearby orientations using different Euler

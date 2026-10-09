@@ -1,16 +1,14 @@
 # Static visibility and staircase railing clipping (2026-10-08)
 
-The requested DOS comparison was performed before renderer changes by inspecting
+The DOS comparison was performed before renderer changes by inspecting
 and executing the hash-pinned original TOMB.EXE instructions. Live DOS screenshots
-could not be obtained: the Computer Use JavaScript helper failed to initialise
-with "failed to write kernel assets: The system cannot find the path specified"
-even after a reset. This is instruction-level evidence, not a live visual match.
+were not captured. This is instruction-level evidence, not a live visual match.
 
 ## Table objects
 
 GYM room 7 contains exactly two placements of static ID 17 (mesh 163):
 (43520,-1280,52736) and (45568,-1280,52736). Its flags are zero. DOS at 0x1aa4d
-requires flag bit 2 before drawing any static; 0x1aa54 skips this object. Our
+requires flag bit 2 before drawing any static; 0x1aa54 skips this object. The
 renderer had ignored that flag. All 21 gym static definitions were checked by
 executing the original branch; both ID 17 placements are disabled. Preview now
 honours the flag. No asset data or collision flags were changed.
@@ -25,7 +23,7 @@ viewport, not the room rectangle. The oracle executes both clip setup paths with
 an artificially narrow room rectangle and verifies full viewport results. Vertex
 transformation is a controlled test boundary; lighting/rasterisation are not run.
 
-Our portal renderer incorrectly retained the room scissor while drawing statics.
+The portal renderer incorrectly retained the room scissor while drawing statics.
 It could cut an individual railing partway across a polygon as the portal edge
 moved. Room geometry still uses portal scissoring. Statics now load the original
 separate drawing bounds, test their projected overlap with the room rectangle,
@@ -46,7 +44,7 @@ are not claimed identical. No claim is made that DOS never has any railing pop.
 - 24 native table/staircase captures across 12 camera angles are byte-identical
   between builds. Contact sheet inspected: build/static-render-scenes.png.
 - These checks establish the two implementation differences and corrected native
-  views; a live DOS screenshot comparison at the user's exact positions remains
+  views; a live DOS screenshot comparison at the same camera positions remains
   unperformed.
 
 Packaged as dist/gym-playtest-02; the previous playtest is preserved.

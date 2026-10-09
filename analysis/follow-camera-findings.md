@@ -64,9 +64,9 @@ Swimming pitch investigation (2026-10-08):
   approximately 60 degrees per second at 30 Hz, matching the DOS control code.
 - Added an integration regression for both pitch directions in underwater tread.
   The DOS water differential suite also passed 59,500 cases per build.
-- No swimming speed change was made. The user subsequently identified the missing
-  pitch response in the camera as the source of the slower feel. That camera
-  response is now implemented; the controls remain unchanged.
+- No swimming speed change was made. The missing camera pitch response was
+  identified as the source of the slower feel. That response is now implemented;
+  the controls remain unchanged.
 
 Position smoothing update (2026-10-08):
 
@@ -75,14 +75,14 @@ Position smoothing update (2026-10-08):
   (destination - previous eye) / divisor. Destination adjustment (0x13af0) occurs
   before this update; floor/ceiling and conditional sightline checks follow it.
 - Normal target X/Z follows the actor directly (0x14912). Target Y approaches by
-  one quarter per tick (0x149b5). We retain our stable height offsets so animation
+  one quarter per tick (0x149b5). Stable height offsets are retained so animation
   breathing and flips do not reintroduce wobble.
 - New C implementation uses alpha = 1 - (11/12)^(30*dt) for full eye position and
   1 - (3/4)^(30*dt) for target Y. These match the response factors at 30 Hz and
   interpolate smoothly at modern render rates. Floating arithmetic deliberately
   omits DOS integer truncation; this is not bit-exact camera reconstruction.
 - No old-eye movement sweep is restored. Clearance correction is from the current
-  target to the smoothed eye, avoiding the previous doorway pin. Our 96-unit
+  target to the smoothed eye, avoiding the previous doorway pin. The 96-unit
   clearance and stable framing remain modern approximations. The later obstacle
   update below replaces candidate side selection and emergency recovery.
 - 4,000 original instruction-span executions verify signed coordinate arithmetic.
@@ -113,7 +113,7 @@ Obstacle and water update (2026-10-08):
   720 real-pool pitch/yaw updates, and a box-edge wall case. Existing doorway,
   wall-hop, idle/flip stability and 1,800 traversal updates pass in both builds.
 - 24 updated rendered captures match across builds and were visually inspected.
-- Limits: our 96-unit swept/static-mesh clearance replaces original line-of-sight
+- Limits: the 96-unit swept/static-mesh clearance replaces original line-of-sight
   and some floor/ceiling correction details. Land framing/distance and stable
   focus heights remain modern choices. Full camera equivalence is not claimed.
 

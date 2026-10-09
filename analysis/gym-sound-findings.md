@@ -48,7 +48,7 @@ have modest mix headroom and final saturation. Player effects are centred;
 attenuation uses the follow-camera target. This does not reproduce DOS soundcard
 resampling, stereo pan, master gain or exact device latency. The random algorithm
 and per-request consumption match, but the presentation seed is independent:
-omitted particle effects and other original random users mean the complete game
+omitted particle effects and other original random-number consumers mean the complete game
 random stream is not reproduced. General ambient/source-object sound scheduling
 outside this gym milestone is not connected. These are deliberate scope limits,
 not claims of bit-exact sound output.
@@ -69,5 +69,5 @@ not claims of bit-exact sound output.
 - Native waveOut open/queue/pause/resume/reset/close passed on this Windows host.
 - Existing native gameplay, camera, pose and portal tests pass in both builds.
 
-No subjective listening comparison with a live DOS session is claimed. User
-listening through the gym is the remaining acceptance check.
+No subjective listening comparison with a live DOS reference is claimed.
+Listening through the gym is the remaining acceptance check.

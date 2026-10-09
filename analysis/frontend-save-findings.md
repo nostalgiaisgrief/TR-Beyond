@@ -12,7 +12,7 @@ TRX was not used as an implementation base.
 - Sixteen save slots. Empty load pages are skipped. New game starts Caves;
   Lara's Home remains available. Exit in-game returns to title.
 - Main / Options / Items ring transfers. Sound/music levels, editable keys and
-  settings.ini persistence. Existing user control bindings remain defaults.
+  settings.ini persistence. Existing control bindings remain defaults.
 - Modern Detail Levels uses 320/640/window-width rendering. These are renderer
   implementation choices, not an emulation of DOS's software perspective
   correction thresholds. High is the default and keeps the existing renderer.
@@ -75,7 +75,7 @@ of both complete routes is STILL PENDING. This audit must not be labelled that
 acceptance test. Exact option-dialog typography/borders, title attract demos,
 intro FMVs and DOS software-renderer pixel equality are also not claimed.
 
-Desktop automation was attempted for direct DOS comparison. The Windows computer-use JavaScript runtime failed before initialization with 'failed to write kernel assets: The system cannot find the path specified', including after reset. No uninterrupted desktop route comparison was performed in this run. Packaged executable passes the same front-end flow test and all manifest hashes match.
+No uninterrupted desktop route comparison was performed for this validation. Packaged executable passes the same front-end flow test and all manifest hashes match.
 
 
 ## Playtest 24: interface fidelity pass
@@ -89,8 +89,8 @@ the Win32 adapter. No TRX implementation was used.
   The modern rendering-resolution meaning of those settings is unchanged.
 - Sound: Set Volumes header and original music/speaker font glyphs.
 - Controls: original two-column baselines, Look before Roll, column navigation.
-  User-selected mappings and Enter action alias are retained. This editor still
-  edits one user binding set; DOS Default/User preset switching is not added.
+  Custom mappings and Enter action alias are retained. This editor still
+  edits one custom binding set; DOS default/custom preset switching is not added.
 - Passport: page label uses bottom alignment (-16), and suppresses the generic
   Game label. No duplicate caption during selection/page transitions.
 - Save/load: original high-resolution requester, ten visible rows, 18-unit
@@ -108,4 +108,4 @@ compare_frontend.py, compare_interface.py and compare_text.py pass again.
 Release/debug native suites include new detail-order and controls-column tests,
 plus the existing save/load and death flow tests. Captures of the title passport,
 detail/sound/controls dialogs and in-game requester are inspected. No direct
-interactive DOS screenshot or full-route acceptance is claimed by this pass.
+interactive DOS screenshot or full-route acceptance is claimed by these checks.

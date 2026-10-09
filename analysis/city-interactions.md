@@ -36,7 +36,7 @@ trapdoor milestone. Item 30 targets ordinary door 32, which is connected.
 No new key/idol, trapdoor, swinging-blade or City exit controller is claimed.
 General block falling presentation (including original camera shake) and
 other block variants/levels still need validation beyond this City milestone.
-Full DOS route comparison and user playtesting remain.
+Full DOS route comparison and manual playtesting remain.
 
 ## Playtest 18: cross-room interaction
 

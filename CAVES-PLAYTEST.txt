@@ -19,7 +19,7 @@ PLAYTEST 24 - INTERFACE FIDELITY PASS
 DOS-derived panels, bevel borders, row spacing and selection highlights replace
 placeholder option lists. Detail reads High/Medium/Low; sound uses the original
 music/speaker glyphs. Controls use two columns; Left/Right switches columns.
-Your bindings and modern resolution settings are retained.
+Custom bindings and modern resolution settings are retained.
 Passport page labels appear at the bottom without overlapping Game text.
 Save/load uses the original high-resolution ten-row requester layout.
 4:3 startup and Alt+Enter fullscreen from playtest 23 are retained.
@@ -47,7 +47,7 @@ The passport pages are Load Game, Save Game/New Game, and Exit to Title/Game.
 Numpad 4/6 turns pages; Numpad 8/2 selects a save slot. There are 16 slots.
 Saves are stored in this package's saves folder; they are reconstruction saves,
 not compatible with DOS SAVEGAME files. Earlier packages are preserved.
-Controls and volume settings persist in settings.ini. Your requested bindings
+Controls and volume settings persist in settings.ini. The configured bindings
 remain the defaults. Detail Levels uses modern render resolution: 320 / 640 /
 window width. High retains the existing rendering.
 Death opens the passport after ten seconds, or after two seconds with input.

@@ -1,4 +1,4 @@
-"""Inventory the user's raw Mode 1 CD and executable; no third-party code.
+"""Inventory an original raw Mode 1 CD and executable; no third-party code.
 
 Run with Python 3. Reads source files only. Extracted assets remain private.
 """

@@ -1,7 +1,7 @@
 # Caves and DOS sliding — 2026-10-09
 
 New C implementation; no TRX implementation incorporated. Source evidence is
-`dos-slide.asm`, disassembled from the user's original DOS EXE (SHA256
+`dos-slide.asm`, disassembled from the original DOS EXE (SHA256
 99503b7c4c7d88fdc2877c071b135ef041781fd76459de6b1cbf8b887ffe0fac).
 
 Original entries: 0x28128 selects slide direction/animation; 0x25a64 and

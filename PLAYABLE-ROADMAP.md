@@ -7,7 +7,7 @@ panel dimensions, bevel borders, volume glyphs, two-column controls and
 requester rows are reconstructed and compared against DOS machine code.
 Passport label placement/overlap corrected. Modern resolution presets and
 native saves remain intentional adaptations; pixel-identical rasterization
-and DOS Default/User control preset switching are not claimed.
+and DOS default/custom control preset switching are not claimed.
 Playtest 22 added fixed vertical framing; 23 added 4:3 startup and Alt+Enter.
 
 ### Campaign and frontend status
@@ -34,7 +34,7 @@ All prior Caves/City gameplay through playtest 20 is retained.
 
 
 
-Agreed target: explore Lara's Home with walking, running, turning, jumping,
+Target: explore Lara's Home with walking, running, turning, jumping,
 
 falling, landing, basic climbing, swimming and a following camera. Preserve
 
@@ -99,9 +99,7 @@ gameplay and feel. Use a new C implementation; TRX is reference only.
 
 
 
-These are milestones, not guaranteed one-turn tasks. Rendering assets and
-
-movement integration may expose missing details requiring additional work.
+Rendering assets and movement integration may expose missing details requiring additional work.
 
 Gym tutorial triggers/audio, the scripted camera, completion and death/reset are
 
@@ -111,7 +109,7 @@ acceptance remains.
 
 
 
-Gym movement/water sound effects are connected and have received user listening feedback.
+Gym movement/water sound effects are connected and have received listening feedback.
 
 Menus, saves, FMVs and other levels' object/environment audio can follow.
 
@@ -159,12 +157,12 @@ Next interface step: inventory information (names, counts, ammo/medipack display
 
 Package 12 corrects the compass needle/lid transform and connects DOS ring sounds.
 
-Package 13 applies requested Caves/City controls; interface step 3 remains next.
+Package 13 applies revised Caves/City controls; interface step 3 remains next.
 
 Package 14 connects rolling and DOS standing/surface look on W and Numpad 0.
 
 
-Package 15 completes the requested five steps: ground sidesteps, inventory
+Package 15 adds five features: ground sidesteps, inventory
 information, gameplay HUD/pickup icons, original compass interaction, and
 end-level statistics. Original code confirms the compass has no in-game
 statistics panel; the earlier temporary panel is removed. Remaining interface

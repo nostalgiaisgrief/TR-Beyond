@@ -1,7 +1,7 @@
-# Playtest 19: swan dive, City steps 2 and 4
+# Playtest 19: swan dive, City quest items and trapdoors
 
 Independent C implementations based on the supplied DOS executable. TRX code
-was not used as a base. Input bindings remain those requested by the user.
+was not used as a base. Input bindings remain the configured defaults.
 
 ## Executable evidence
 

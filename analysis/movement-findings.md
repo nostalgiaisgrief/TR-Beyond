@@ -9,8 +9,8 @@ milestone; its statements about implementation status are historical.
 ## Result and limits
 
 Five control handlers have strong static identification, supported by 40 passing
-isolated executions of the original machine code. The user separately confirmed
-that the reference game runs in DOSBox, including Lara's Home, controls and sound.
+isolated executions of the original machine code. The reference game was checked
+in DOSBox, including Lara's Home, controls and sound.
 No reconstructed gameplay code has been implemented or compiled yet.
 
 The new Python analysis tools are original project code. TRX was consulted for
@@ -19,7 +19,7 @@ is isolated in work/reference-reading and is not linked or executed by the probe
 
 ## Exact binary and address convention
 
-Target: F:\TombRaiG\TOMBRAID\TOMB.EXE
+Target: original DOS TOMB.EXE
 
 SHA-256: 99503b7c4c7d88fdc2877c071b135ef041781fd76459de6b1cbf8b887ffe0fac
 
@@ -116,8 +116,8 @@ Use Python 3 with the project-local work/python-deps packages (Capstone 5.0.6,
 Unicorn 2.1.4). The scripts add that directory themselves. From the project root:
 
 ```powershell
-python tools/analyse_le.py F:\TombRaiG\TOMBRAID\TOMB.EXE --out work/analysis
-python tools/probe_movement.py F:\TombRaiG\TOMBRAID\TOMB.EXE --out analysis/movement-probes.json
+python tools/analyse_le.py "<game-directory>/TOMB.EXE" --out work/analysis
+python tools/probe_movement.py "<game-directory>/TOMB.EXE" --out analysis/movement-probes.json
 ```
 
 Capstone wheel SHA-256: 761c3deae00b22ac697081cdae1383bb90659dd0d79387a09cf5bdbb22b17064

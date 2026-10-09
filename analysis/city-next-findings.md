@@ -1,6 +1,6 @@
 # Playtest 20: automatic look, City pendulums and progression
 
-Independent C implementations from the user's DOS executable and level data.
+Independent C implementations from the original DOS executable and level data.
 No TRX code used as the base.
 
 ## Automatic point-of-interest look

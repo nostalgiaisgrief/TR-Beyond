@@ -33,7 +33,7 @@ All functions below are in object 1; file offset = analysis address + 0x1EE00.
 | Walking collision | 0x26084 | First collision-table pointer at 0xC3964; queries contacts then chooses walking/step/fall responses |
 
 Fresh disassembly extracts are saved in [animation-collision.asm](animation-collision.asm).
-No additional TRX source was needed for this step; implementations were derived
+Implementations were derived
 from the supplied executable and validated by executing its instructions.
 
 ## Recovered animation layout

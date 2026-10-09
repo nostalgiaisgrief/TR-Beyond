@@ -69,7 +69,7 @@ Full-frame equivalence to the DOS game has not been established.
   images match. Ten pose captures and camera orientation checks also pass.
 
 Next: traversal (jump/fall/land/slide/climb), complete frame sequencing validation,
-camera and user playtesting.
+camera and manual playtesting.
 
 
 ## Ground reactions follow-up - 8 October 2026

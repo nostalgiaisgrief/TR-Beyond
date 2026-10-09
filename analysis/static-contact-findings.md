@@ -68,7 +68,7 @@ for hashes, counts and limits. The full regression suite also passes.
 
 Dynamic object height callbacks are still unset in the reference fixtures and
 unimplemented in C. Doors, bridges and other active objects therefore remain a
-separate collision task. Next, decode runtime item data and recover those
+separate collision milestone. Next, decode runtime item data and recover those
 callbacks. Vaulting, sliding, full-frame movement, rendering and gameplay
 integration remain outstanding. This milestone is not a playable Windows port.
 

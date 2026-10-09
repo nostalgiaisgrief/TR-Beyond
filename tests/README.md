@@ -97,9 +97,9 @@ look controls and input priority. These are control decisions, not complete
 movement frames: animation advancement, damping, position updates and collision
 remain outside the module.
 
-## Build on this machine
+## Build on Windows
 
-From F:\Projects\Codex\outputs\tomb-reconstruction in PowerShell:
+From the repository root in PowerShell:
 
 ```powershell
 .\build.ps1
@@ -117,8 +117,8 @@ The test script builds optimised (-O2) and debug (-O0) executables, then compare
 both with the original executable. It uses the bundled Python at its current
 machine path; override with `-Python C:\path\to\python.exe` if necessary.
 
-The original binary defaults to F:\TombRaiG\TOMBRAID\TOMB.EXE. To use another path,
-invoke tests/compare_original.py directly with `--original PATH --exe PATH...`.
+To specify the original executable location, invoke tests/compare_original.py
+directly with `--original PATH --exe PATH...`.
 The reference SHA-256 is checked before any emulation; another release will fail.
 
 ## Results, 7 October 2026
@@ -210,7 +210,7 @@ is analysis/preview-validation.json.
 
 Ten bounded native WGL runs cover standing, two interpolated walking times,
 running and the opposite camera angle. Five O0/O2 image pairs match byte for
-byte on this machine. Images must contain substantial colour variation, and
+byte in the test environment. Images must contain substantial colour variation, and
 changes in time, animation and camera must change the output. Standing, walking
 and front-running PNG captures were also visually inspected. The reverse view
 uses a 600-unit camera distance to stay inside the starting room.
@@ -332,7 +332,7 @@ boundaries. `compare_targeting.py` executes real target acquisition/retention an
 contact/list services. `compare_enemy_contact.py` checks sphere masks and local
 pushes, with terrain-query doubles. `compare_combat_camera.py` runs full DOS camera
 updates. Native `combat_test` runs all three species with real terrain, firing,
-attacks, death, reset, AI-slot pressure and moving room lists. Build-preview also
+attacks, death, reset, creature-controller slot pressure and moving room lists. Build-preview also
 checks F5/F6/F12 and Space through real Win32 key messages. `check_combat_render.py`
 compares deterministic release/debug captures, not original rendered pixels.
 

@@ -1,6 +1,6 @@
-# Supplied recording comparison and output timing fix (2026-10-09)
+# DOS and native recording comparison and output timing fix (2026-10-09)
 
-Inputs: the user's build 2026.10.08 - 23.53.51.02.mp4 and
+Inputs: native build 2026.10.08 - 23.53.51.02.mp4 and
 DOS 2026.10.08 - 23.55.41.03.mp4. Both contain 48 kHz stereo AAC.
 Decoded locally through Windows Media Foundation (tools/decode_audio.c) to
 build/comparison-build.wav and build/comparison-dos.wav. No uploads were used.
@@ -62,4 +62,4 @@ randomisation, gameplay tick rate or animation command timing.
   code are unchanged. The affected native builds/integration/device tests ran.
 
 Packaged as playtest 04. A new listening pass/recording is still needed to confirm
-that the user-observed crackling is resolved in their normal recording setup.
+that the reported crackling is resolved during normal recording.
