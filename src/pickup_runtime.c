@@ -8,7 +8,7 @@ int tomb_pickups_tick(TombPlaytest *p,uint32_t input) {
     for(size_t pass=0;pass<=portals->count;pass++) {
         int room=first;if(pass){const unsigned char *r=portals->data+32*(pass-1);room=r[0]|r[1]<<8;}
         for(int id=w->enemies->room_head[room];id>=0;id=w->enemies->room_next[id]) {
-            TombObject *o=w->items+id;if(!tomb_pickup_object(o->object))continue;
+            TombObject *o=w->items+id;if(o->object==143 || !tomb_pickup_object(o->object))continue;
             if(llabs((long long)p->lara.actor.x-o->actor.x)>=4096 || llabs((long long)p->lara.actor.y-o->actor.y)>=4096 || llabs((long long)p->lara.actor.z-o->actor.z)>=4096)continue;
             int result=tomb_pickup_contact(o,&p->lara.actor,&p->animation,input,p->lara.water_status,&p->lara.pitch,&p->movement.lean);
             if(result<0)return 0;

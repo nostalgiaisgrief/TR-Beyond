@@ -2,11 +2,11 @@
   "results": [
     {
       "build": "release",
-      "inventory_operations": 2800
+      "inventory_operations": 2803
     },
     {
       "build": "_debug",
-      "inventory_operations": 2800
+      "inventory_operations": 2803
     }
   ],
   "pickup_cases_per_build": 2500,

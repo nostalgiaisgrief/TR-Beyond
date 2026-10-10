@@ -33,7 +33,7 @@ int tomb_creature_move(TombObject *o,TombCreature *c,TombNavigation *n,const Tom
         if(!sample(l,a->x,y,a->z,&room,&ref,&h))return -1;newbox=box_at(l,ref);if(newbox<0)return -1;height=l->boxes[newbox].height;
     }
     int exit=n->nodes[newbox].exit,next_height=exit>=0 && (size_t)exit<l->box_count?l->boxes[exit].height:height;
-    int x=a->x,z=a->z,rx=x&1023,rz=z&1023,radius=o->object==9?102:341,shiftx=0,shiftz=0;
+    int x=a->x,z=a->z,rx=x&1023,rz=z&1023,radius=o->object==9 || o->object==27?102:341,shiftx=0,shiftz=0;
     if(rz<radius) {
         if(bad(l,n,x,y,z-radius,height,next_height,room))shiftz=radius-rz;
         if(rx<radius) {

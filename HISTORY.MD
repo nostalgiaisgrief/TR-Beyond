@@ -5,6 +5,28 @@ and next steps describe the build recorded in each entry and may be superseded
 by later work. See [README.md](README.md) for the current overview and
 [PLAYABLE-ROADMAP.md](PLAYABLE-ROADMAP.md) for detailed validation limits.
 
+## Playtest 35 - Lost Valley machinery and Qualopec gameplay
+
+Connected the three-cog machinery chain, original gear controllers and flip-map
+trigger masks. Room swaps now move geometry, portals, lighting, collision and
+water flags together, with navigation zone switching and occupied-floor handling.
+Lost Valley's actual exit continues into Tomb of Qualopec and carries equipment.
+
+Qualopec adds moving puzzle pillars, boulder and falling-ceiling controllers,
+spike contacts, stationary mummies and Larson's combat controller. The Scion
+uses its special Lara animation, original cinematic camera records, inventory
+entry and pickup-triggered escape sequence. Version-three saves preserve the
+room-flip and Scion state, while retaining earlier save readers.
+
+Release/debug DOS comparisons cover 8,000 Larson decisions, 2,000 mummy
+decisions and 4,000 flip-trigger cases per build. Native integration checks
+exercise real level assets and trigger chains, object movement, combat,
+save/load and level continuation; GL checks render both levels and the Scion
+sequence. See [analysis/peru-findings.md](analysis/peru-findings.md) for scope.
+
+Full uninterrupted route comparisons remain pending. Qualopec's ending
+cinematic/onward transition and water-current trigger forces are not implemented.
+
 ## Reconstruction approach
 
 An editable Windows implementation based on analysis of the original DOS
@@ -373,3 +395,106 @@ and animation-viewer shortcuts were removed.
 Level startup and restart select the original CD tracks. Native playback loops
 the music, while loading a save preserves its stored music state. See
 [music and progression findings](analysis/inventory-progression-findings.md).
+
+## Playtest 27 - Lara's Home photo confirmation
+
+Selecting Lara's Home raises the photo and waits for a second confirmation
+before loading the level. Back lowers the photo and returns to the title ring.
+Native frontend checks cover waiting, cancellation and confirmed entry.
+
+## Playtest 28 - shotgun
+
+Connected inventory selection, original draw/holster and pump animations,
+six-pellet firing, damage/spread, ammunition display and empty-ammo pistol fallback.
+Save version 2 retains weapon selection and still reads version-1 saves.
+See [shotgun findings](analysis/shotgun-findings.md) for DOS comparison coverage.
+
+## Playtest 29 - New Game level selection
+
+New Game opens an in-game starting-level list with all 15 campaign levels and
+Lara's Home. Selection starts fresh; Back returns to the passport. Native
+frontend tests cover all entries, bounds, cancellation and a later-level start.
+
+## Playtest 30 - Lost Valley creatures
+
+Reconstructed raptor and T. rex control from the DOS executable, including
+health, trigger activation, navigation profiles, head tracking, touch damage,
+attacks, sounds and death. Both weapons target their articulated meshes.
+The T. rex fatal bite uses the original extra Lara animation/meshes and camera
+angles. Footstep impact commands feed the original distance-scaled camera bump.
+
+Wolf death selection now uses the loaded model's animation base. Valley's wolf
+base is 174, compared with 172 in Caves: the former hardcoded death indices
+192-194 selected movement animations in Valley instead of deaths 194-196.
+The original startup frame 96 remains unchanged.
+
+Release/debug DOS comparisons cover creature decisions, Valley navigation,
+movement, weapon rays and impact-camera behaviour. Native tests exercise all
+13 placed enemies, attacks, deaths, both weapons and save/reload continuation
+through the fatal bite. Machinery, cog puzzles, room flipping and a complete
+Valley route comparison remain outstanding.
+
+## Playtest 31 — model lighting
+
+Reconstructed DOS room-light sampling, static intensity adjustment and mesh
+normal/baked-shade calculation. Lara and animated objects sample lighting at
+the rotated animation-bounds centre; static models use their placed intensity.
+Inventory models use the original ring light and selected-item brightness.
+The renderer now applies the original 32-row palette shade table to models
+and room geometry, including masked textures and distance shading. Modern
+OpenGL interpolation remains; this is not a pixel-identical software renderer.
+The palette shader requires OpenGL 2.0. No gameplay behaviour changed.
+
+Release/debug differential checks cover 1,200 real room samples, 400 static
+intensities and 32,000 normal/baked vertex shades. A graphics-driver check
+verifies every palette/shade pair plus indexed-texture transparency.
+
+## Playtest 32 — stable palette lighting
+
+Fixed perspective-interpolation rounding at exact palette shade boundaries,
+which produced speckled triangles on otherwise uniformly lit surfaces.
+A single non-overlapping quad reproduced 3,790 incorrect pixels out of 8,192
+at shade 256 before the fix. A 0.00256-shade-unit lookup bias removes floating
+point noise while remaining below the original integer shade precision.
+No geometry or room visibility rules changed.
+
+Release/debug graphics checks now cover all 31 interior shade boundaries,
+plus one integer shade above and below each boundary, across the Gym, Caves,
+City and Valley palettes. Existing palette, transparency and native regression
+checks also pass.
+
+## Playtest 33 — render interpolation
+
+Moving models now share the camera's previous/current 30 Hz presentation
+interval. Read-only render snapshots include world placement and articulated
+joint transforms, including weapon arms and head/torso aiming. Translation
+interpolates linearly and rotations follow the shortest quaternion arc.
+Interpolation follows the joint hierarchy so limbs remain connected and bone
+lengths remain stable. Moving effect positions also interpolate.
+
+Snapshots are refreshed for every simulation tick, including multiple ticks
+within one render frame. Level loads, resets and resume clear old history;
+new entities, mesh changes and large relocations do not blend stale poses.
+Ordinary room crossings remain continuous, with visibility considering both
+endpoint rooms. Simulation, collision, saves and animation events are unchanged.
+
+Release/debug native suites pass. New checks cover interpolation endpoints,
+144 Hz sample fractions, rigid hierarchies, camera phase, angle wrap, room
+crossings and discontinuities. Live scene tests check that capturing and
+drawing snapshots cannot change player/item state. Release start-scene checks
+pass for all 16 selectable levels; these do not imply complete later-level
+playability.
+
+## Playtest 34 — fixed-camera tracking interpolation
+
+Fixed shots with speed one previously cleared both camera interpolation
+endpoints on every tick. Their aim therefore advanced immediately to the
+latest target while Lara remained interpolated between ticks. The viewpoint
+still snaps as required, but the look-at target retains its previous endpoint.
+Initial camera setup and target-mode cuts continue to reset both endpoints.
+
+The Natla's Mines start trigger reproduced the lost target history before the
+fix. Release/debug checks now include Natla's Mines and Sanctuary of the Scion,
+plus fixed-shot entry, moving targets, item-target changes and chase return.
+Tests compare underlying camera simulation state against the unchanged DOS
+camera implementation. Save layout and original camera rules are unchanged.

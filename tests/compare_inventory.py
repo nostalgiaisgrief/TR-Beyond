@@ -1,7 +1,7 @@
 """Execute original DOS add/use and pickup instructions; OS/UI list services are doubles."""
 from compare_dos_camera import *
 class Inventory(C.Structure):
-    _fields_=[('counts',I16*11),('ammo',I32*4),('pickups',C.c_uint),('ticks',C.c_uint),('last_pickup',C.c_int),('pickup_ticks',C.c_int),('quest',I16*8),('chosen',C.c_int)]
+    _fields_=[('counts',I16*11),('scion',I16),('ammo',I32*4),('pickups',C.c_uint),('ticks',C.c_uint),('last_pickup',C.c_int),('pickup_ticks',C.c_int),('quest',I16*8),('chosen',C.c_int)]
 def main():
     o=CameraOracle();f=parse(ROOT/'work/reference-assets/DATA/LEVEL1.PHD');o.install(f);o.install_models(f)
     for a,b in [(0xc2c00,0xc3500),(0xcea00,0xcea30),(0xcefba,0xcefbb),(ITEM,ITEM+68)]:o.allowed.update(range(a,b))
@@ -19,7 +19,10 @@ def main():
                 if id in [93,94]:
                     hp=I16(rng.choice([-1,0,1,200,499,500,999,1000]));o.write(0xce960,ITEM,4);o.write(ITEM+0x22,hp.value,2)
                     o.call(0x28afc,id,0,0,0);d.tomb_inventory_use(C.byref(inv),id,C.byref(hp));assert hp.value==o.read(ITEM+0x22,2);assert inv.counts[id-84]==o.call(0x23cc0,id,0,0,0)
-        results.append(dict(build=suffix or 'release',inventory_operations=2800))
+        for _ in range(3):
+            assert o.call(0x2371c,143,0,0,0)==d.tomb_inventory_add(C.byref(inv),143)
+            assert inv.scion==o.call(0x23cc0,143,0,0,0)
+        results.append(dict(build=suffix or 'release',inventory_operations=2803))
     # Ground/underwater pickup bounds, alignment and exact collection frames.
     for a in [0x20ce4,0x2371c,0x24ac8]:o.uc.hook_add(UC_HOOK_CODE,lambda *args:o.ret(),begin=a,end=a)
     for suffix in ('','_debug'):

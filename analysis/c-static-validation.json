@@ -30,16 +30,16 @@
   },
   "combined_hits": 387,
   "multiroom_queries": 6568,
-  "seconds": 6.78,
+  "seconds": 7.53,
   "limits": "Original static and combined classifier executed without static substitutes. Dynamic object height callbacks unset; full gameplay integration remains pending.",
   "builds": [
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
-      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+      "sha256": "9270362beed5ccd3916400760c5dcbe8952602b88fe01556c638b0df23b95652"
     },
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
-      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+      "sha256": "93fcb07c919b4f6d3fad77d5188cd45dfb7cf9d1be0b1efc4d5cd9b01d6a8eed"
     }
   ],
   "sources": {

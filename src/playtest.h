@@ -50,6 +50,7 @@ typedef struct TombPlaytest {
     TombInventory inventory;
     TombHud hud;
     int quest_request,quest_latch;
+    int weapon_type,requested_weapon; /* DOS types: 1 pistols, 4 shotgun. */
 } TombPlaytest;
 int tomb_playtest_init(TombPlaytest *,const TombLevel *,const int16_t *sine,const TombVisual *);
 /* Ground/air/climbing/water development harness. Unsupported services roll back movement. */

@@ -21,7 +21,7 @@ void tomb_hud_bar(int percent,int air,int width,TombBarLine line,void *u){
  const int health_colours[5]={8,11,8,6,24},air_colours[5]={32,41,32,19,21};
  if(percent)for(int y=0;y<5;y++)line(u,x,8+y,x+percent,8+y,air?air_colours[y]:health_colours[y]);
 }
-const char *tomb_inventory_name(int id){switch(id){case 114:return "Gold Idol";case 133:return "Silver Key";case 72:return "Compass";case 99:return "Pistols";case 100:return "Shotgun";case 101:return "Magnums";case 102:return "Uzis";case 104:return "Shotgun Shells";case 105:return "Magnum Clips";case 106:return "Uzi Clips";case 108:return "Small Medi Pack";case 109:return "Large Medi Pack";default:return "";}}
+const char *tomb_inventory_name(int id){switch(id){case 150:return "Scion";case 114:return "Gold Idol";case 133:return "Silver Key";case 72:return "Compass";case 99:return "Pistols";case 100:return "Shotgun";case 101:return "Magnums";case 102:return "Uzis";case 104:return "Shotgun Shells";case 105:return "Magnum Clips";case 106:return "Uzi Clips";case 108:return "Small Medi Pack";case 109:return "Large Medi Pack";default:return "";}}
 static void number_glyphs(char *s){for(;*s;s++)if(*s!=' ')*s=(char)((unsigned char)*s-(*s>='A'?0x35:0x2f));}
 void tomb_ui_ammo(int amount,int weapon,char out[64]){out[0]=0;if(weapon<1 || weapon>3)return;snprintf(out,64,"%5d %c",weapon==1?amount/6:amount,'A'+weapon-1);number_glyphs(out);}
 int tomb_inventory_label(const TombInventory *inv,int id,char out[64]){

@@ -2,6 +2,7 @@
    0x14534..0x14ab2 and sector-boundary LOS 0x183c0..0x18b3a. */
 #include "dos_camera.h"
 #include "fixed.h"
+#include "pistols.h"
 #include <math.h>
 #include <stdlib.h>
 static int sn(const int16_t *s,int angle){unsigned a=(unsigned)angle&65535;int sign=a>=32768?-1:1;a&=32767;if(a>16384)a=32768-a;return sign*s[a>>4];}
@@ -125,7 +126,7 @@ static int shift_clamp(const TombLevel *l,TombCameraPoint *p,int heavy,int radiu
     if(floor<ceiling)floor=ceiling=tomb_asr(floor+ceiling,1);
     return p->y>floor?floor-p->y:p->y<ceiling?ceiling-p->y:0;
 }
-int tomb_dos_camera_move(TombDosCamera *c,const TombLevel *l,TombCameraPoint ideal,int speed) {
+int tomb_dos_camera_move_effects(TombDosCamera *c,const TombLevel *l,TombCameraPoint ideal,int speed,int *bounce,uint32_t *random) {
     if(speed<1)return 0;
     c->eye.x+=(ideal.x-c->eye.x)/speed;c->eye.y+=(ideal.y-c->eye.y)/speed;c->eye.z+=(ideal.z-c->eye.z)/speed;c->eye.room=ideal.room;
     TombHeights h;if(!heights(l,&c->eye,0,&h))return 0;
@@ -136,11 +137,17 @@ int tomb_dos_camera_move(TombDosCamera *c,const TombLevel *l,TombCameraPoint ide
     }
     int ceiling=h.ceiling+256;
     if(floor<ceiling)floor=ceiling=tomb_asr(floor+ceiling,1);
+    if(bounce && *bounce>0){c->eye.y+=*bounce;c->target.y+=*bounce;*bounce=0;}
+    else if(bounce && *bounce<0 && random){
+        int x=((int)tomb_control_random(random)-16384)*(*bounce)/32767;c->eye.x+=x;c->target.y+=x;
+        int y=((int)tomb_control_random(random)-16384)*(*bounce)/32767;c->eye.y+=y;c->target.y+=y;
+        int z=((int)tomb_control_random(random)-16384)*(*bounce)/32767;c->eye.z+=z;c->target.z+=z;*bounce+=5;
+    }
     c->shift=floor<c->eye.y?floor-c->eye.y:ceiling>c->eye.y?ceiling-c->eye.y:0;
     TombCameraPoint displayed=c->eye;displayed.y+=c->shift;
     if(!heights(l,&displayed,0,&h))return 0;c->eye.room=displayed.room;return 1;
 }
-int tomb_dos_camera_tick(TombDosCamera *c,const TombLevel *l,const TombActor *a,const int16_t b[6],const int16_t *s,const TombCameraRequest *r) {
+int tomb_dos_camera_tick_effects(TombDosCamera *c,const TombLevel *l,const TombActor *a,const int16_t b[6],const int16_t *s,const TombCameraRequest *r,int *bounce,uint32_t *random) {
     if(!c->ready){c->target=(TombCameraPoint){a->x,a->y-1024,a->z,a->room};c->eye=c->target;c->eye.z-=100;c->shift=0;c->fixed=0;c->distance_squared=1536*1536;c->ready=1;}
     if(r->flags==TOMB_CAMERA_LOOK) {
         int speed=c->fixed?1:4;int32_t old_x=c->target.x,old_z=c->target.z;
@@ -157,7 +164,7 @@ int tomb_dos_camera_tick(TombDosCamera *c,const TombLevel *l,const TombActor *a,
         TombCameraPoint ideal={c->target.x-tomb_asr(mul(horizontal,sn(s,angle)),14),c->target.y+tomb_asr(mul(1536,sn(s,elevation)),14),c->target.z-tomb_asr(mul(horizontal,sn(s,angle+16384)),14),c->eye.room};
         if(!adjust(l,&c->target,&ideal,c->distance_squared,1,1))return 0;
         c->target.x=old_x+(c->target.x-old_x)/speed;c->target.z=old_z+(c->target.z-old_z)/speed;
-        if(!tomb_dos_camera_move(c,l,ideal,speed))return 0;c->fixed=0;return 1;
+        if(!tomb_dos_camera_move_effects(c,l,ideal,speed,bounce,random))return 0;c->fixed=0;return 1;
     }
     if(r->flags==TOMB_CAMERA_COMBAT) {
         /* CalculateCamera mode 3: higher target, arithmetic (not truncating)
@@ -168,7 +175,7 @@ int tomb_dos_camera_tick(TombDosCamera *c,const TombLevel *l,const TombActor *a,
         int elevation=tomb_word((int)r->elevation+r->pitch),angle=tomb_word((int)a->yaw+r->angle);
         int32_t horizontal=tomb_asr(mul(2560,sn(s,elevation+16384)),14);
         TombCameraPoint ideal={a->x-tomb_asr(mul(horizontal,sn(s,angle)),14),c->target.y+tomb_asr(mul(2560,sn(s,elevation)),14),a->z-tomb_asr(mul(horizontal,sn(s,angle+16384)),14),c->eye.room};
-        if(!tomb_dos_camera_adjust(l,&c->target,&ideal,c->distance_squared,1) || !tomb_dos_camera_move(c,l,ideal,c->fixed?1:8))return 0;
+        if(!tomb_dos_camera_adjust(l,&c->target,&ideal,c->distance_squared,1) || !tomb_dos_camera_move_effects(c,l,ideal,c->fixed?1:8,bounce,random))return 0;
         c->fixed=0;return 1;
     }
     int fixed=r->fixed_index>=0 && (size_t)r->fixed_index<l->camera_count;
@@ -191,5 +198,13 @@ int tomb_dos_camera_tick(TombDosCamera *c,const TombLevel *l,const TombActor *a,
         if(!tomb_dos_camera_adjust(l,&c->target,&ideal,c->distance_squared,heavy))return 0;
         if(!transition)speed=12;
     }
-    if(!tomb_dos_camera_move(c,l,ideal,speed))return 0;c->fixed=item;return 1;
+    if(!tomb_dos_camera_move_effects(c,l,ideal,speed,bounce,random))return 0;c->fixed=item;return 1;
+}
+
+int tomb_dos_camera_move(TombDosCamera *c,const TombLevel *l,TombCameraPoint ideal,int speed){return tomb_dos_camera_move_effects(c,l,ideal,speed,NULL,NULL);}
+int tomb_dos_camera_tick(TombDosCamera *c,const TombLevel *l,const TombActor *a,const int16_t b[6],const int16_t *s,const TombCameraRequest *r){return tomb_dos_camera_tick_effects(c,l,a,b,s,r,NULL,NULL);}
+int tomb_dos_camera_stomp(const TombCameraPoint *eye,const TombActor *a,int previous){
+    int64_t x=(int64_t)a->x-eye->x,y=(int64_t)a->y-eye->y,z=(int64_t)a->z-eye->z;
+    if(llabs(x)>=16384 || llabs(y)>=16384 || llabs(z)>=16384)return previous;
+    return (int)((1048576-(x*x+y*y+z*z)/256)*100/1048576);
 }

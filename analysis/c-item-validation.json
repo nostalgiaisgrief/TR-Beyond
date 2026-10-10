@@ -30,20 +30,20 @@
   ],
   "height_queries_per_build": 18084,
   "combined_queries_per_build": 2027,
-  "seconds": 5.94,
+  "seconds": 6.16,
   "limits": "Seven recovered callback IDs. Runtime states are controlled fixtures, not reconstructed initialization or object control. Other object types remain marked unresolved in C. No door sector mutation, triggers, or full-game equivalence claimed.",
   "builds": [
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
-      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+      "sha256": "9270362beed5ccd3916400760c5dcbe8952602b88fe01556c638b0df23b95652"
     },
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
-      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+      "sha256": "93fcb07c919b4f6d3fad77d5188cd45dfb7cf9d1be0b1efc4d5cd9b01d6a8eed"
     }
   ],
   "sources": {
-    "src\\item_height.c": "028fcf43cad2ea5105d2dcce6e398c2d4d9929756e22ff6b523af5c2d9919553",
+    "src\\item_height.c": "56e58366ce4f00f291d7a3921f01757a528c8127274aa103d27871c9710325dc",
     "src\\geometry.c": "22fb0ec306d0fc6a864ba01fada5daaa53dc8569485780fe8f92fc102ab58f9d",
     "src\\terrain.c": "d5f38d24dc0f2474f7e69d7e7507db9ba7d912813526eac8acb340c76db8bc9b",
     "src\\level.c": "8f25a8b3a658858418e68481f5b09875b349d8086f33bf07e5d7772c8c5cb780",

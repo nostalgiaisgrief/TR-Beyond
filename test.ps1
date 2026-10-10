@@ -154,3 +154,25 @@ if ($LASTEXITCODE -ne 0) { throw 'DOS front-end validation failed' }
 
 & $Python (Join-Path $PSScriptRoot 'tests\compare_dialog.py')
 if ($LASTEXITCODE -ne 0) { throw 'DOS dialog layout validation failed' }
+
+& $Python (Join-Path $PSScriptRoot 'tests\compare_shotgun.py')
+if ($LASTEXITCODE -ne 0) { throw 'DOS shotgun validation failed' }
+
+& $Python (Join-Path $PSScriptRoot 'tests\compare_shotgun_ray.py')
+if ($LASTEXITCODE -ne 0) { throw 'DOS shotgun ray validation failed' }
+
+& $Python (Join-Path $PSScriptRoot 'tests\compare_shotgun_targeting.py')
+if ($LASTEXITCODE -ne 0) { throw 'DOS shotgun targeting validation failed' }
+
+foreach ($comparison in @('compare_creatures.py','compare_navigation.py','compare_creature_move.py','compare_combat.py')) {
+    & $Python (Join-Path $PSScriptRoot "tests\$comparison") LEVEL3A
+    if ($LASTEXITCODE -ne 0) { throw "Valley DOS comparison failed: $comparison" }
+}
+& $Python (Join-Path $PSScriptRoot 'tests\compare_valley_effects.py')
+if ($LASTEXITCODE -ne 0) { throw 'Valley stomp/camera DOS comparison failed' }
+
+& $Python (Join-Path $PSScriptRoot 'tests\compare_lighting.py') --dll (Join-Path $PSScriptRoot 'build\step_test.dll') (Join-Path $PSScriptRoot 'build\step_test_debug.dll')
+if ($LASTEXITCODE -ne 0) { throw 'DOS model lighting validation failed' }
+
+& $Python (Join-Path $PSScriptRoot 'tests\compare_peru.py')
+if ($LASTEXITCODE -ne 0) { throw 'Peru controllers and room flips DOS comparison failed' }

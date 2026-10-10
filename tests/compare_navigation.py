@@ -19,11 +19,12 @@ def check_navigation(o,n,count):
         assert getattr(n,name)==val,(name,getattr(n,name),val)
     assert C.string_at(n.nodes,count*8)==bytes(o.uc.mem_read(NODES,count*8)),'nodes'
 def main():
-    f=parse(ROOT/'work/reference-assets/DATA/LEVEL1.PHD');o=ObjectOracle();o.install(f);results=[]
+    level_name=sys.argv[1] if len(sys.argv)>1 else 'LEVEL1';report='valley-navigation' if level_name=='LEVEL3A' else 'navigation'
+    f=parse(ROOT/'work/reference-assets/DATA'/f'{level_name}.PHD');o=ObjectOracle();o.instruction_limit=100000;o.install(f);results=[]
     o.uc.hook_add(UC_HOOK_CODE,lambda u,a,size,data:o.ret(DATA+128),begin=0x1d4b8,end=0x1d4b8)
     o.write(DATA+128+4,-762,2);o.write(0xce960,ITEM,4)
     for suffix in ('','_debug'):
-        rng=random.Random(19961015);d=bind(ROOT/'build'/f'step_test{suffix}.dll');err=C.create_string_buffer(256);l=d.tomb_level_load(str(ROOT/'work/reference-assets/DATA/LEVEL1.PHD').encode(),err,256);lv=l.contents;install_navigation(o,lv)
+        rng=random.Random(19961015);d=bind(ROOT/'build'/f'step_test{suffix}.dll');err=C.create_string_buffer(256);l=d.tomb_level_load(str(ROOT/'work/reference-assets/DATA'/f'{level_name}.PHD').encode(),err,256);lv=l.contents;install_navigation(o,lv)
         d.tomb_navigation_init.argtypes=[C.POINTER(Navigation),C.POINTER(Level),C.POINTER(Actor),C.c_int]
         d.tomb_navigation_free.argtypes=[C.POINTER(Navigation)]
         d.tomb_navigation_target_box.argtypes=[C.POINTER(Navigation),C.POINTER(Level),C.c_int,C.POINTER(C.c_uint32)]
@@ -32,7 +33,7 @@ def main():
         d.tomb_creature_info.argtypes=[C.POINTER(Info),C.POINTER(Creature),C.POINTER(Navigation),C.POINTER(Level),C.POINTER(Actor),C.c_int,C.POINTER(Actor),C.POINTER(I16)]
         d.tomb_creature_mood.argtypes=[C.POINTER(Creature),C.POINTER(Navigation),C.POINTER(Level),C.POINTER(Actor),C.c_int,C.POINTER(Info),C.POINTER(Actor),I16,C.c_int,I16,C.POINTER(C.c_uint32)]
         cases=0;moods=0
-        for it in [it for it in f['items'] if it[0] in (7,8,9)]:
+        for it in [it for it in f['items'] if it[0] in (7,8,9,18,19)]:
             a=Actor(it[2],it[3],it[4],0,0,0,0,0,0,it[5],it[1],35);n=Navigation();assert d.tomb_navigation_init(C.byref(n),l,C.byref(a),it[0])
             box=d.tomb_navigation_box(l,C.byref(a));put_navigation(o,n,lv.box_count)
             seed=C.c_uint32(0xdeadbeef);o.write(0xc19a4,seed.value,4)
@@ -49,10 +50,10 @@ def main():
                 if d.tomb_navigation_box(l,C.byref(lara))<0:continue
                 a.yaw=rng.randrange(-32768,32768);a.flags=35|rng.choice([0,16]);c=Creature();c.mood=rng.randrange(4)
                 o.put_object(Object(a,0,0,it[0],1));o.put(ITEM,lara,ACTOR);o.write(ITEM+0x22,1000,2);o.write(ITEMS+0x2c,LOT-11,4);o.write(LOT-1,c.mood,1);o.write(0xce96e,0,2)
-                for off,val in [(40,375 if it[0]==7 else 500 if it[0]==8 else 0),(44,8192 if it[0]==7 else 16384 if it[0]==8 else 1024)]:o.write(0xcc060+it[0]*50+off,val,2)
+                for off,val in [(40,{7:375,8:500,18:2000,19:400}.get(it[0],0)),(44,{7:8192,8:16384,18:32767,19:16384}.get(it[0],1024))]:o.write(0xcc060+it[0]*50+off,val,2)
                 info=Info();o.call(0x11674,ITEMS,DATA,0,0);d.tomb_creature_info(C.byref(info),C.byref(c),C.byref(n),l,C.byref(a),it[0],C.byref(lara),o.sine)
                 assert bytes(info)==bytes(o.uc.mem_read(DATA,20)),('info',it,tick,state(info),state(Info.from_buffer_copy(o.uc.mem_read(DATA,20))))
-                o.call(0x11eb4,ITEMS,DATA,int(it[0]==8),0);d.tomb_creature_mood(C.byref(c),C.byref(n),l,C.byref(a),it[0],C.byref(info),C.byref(lara),1000,0,-762,C.byref(seed))
+                o.call(0x11eb4,ITEMS,DATA,int(it[0] in (8,18,19)),0);d.tomb_creature_mood(C.byref(c),C.byref(n),l,C.byref(a),it[0],C.byref(info),C.byref(lara),1000,0,-762,C.byref(seed))
                 assert c.mood==o.read(LOT-1,1),('mood',it,tick,c.mood,o.read(LOT-1,1))
                 check_navigation(o,n,lv.box_count)
                 assert (c.target_x,c.target_y,c.target_z)==struct.unpack('<3i',o.uc.mem_read(LOT+36,12)),('mood target',it,tick)
@@ -60,5 +61,5 @@ def main():
                 moods+=1
             d.tomb_navigation_free(C.byref(n))
         d.tomb_level_free(l);results.append(dict(build=suffix or 'release',search_and_target_ticks=cases,info_and_mood_ticks=moods))
-    (ROOT/'analysis/navigation-validation.json').write_text(json.dumps(results,indent=2)+'\n');print('PASS: DOS LOT navigation',results)
+    (ROOT/'analysis'/f'{report}-validation.json').write_text(json.dumps(results,indent=2)+'\n');print('PASS: DOS LOT navigation',results)
 if __name__=='__main__':main()

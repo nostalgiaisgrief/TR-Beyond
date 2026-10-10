@@ -9,10 +9,12 @@ original experience.
 
 ## Current State
 
-**Playtest 26** includes substantial gameplay in Lara's Home, Caves and City of
-Vilcabamba, with inventory, menus, save/load, sound effects and CD music. All
-15 campaign levels can be selected, but later-level gameplay is unfinished.
-Full Caves/City playthrough comparisons against DOS remain pending. Detailed
+**Development playtest 35** includes substantial gameplay in Lara's Home, Caves and City of
+Vilcabamba, Lost Valley's enemies and cog machinery, and Tomb of Qualopec's puzzles,
+hazards, Scion escape and Larson encounter. Pistols and shotgun combat,
+DOS-derived model lighting, interpolated movement, inventory, menus, save/load, sound effects and CD music are available. New Game offers all
+15 campaign levels and Lara's Home, but later-level gameplay is unfinished.
+Full playthrough comparisons against DOS and Qualopec's ending cinematic remain pending. Detailed
 development notes are in [HISTORY.MD](HISTORY.MD).
 
 ## Installation Instructions
@@ -41,6 +43,8 @@ See [CAVES-PLAYTEST.txt](CAVES-PLAYTEST.txt) for controls and current limitation
 
 ### Source
 
+Current source builds require a graphics driver with OpenGL 2.0 support.
+
 1. Clone or download this repository and install Python 3.
 2. Extract Zig 0.15.2 for Windows x86-64 so its executable is at `work/toolchain/zig-x86_64-windows-0.15.2/zig.exe`.
 3. From the repository root, run the asset-import command in the Release instructions above. No Python packages are needed for asset import.
@@ -65,7 +69,7 @@ Checked milestones indicate implemented features; complete game-wide DOS fidelit
 - [x] Lara's Home tutorial triggers, speech, completion and death/reset.
 - [x] Native sound effects, inventory sounds and level CD music.
 - [x] Caves switches, doors, bridges, collapsing floors and dart traps.
-- [x] Pistol combat and wolf, bear and bat behaviour.
+- [x] Pistol and shotgun combat; wolf, bear and bat behaviour.
 - [x] Pickups, healing, secrets, statistics and Caves-to-City progression.
 - [x] Original font, inventory ring, compass and gameplay HUD.
 - [x] City push/pull blocks, underwater switches and trapdoors.
@@ -77,7 +81,10 @@ Checked milestones indicate implemented features; complete game-wide DOS fidelit
 - [ ] Complete Lara's Home, Caves and City playthrough comparisons against DOS.
 - [ ] Finish interface visual validation and DOS control preset switching.
 - [ ] Implement intro FMVs, cinematic sequences and title attract demos.
-- [ ] Complete Lost Valley enemies, objects, puzzles and progression.
+- [x] Lost Valley wolves, raptors and T. rex, including attacks and death animations.
+- [x] Lost Valley cog machinery, water-diversion room swaps and Qualopec progression.
+- [x] Qualopec moving pillars, boulder, falling ceilings, mummies, Larson and Scion escape.
+- [ ] Complete Valley/Qualopec route comparisons and Qualopec's ending cinematic/onward progression.
 - [ ] Complete the remaining campaign levels and their gameplay systems.
 - [ ] Finish whole-game fidelity checks, regression coverage and DOS detail behaviour.
 - [ ] Provide a streamlined installation and release process.

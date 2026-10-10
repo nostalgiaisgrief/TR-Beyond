@@ -58,10 +58,10 @@ def parse(path):
     for _ in range(read('H')[0]):
         x,z,bottom,top=read('4i'); skip(read('I')[0]*2); skip(read('H')[0]*32)
         nz,nx=read('HH'); sector_offset=offset; sectors=[read('HHBbBb') for _ in range(nx*nz)]
-        skip(2); skip(read('H')[0]*18)
+        ambient=read('h')[0]; lights=[read('iiihi') for _ in range(read('H')[0])]
         static_offset=offset+2; statics=[read('iiiHHH') for _ in range(read('H')[0])]; alternate,flags=read('hh')
         rooms.append(dict(x=x,z=z,bottom=bottom,top=top,nz=nz,nx=nx,sectors=sectors,
-                          sector_offset=sector_offset,alternate=alternate,flags=flags,statics=statics,static_offset=static_offset))
+                          ambient=ambient,lights=lights,sector_offset=sector_offset,alternate=alternate,flags=flags,statics=statics,static_offset=static_offset))
     sections={}
     for name,width in [('floor',2),('mesh',2),('meshptr',4),('animations',32),('changes',6),('ranges',8),('commands',2)]:
         n=read('I')[0]; sections[name]=dict(count=n,offset=offset,bytes=data[offset:offset+n*width]); skip(n*width)
@@ -148,7 +148,7 @@ class GeometryOracle(Oracle):
         for reg,value in [(UC_X86_REG_EAX,eax),(UC_X86_REG_EDX,edx),(UC_X86_REG_EBX,ebx),
                           (UC_X86_REG_ECX,ecx),(UC_X86_REG_ESP,STACK+0x800),(UC_X86_REG_EFLAGS,2)]:
             self.uc.reg_write(reg,value&0xffffffff)
-        self.bad=[]; self.uc.emu_start(fn,RETURN,count=10000)
+        self.bad=[]; self.uc.emu_start(fn,RETURN,count=getattr(self,'instruction_limit',10000))
         assert self.uc.reg_read(UC_X86_REG_EIP)==RETURN and self.uc.reg_read(UC_X86_REG_ESP)==STACK+0x804
         assert not self.bad,self.bad
         return self.uc.reg_read(UC_X86_REG_EAX)

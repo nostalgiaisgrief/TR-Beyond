@@ -16,6 +16,6 @@ typedef struct TombCreatureDecision { int16_t damage,turn,tilt,blood; } TombCrea
 /* Species controllers with AIInfo/Mood/Turn service results supplied explicitly.
    Their state changes, random calls, damage and head/tilt rules are original. */
 TOMB_EXPORT TombCreatureDecision tomb_creature_control(TombObject *,TombCreature *,
-    const TombCreatureInfo *,int16_t turn,int16_t lara_health,uint32_t *,const TombAnimContext *);
+    const TombCreatureInfo *,int16_t turn,int16_t lara_health,uint32_t *,const TombAnimContext *,int animation_base);
 TOMB_EXPORT int16_t tomb_creature_turn(TombActor *,const TombCreature *,int16_t maximum);
 #endif

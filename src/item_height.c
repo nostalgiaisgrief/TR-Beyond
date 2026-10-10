@@ -23,6 +23,7 @@ int tomb_item_height(const TombItem *a,int32_t x,int32_t y,int32_t z,int ceiling
     if(!a || !height || (ceiling!=0 && ceiling!=1)) return 0;
     int32_t surface=a->y;
     switch(a->object) {
+    case 18: case 19: case 24: case 27: case 37: case 38: case 52: case 53: case 74: case 75: case 76: case 143:
     case 36: case 110: case 129: case 118: case 122: case 137: case 48: case 56: case 7: case 8: case 9: case 39: case 40: case 55: case 57: case 58: case 59: case 60: case 61: case 62: case 63: case 64:
         return 1; /* Verified null height callbacks; doors mutate sectors. */
     case 35:

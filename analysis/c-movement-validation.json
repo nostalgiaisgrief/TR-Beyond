@@ -24,22 +24,22 @@
   "executables": [
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\movement_test.exe",
-      "sha256": "d7648dabdf32987b4709a74ee9c46ad664718643373ed836c65768e99dc47a2e",
+      "sha256": "d9f4e9ae2b9f72ab47336949576e1019ac22583036922f529755b68337da801d",
       "matched": 111605
     },
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\movement_test_debug.exe",
-      "sha256": "3b5b117ceb8ca6af15d4e7205f3ff7a3bf3a94eeed21ea057e153b43080b33ab",
+      "sha256": "c3f3def42d0e49d753cbc552c9572364b73cc9f0436b8d26bd5781879fdba9bb",
       "matched": 111605
     }
   ],
   "seed": 19961105,
-  "elapsed_seconds": 5.62,
+  "elapsed_seconds": 5.5,
   "scope": "Isolated control handlers and all represented fields; original memory writes checked. No full gameplay, animation, damping, collision, renderer or audio.",
   "source_sha256": {
-    "src\\movement.c": "13ba62206b87ce7a8a6604a67a98b22983926b02980ef3eff975101fb862c1b8",
-    "src\\movement.h": "d9e04381521de48c0cf066065a1b8a02b75e17c09af6f21841caa80731756f59",
-    "tests\\movement_runner.c": "be43640c1754fd00a299b93ec38ecb8e35eccf6acaaea930e08877d7ead94063",
-    "tests\\compare_original.py": "2f30db69da6ee416ef13e6988febe29a01309ef499e947faf4e2a80ab92850c6"
+    "src\\movement.c": "ab2742f42e243f576a6c2fa866d08a2a2b9c56c7fcecfaa2af1a1358ef37a14d",
+    "src\\movement.h": "fd0c9a76f611eeb6c20c0480e65e3b9e10baf29bd7d56a5f899c9acae274b5d9",
+    "tests\\movement_runner.c": "c7df42eedcff06b47f813b781991b31cceb82719bc4a116268e196201b74660b",
+    "tests\\compare_original.py": "eabb90e035afa4a357560e0b5be97c17f80523df6c10bd91f6e3d5adc00a7caa"
   }
 }

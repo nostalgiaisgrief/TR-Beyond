@@ -12,7 +12,7 @@ class DoorPart(C.Structure):
 class Door(C.Structure):
     _fields_=[('parts',DoorPart*4),('count',C.c_uint),('open',C.c_int)]
 class Objects(C.Structure):
-    _fields_=[('level',C.POINTER(Level)),('visual',C.c_void_p),('items',C.POINTER(Object)),('doors',C.POINTER(Door)),('box_overlap',C.POINTER(C.c_uint16)),('count',SZ),('deferred_actions',C.c_uint),('camera',C.c_int*6),('camera_once',U8*128),('hazards',C.c_void_p),('enemies',C.c_void_p),('progress',C.c_void_p),('last_target',C.c_int)]
+    _fields_=[('level',C.POINTER(Level)),('visual',C.c_void_p),('items',C.POINTER(Object)),('doors',C.POINTER(Door)),('box_overlap',C.POINTER(C.c_uint16)),('count',SZ),('deferred_actions',C.c_uint),('camera',C.c_int*6),('camera_once',U8*128),('hazards',C.c_void_p),('enemies',C.c_void_p),('progress',C.c_void_p),('last_target',C.c_int),('peru',C.c_void_p)]
 BOXES=0x7a0000
 DOORS=0x7b0000
 class ObjectOracle(GeometryOracle):

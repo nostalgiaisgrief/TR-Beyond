@@ -1,6 +1,24 @@
 # Reconstruction roadmap
 
-## Current status after playtest 24
+## Current status after playtest 35
+
+Lost Valley's creatures, three-cog machinery, water-diversion room swaps and
+transition into Tomb of Qualopec are implemented. Qualopec's moving pillars,
+boulder, falling ceilings, spikes, mummies, Larson and Scion escape are
+implemented. Release/debug component and integration checks pass; full DOS
+route acceptance is still pending.
+
+Next remaining Peru work:
+
+1. Compare complete Valley and Qualopec playthroughs with DOS, including timing,
+   collision edge cases, camera cuts, secrets and audio.
+2. Reconstruct water-current trigger forces; room water-state swaps are present.
+3. Add Qualopec's ending cinematic and progression into St. Francis' Folly.
+
+Lighting and render interpolation are implemented, preserving 30 Hz gameplay.
+New Game offers every original campaign level and Lara's Home.
+
+## Historical status after playtest 24
 
 Interface layout pass completed in playtest 24: original dialog baselines,
 panel dimensions, bevel borders, volume glyphs, two-column controls and
@@ -12,14 +30,14 @@ Playtest 22 added fixed vertical framing; 23 added 4:3 startup and Alt+Enter.
 
 ### Campaign and frontend status
 
-1. **Full Caves/City DOS route comparison — still pending acceptance.**
+1. **Full Caves/City DOS route comparison â€” still pending acceptance.**
    All 252 referenced trigger lists audited; existing DOS component and native
    gameplay checks pass. This is not an uninterrupted side-by-side traversal.
 2. **Title/options - implemented; layout pass verified in playtest 24.** Original
    title art/models/music, option ring, sound levels and key configuration.
    Modern detail settings select rendering resolution. Development level picker
    remains in Choose-level.cmd. Intro FMVs and attract demos remain outstanding.
-3. **Passport/save/load — implemented and tested.** Original animated pages,
+3. **Passport/save/load â€” implemented and tested.** Original animated pages,
    sixteen slots, cross-level loading and gameplay-state restoration. Saves use
    a versioned reconstruction format, not the DOS save-file format.
 4. **Death/restart and interface - core flow and layout pass verified.** DOS death timing and passport flow, original light-map inventory
@@ -88,7 +106,7 @@ gameplay and feel. Use a new C implementation; TRX is reference only.
 
    Sliding is now connected for the Caves movement test, with direct DOS comparisons.
 
-6. **DOS chase/swimming/fixed cameras — implemented and compared.** Original
+6. **DOS chase/swimming/fixed cameras â€” implemented and compared.** Original
    position/target rules, integer smoothing, object-height callbacks, projection
    and shot transitions. Render interpolation preserves immediate cuts. Combat camera is now connected and compared. Look and cinematic modes
    accompany their later gameplay features.

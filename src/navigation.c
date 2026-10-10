@@ -24,6 +24,7 @@ int tomb_navigation_init(TombNavigation *n,const TombLevel *l,const TombActor *a
     memset(n,0,sizeof *n);n->nodes=calloc(l->box_count+1,sizeof *n->nodes);if(!n->nodes)return 0;
     n->head=n->tail=n->target_box=n->required_box=-1;n->block=0x4000;n->step=256;n->drop=object==7?-1024:-256;
     if(object==9){n->step=20480;n->drop=-20480;n->fly=16;}
+    if(object==18)n->block=0x8000;
     int box=tomb_navigation_box(l,a);if(box<0){tomb_navigation_free(n);return 0;}
     const int16_t *z=zone(n,l),*alt=z+3*l->box_count;
     for(size_t i=0;i<l->box_count;i++){n->nodes[i].exit=n->nodes[i].next=-1;if(z[i]==z[box] || alt[i]==alt[box])n->nodes[n->zone_count++].zone_box=(int16_t)i;}
@@ -113,7 +114,7 @@ void tomb_creature_info(TombCreatureInfo *i,const TombCreature *c,const TombNavi
     int box=tomb_navigation_box(l,a),enemy=tomb_navigation_box(l,lara);const int16_t *z=zone(n,l);
     memset(i,0,sizeof *i);i->zone=valid(l,box)?z[box]:-1;i->enemy_zone=valid(l,enemy)?z[enemy]:-2;
     if((valid(l,enemy) && (l->boxes[enemy].overlap&n->block)) || (valid(l,box) && n->nodes[box].search==(uint16_t)(n->search|0x8000)))i->enemy_zone|=0x4000;
-    int pivot=object==7?375:object==8?500:0;
+    int pivot=object==7?375:object==8?500:object==18?2000:object==19?400:0;
     int32_t dx=lara->x-a->x-tomb_asr(pivot*tomb_hazard_sine(sine,a->yaw),14),dz=lara->z-a->z-tomb_asr(pivot*tomb_hazard_sine(sine,a->yaw+16384),14);
     int angle=tomb_object_angle(dz,dx);i->distance=tomb_long((int64_t)dx*dx+(int64_t)dz*dz);
     i->angle=tomb_word(angle-a->yaw);i->enemy_facing=tomb_word(angle-32768-lara->yaw);
@@ -146,7 +147,7 @@ void tomb_creature_mood(TombCreature *c,TombNavigation *n,const TombLevel *l,con
     if(c->mood!=1 && n->required_box!=-1 && !valid_box(n,l,a,i->zone,n->target_box)){if(i->zone==i->enemy_zone)c->mood=0;n->required_box=-1;}
     int old=c->mood,same=i->zone==i->enemy_zone;
     if(lara_health<=0)c->mood=0;
-    else if(object==8) {
+    else if(object==8 || object==18 || object==19) {
         if(c->mood==1){if(!same)c->mood=0;}
         else if(c->mood==0 || c->mood==3){if(same)c->mood=1;else if(a->flags&16)c->mood=2;}
         else if(c->mood==2 && same)c->mood=1;
@@ -159,7 +160,7 @@ void tomb_creature_mood(TombCreature *c,TombNavigation *n,const TombLevel *l,con
     if(old!=c->mood){if(old==1)tomb_navigation_target_box(n,l,n->target_box,r);n->required_box=-1;}
     int choice;
     switch(c->mood) {
-    case 1:if(tomb_control_random(r)<(unsigned)(object==7?8192:object==8?16384:1024)) {
+    case 1:if(tomb_control_random(r)<(unsigned)(object==7?8192:object==18?32767:object==8 || object==19?16384:1024)) {
         n->x=lara->x;n->y=lara->y;n->z=lara->z;n->required_box=(int16_t)enemy;
         if(n->fly && !water)n->y+=lara_top;
         }break;

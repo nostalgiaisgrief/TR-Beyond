@@ -99,21 +99,21 @@
       "sha256": "75306547c82d8e142f6dc80d85703d1fd5a5871071e4d04233660347865d26c7"
     }
   ],
-  "seconds": 0.19,
+  "seconds": 0.17,
   "limits": "Visual views and local pose keys, not interpolated skeletons or rendered pixels. Mesh selection checked against original 0x29070 for unarmed standard/gym profiles only.",
   "builds": [
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
-      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+      "sha256": "9270362beed5ccd3916400760c5dcbe8952602b88fe01556c638b0df23b95652"
     },
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
-      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+      "sha256": "93fcb07c919b4f6d3fad77d5188cd45dfb7cf9d1be0b1efc4d5cd9b01d6a8eed"
     }
   ],
   "sources": {
-    "src\\visual.c": "71ce68e4689c4362f3aa7cb7a3c73b0bb167c9aee0113c37274687db2d219793",
-    "src\\visual.h": "69e42c7810b62971ddeee3312627a90a5fb47aa72d725926ff5b661a0f291b4f",
-    "tests\\compare_visual.py": "cc048408445e4ade883af5e3a49412f0645122234bf78dae5d9681638b9e3c00"
+    "src\\visual.c": "dc06e1ffaf481840b0001504efcbd748e2e6475f0a8974bff9b67b95096bb3f3",
+    "src\\visual.h": "7cc84f3f83734c5811b7692c67eb226be47ce05240bed4955524385e8910fbf2",
+    "tests\\compare_visual.py": "72b5caba6cd84bae36171de9632206a9919bd9241233bc1dbe048b278bf2a67b"
   }
 }

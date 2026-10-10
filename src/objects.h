@@ -31,6 +31,7 @@ typedef struct TombObjects {
     struct TombEnemies *enemies;
     struct TombProgress *progress;
     int last_target;
+    struct TombPeru *peru;
 } TombObjects;
 TOMB_EXPORT int tomb_object_supported(int);
 TOMB_EXPORT int tomb_trigger_active(TombObject *);

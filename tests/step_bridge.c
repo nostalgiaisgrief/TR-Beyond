@@ -1,6 +1,10 @@
 #include "step.h"
 #include "combat.h"
 #include "playtest.h"
+TOMB_EXPORT void tomb_test_shotgun_target(TombObjects *w,TombLaraStart *lara,TombPistols *guns,const int16_t *sine,int action) {
+    TombPlaytest p={0};p.level=w->level;p.visual=w->visual;p.objects=w;p.lara=*lara;p.pistols=*guns;p.animation.sine_quarter=sine;p.weapon_type=4;
+    tomb_combat_target(&p,action);*guns=p.pistols;
+}
 TOMB_EXPORT void tomb_test_target(TombObjects *w,TombLaraStart *lara,TombPistols *guns,const int16_t *sine,int action) {
     TombPlaytest p={0};p.level=w->level;p.visual=w->visual;p.objects=w;p.lara=*lara;p.pistols=*guns;p.animation.sine_quarter=sine;
     tomb_combat_target(&p,action);*guns=p.pistols;

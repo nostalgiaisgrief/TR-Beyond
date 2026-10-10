@@ -350,3 +350,54 @@ compare_look.py executes DOS surface-look and release blocks; compare_dos_camera
 includes complete look-camera updates and transitions. Native playtest/combat
 checks cover full roll recovery, look limits/release, surface tread, and armed
 versus holstered integration. Win32 input tests include W and Num0/Insert scan codes.
+
+Valley (playtest 30): compare_creatures.py, compare_navigation.py,
+compare_creature_move.py and compare_combat.py accept LEVEL3A to test the loaded
+wolf/raptor/T. rex animation bases and original DOS controllers. The default
+Caves cases remain in the suite. compare_valley_effects.py checks stomp strength
+and positive/negative camera bounce against DOS, including RNG consumption.
+valley_enemies_test.c exercises every placed creature through activation,
+movement and death, both weapons against all three species, attacks and save
+continuation through the T. rex fatal bite. Renderer fixtures --level 3
+--combat-test 4/5/6 capture raptor/T. rex/fatal bite with --simulate and --capture.
+
+Lighting (playtest 31): compare_lighting.py --dll build/step_test.dll
+build/step_test_debug.dll compares room sampling, fog, signed normal lighting
+and baked mesh shades with DOS routines. It also verifies loaded room-light
+records in Gym, Caves, City and Valley. The renderer's --lighting-test runs
+8192 palette checks and indexed-texture/transparency checks on the active GPU.
+Use --level to exercise different level palettes.
+
+Playtest 32 extends --lighting-test with 93 constant-shade perspective quads:
+all 31 interior palette boundaries and one integer shade on either side.
+This catches interpolation noise that row-centre tests miss. A deliberately
+single, non-overlapping face isolates the test from depth/portal issues.
+
+Interpolation (playtest 33): render_interpolation_test.c checks rigid joint
+hierarchies, shortest rotations, exact endpoints, subframe camera alignment,
+room crossings, mesh replacement, missing ticks and teleports. The preview's
+--interpolation-test executes 80 gameplay ticks with read-only snapshots and
+renders multiple fractions, including weapon poses, checking player/item state
+for unintended mutation. Add --capture to inspect its last rendered subframe.
+Both checks run from build-preview.ps1; Gym, Caves, City and Valley are included
+in the live release/debug checks. Other levels accept --level with the same test.
+
+Playtest 34 adds levels 12 and 13 to the live interpolation suite. Natla's
+Mines must activate its real start-camera trigger and preserve target history.
+Both levels also exercise fixed-shot tracking, item-target cuts and chase
+return, checking that render endpoint changes do not change camera simulation
+state. The Natla regression failed before the fix at tick 1, target Y.
+
+Peru gameplay (playtest 35): compare_peru.py runs the original Larson and
+mummy controllers and flip-trigger decisions against release/debug DLLs.
+LOS and effect allocation are controlled services in that comparison.
+tools/test-peru.ps1 builds peru_test.c against the native runtime and checks
+both actual levels: cog pickups/insertion, gear masks, room swaps, pillars,
+Scion collection and escape, ceiling traps, boulder travel, enemy combat and
+flipped save/load. Moving pillars must not regain an occupied floor during
+a room swap. Scion inventory and ring descriptors also have DOS comparisons.
+
+The preview's --level 3/4 --peru-test renders the flipped levels and Scion
+sequence. --level 3 --transition-test exercises the actual Valley exit and
+Qualopec continuation. Both are included in build-preview.ps1. These fixtures
+do not constitute complete uninterrupted level playthroughs.

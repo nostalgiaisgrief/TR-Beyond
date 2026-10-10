@@ -4,7 +4,7 @@
 #include "object_contact.h"
 #include <stdlib.h>
 int tomb_combat_fixture(TombPlaytest *p,TombObjects *w,const int16_t *s,int species) {
-    if(species<7 || species>9)return -1;
+    if(!tomb_enemy_object(species))return -1;
     tomb_objects_reset(w);if(!tomb_playtest_init(p,w->level,s,w->visual))return -1;
     p->objects=w;p->movement_only=1;
     for(size_t id=0;id<w->count;id++) {

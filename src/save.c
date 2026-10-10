@@ -7,14 +7,15 @@
 #include "enemies.h"
 #include "hazards.h"
 #include "progression.h"
+#include "peru.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #define SAVE_LIMIT (16u*1024u*1024u)
 typedef struct Header { char magic[8]; uint32_t version,layout,level,level_hash,bytes,checksum; } Header;
-typedef struct Stream { unsigned char *data; size_t at,size; int mode,ok; } Stream;
+typedef struct Stream { unsigned char *data; size_t at,size; int mode,ok,version; } Stream;
 static uint32_t hash(const void *data,size_t n){const unsigned char *p=data;uint32_t h=2166136261u;while(n--)h=(h^*p++)*16777619u;return h;}
-static uint32_t layout(void){const size_t sizes[]={sizeof(TombPlaytest),sizeof(TombLaraStart),sizeof(TombMovement),sizeof(TombObject),sizeof(TombDoor),sizeof(TombCreature),sizeof(TombNavigation),sizeof(TombHazards),sizeof(TombProgress),sizeof(TombFollowCamera),sizeof(TombInventory)};return hash(sizes,sizeof sizes);}
+static uint32_t layout(int version){const size_t sizes[]={sizeof(TombPlaytest)-(version==1?2*sizeof(int):0),sizeof(TombLaraStart),sizeof(TombMovement),sizeof(TombObject),sizeof(TombDoor),sizeof(TombCreature),sizeof(TombNavigation),sizeof(TombHazards),sizeof(TombProgress),sizeof(TombFollowCamera),sizeof(TombInventory)};return hash(sizes,sizeof sizes)^(version>=3?(uint32_t)sizeof(TombPeru):0);}
 static void chunk(Stream *s,void *p,size_t n){if(!s->ok || n>s->size-s->at){s->ok=0;return;}if(s->mode==0)memcpy(s->data+s->at,p,n);else if(s->mode==2)memcpy(p,s->data+s->at,n);s->at+=n;}
 #define FIELD(v,f) chunk(s,&(v)->f,sizeof (v)->f)
 static void state(Stream *s,TombPlaytest *p,TombObjects *w,TombFollowCamera *c,TombInventory *baseline){
@@ -27,7 +28,15 @@ static void state(Stream *s,TombPlaytest *p,TombObjects *w,TombFollowCamera *c,T
  FIELD(p,door_hit_ticks);FIELD(p,door_hit_direction);FIELD(p,blocked);
  FIELD(p,deferred_cd_track);FIELD(p,deferred_camera);FIELD(p,deferred_camera_flags);FIELD(p,requested_camera_angle);
  FIELD(p,camera_request);FIELD(p,pistols);FIELD(p,last_input);FIELD(p,inventory);FIELD(p,hud);FIELD(p,quest_request);FIELD(p,quest_latch);
+ if(s->version>=2){FIELD(p,weapon_type);FIELD(p,requested_weapon);}
  chunk(s,c,sizeof *c);chunk(s,baseline,sizeof *baseline);
+ if(s->version>=3){
+  TombPeru peru=*w->peru;
+  if(s->mode && s->ok && s->size-s->at>=sizeof peru)memcpy(&peru,s->data+s->at,sizeof peru);
+  if(peru.flipped<0 || peru.flipped>1 || peru.scion_item< -1 || (peru.scion_item>=0 && (size_t)peru.scion_item>=w->count)){s->ok=0;return;}
+  if(s->mode==2 && peru.flipped!=w->peru->flipped && !tomb_flip_map(w,0)){s->ok=0;return;}
+  chunk(s,w->peru,sizeof *w->peru);
+ }else if(s->mode==2){if(w->peru->flipped)tomb_flip_map(w,0);memset(w->peru,0,sizeof *w->peru);w->peru->effect=w->peru->scion_item=-1;}
  FIELD(w,deferred_actions);FIELD(w,camera);FIELD(w,camera_once);FIELD(w,last_target);
  chunk(s,w->items,w->count*sizeof *w->items);chunk(s,w->doors,w->count*sizeof *w->doors);
  chunk(s,w->hazards,sizeof *w->hazards);chunk(s,w->progress,sizeof *w->progress);
@@ -49,7 +58,7 @@ static void state(Stream *s,TombPlaytest *p,TombObjects *w,TombFollowCamera *c,T
 #undef FIELD
 static unsigned char *read_file(const char *path,Header *h){
  FILE *f=fopen(path,"rb");if(!f)return NULL;
- if(fread(h,sizeof *h,1,f)!=1 || memcmp(h->magic,"TOMBSV1",8) || h->version!=1 || h->layout!=layout() || h->level<1 || h->level>15 || !h->bytes || h->bytes>SAVE_LIMIT){fclose(f);return NULL;}
+ if(fread(h,sizeof *h,1,f)!=1 || memcmp(h->magic,"TOMBSV1",8) || (h->version!=1 && h->version!=2 && h->version!=3) || h->layout!=layout((int)h->version) || h->level<1 || h->level>15 || !h->bytes || h->bytes>SAVE_LIMIT){fclose(f);return NULL;}
  unsigned char *data=malloc(h->bytes);if(!data){fclose(f);return NULL;}
  int ok=fread(data,1,h->bytes,f)==h->bytes && fgetc(f)==EOF && hash(data,h->bytes)==h->checksum;fclose(f);if(!ok){free(data);return NULL;}return data;
 }
@@ -57,8 +66,8 @@ int tomb_save_level(const char *path){Header h;unsigned char *data=read_file(pat
 int tomb_save_write(const char *path,int number,const TombPlaytest *p,const TombObjects *w,const TombFollowCamera *c,const TombInventory *baseline){
  if(number<1 || number>15 || !p || p->lara.health<=0 || !w || w->progress->complete)return 0;
  unsigned char *data=malloc(SAVE_LIMIT);if(!data)return 0;
- Stream s={data,0,SAVE_LIMIT,0,1};state(&s,(TombPlaytest *)p,(TombObjects *)w,(TombFollowCamera *)c,(TombInventory *)baseline);
- Header h={{'T','O','M','B','S','V','1',0},1,layout(),(uint32_t)number,hash(w->level->file_data,w->level->file_size),(uint32_t)s.at,hash(data,s.at)};
+ Stream s={data,0,SAVE_LIMIT,0,1,3};state(&s,(TombPlaytest *)p,(TombObjects *)w,(TombFollowCamera *)c,(TombInventory *)baseline);
+ Header h={{'T','O','M','B','S','V','1',0},3,layout(3),(uint32_t)number,hash(w->level->file_data,w->level->file_size),(uint32_t)s.at,hash(data,s.at)};
  char temp[MAX_PATH];if(snprintf(temp,sizeof temp,"%s.tmp",path)>=(int)sizeof temp){free(data);return 0;}
  FILE *f=s.ok?fopen(temp,"wb"):NULL;int ok=f && fwrite(&h,sizeof h,1,f)==1 && fwrite(data,1,s.at,f)==s.at;
  if(f && fclose(f))ok=0;free(data);if(ok)ok=MoveFileExA(temp,path,MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)!=0;if(!ok)DeleteFileA(temp);return ok;
@@ -66,11 +75,12 @@ int tomb_save_write(const char *path,int number,const TombPlaytest *p,const Tomb
 int tomb_save_read(const char *path,int number,TombPlaytest *p,TombObjects *w,TombFollowCamera *c,TombInventory *baseline){
  Header h;unsigned char *data=read_file(path,&h);if(!data)return 0;
  if(h.level!=(uint32_t)number || h.level_hash!=hash(w->level->file_data,w->level->file_size)){free(data);return 0;}
- Stream s={data,0,h.bytes,1,1};state(&s,p,w,c,baseline);
+ Stream s={data,0,h.bytes,1,1,(int)h.version};state(&s,p,w,c,baseline);
  if(!s.ok || s.at!=s.size){free(data);return 0;}
  TombNavNode *fresh[8]={0};
  for(int i=0;i<8;i++)if(!w->enemies->navigation[i].nodes){fresh[i]=calloc(w->level->box_count+1,sizeof *fresh[i]);if(!fresh[i]){for(int j=0;j<8;j++)free(fresh[j]);free(data);return 0;}}
  for(int i=0;i<8;i++)if(fresh[i])w->enemies->navigation[i].nodes=fresh[i];
  s.at=0;s.mode=2;state(&s,p,w,c,baseline);free(data);
+ if(h.version==1)p->weapon_type=p->requested_weapon=1;
  p->sound_count=0;p->status="Game loaded";return s.ok;
 }

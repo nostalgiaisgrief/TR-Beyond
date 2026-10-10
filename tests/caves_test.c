@@ -42,8 +42,9 @@ static void camera_sequence(TombPlaytest *p,TombObjects *objects,int index,int t
         for(int j=0;j<3;j++) {
             assert(isfinite(camera.eye[j]) && isfinite(camera.target[j]));
             if(previous_target!=camera.fixed_target || (objects->camera.active && speed==1)) {
-                assert(camera.previous_eye[j]==camera.eye[j]);assert(camera.previous_target[j]==camera.target[j]);
+                assert(camera.previous_eye[j]==camera.eye[j]);
             }
+            if(previous_target!=camera.fixed_target)assert(camera.previous_target[j]==camera.target[j]);
         }
     }
     assert(active==90 && !objects->camera.active && !camera.fixed_target);

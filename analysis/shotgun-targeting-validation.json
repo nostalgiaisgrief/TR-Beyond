@@ -1,0 +1,14 @@
+[
+  {
+    "build": "release",
+    "cases": 2400,
+    "acquired": 201,
+    "retained": 1156
+  },
+  {
+    "build": "_debug",
+    "cases": 2400,
+    "acquired": 201,
+    "retained": 1156
+  }
+]

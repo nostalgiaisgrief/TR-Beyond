@@ -17,4 +17,6 @@ TOMB_EXPORT void tomb_pistols_aim(TombGunArm *,int16_t yaw,int16_t pitch);
 TOMB_EXPORT void tomb_pistols_tick(TombPistols *,int toggle,int action,int alive,int water,
     TombGunFire,TombGunSound,void *);
 TOMB_EXPORT uint32_t tomb_control_random(uint32_t *);
+TOMB_EXPORT void tomb_shotgun_tick(TombPistols *,int toggle,int action,int alive,int water,
+    TombGunFire,TombGunSound,void *);
 #endif

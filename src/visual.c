@@ -47,7 +47,7 @@ static int validate_mesh(const TombVisual *v,const TombMeshView *m)
     return 1;
 }
 void tomb_visual_free(TombVisual *v)
-{ if(v) { free(v->portals); free(v->rooms); free(v->meshes); free(v); } }
+{ if(v) { free(v->lighting); free(v->portals); free(v->rooms); free(v->meshes); free(v); } }
 int tomb_visual_model(const TombVisual *v,uint32_t id,TombModel *out)
 {
     if(!v || !out) return 0;
@@ -105,14 +105,17 @@ TombVisual *tomb_visual_load(const TombLevel *l,char *error,size_t cap)
     v->room_count=count(&r,2); if(r.bad || v->room_count!=l->room_count) goto fail;
     v->rooms=calloc(v->room_count?v->room_count:1,sizeof *v->rooms); if(!v->rooms) goto fail;
     v->portals=calloc(v->room_count?v->room_count:1,sizeof *v->portals);if(!v->portals)goto fail;
+    v->lighting=calloc(v->room_count?v->room_count:1,sizeof *v->lighting);if(!v->lighting)goto fail;
     for(size_t i=0;i<v->room_count;++i) {
         take(&r,1,16); size_t words=count(&r,4); const unsigned char *p=take(&r,words,2); if(!p) goto fail;
         Read data={p,words*2,0,0}; if(!mesh(&data,v->rooms+i,1) || data.at!=data.n) goto fail;
         size_t n=count(&r,2); v->portals[i].count=n;v->portals[i].data=take(&r,n,32);
         if(r.bad)goto fail;
         for(size_t j=0;j<n;j++)if(u16(v->portals[i].data+j*32)>=v->room_count)goto fail;
-        size_t nz=count(&r,2),nx=count(&r,2); take(&r,nz*nx,8); take(&r,1,2);
-        n=count(&r,2); take(&r,n,18); n=count(&r,2); take(&r,n,18); take(&r,1,4);
+        size_t nz=count(&r,2),nx=count(&r,2); take(&r,nz*nx,8);
+        v->lighting[i].ambient=tomb_word(count(&r,2));
+        n=count(&r,2);v->lighting[i].count=n;v->lighting[i].data=take(&r,n,18);
+        n=count(&r,2); take(&r,n,18); take(&r,1,4);
     }
     size_t n=count(&r,4); take(&r,n,2);
     size_t mesh_words=count(&r,4); const unsigned char *mesh_data=take(&r,mesh_words,2);

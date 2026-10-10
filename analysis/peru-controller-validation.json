@@ -1,0 +1,14 @@
+[
+  {
+    "build": "release",
+    "larson_decisions": 8000,
+    "mummy_decisions": 2000,
+    "flip_triggers": 4000
+  },
+  {
+    "build": "_debug",
+    "larson_decisions": 8000,
+    "mummy_decisions": 2000,
+    "flip_triggers": 4000
+  }
+]

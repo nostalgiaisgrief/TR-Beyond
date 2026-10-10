@@ -1,0 +1,15 @@
+{
+  "scope": "DOS target points, vector angles, weapon rays and articulated mesh spheres.\nHitTarget/LOS/ricochet effects are captured at service boundaries for ray tests.\n",
+  "results": [
+    {
+      "build": "release",
+      "target_angle_ray_cases": 2500,
+      "hits": 886
+    },
+    {
+      "build": "_debug",
+      "target_angle_ray_cases": 2500,
+      "hits": 886
+    }
+  ]
+}

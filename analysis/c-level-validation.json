@@ -37,15 +37,15 @@
       "rejected_malformed_prefixes": 16
     }
   ],
-  "seconds": 4.81,
+  "seconds": 4.72,
   "dlls": [
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test.dll",
-      "sha256": "bacd68e4b5e8d6d4a9d8628295a187e1d016d148c501e8d9dc5952eff82f8a4c"
+      "sha256": "9270362beed5ccd3916400760c5dcbe8952602b88fe01556c638b0df23b95652"
     },
     {
       "path": "F:\\Projects\\Codex\\outputs\\tomb-reconstruction\\build\\step_test_debug.dll",
-      "sha256": "89ff443fe9c81f80cf3cead6b93d6ff57407503319a512d8e583764e0495d975"
+      "sha256": "93fcb07c919b4f6d3fad77d5188cd45dfb7cf9d1be0b1efc4d5cd9b01d6a8eed"
     }
   ],
   "limits": "Structural geometry without instantiated object height callbacks; pending object references explicitly flagged. Real animation data with controlled sound/effect services. Full contact classifier, vault, slide and gameplay integration remain pending.",
@@ -53,6 +53,6 @@
     "src\\level.h": "e132ac18eb7332b0a8ed5d3be4979e4b8c0b70f07a2b262cef4891cb30845804",
     "src\\level.c": "8f25a8b3a658858418e68481f5b09875b349d8086f33bf07e5d7772c8c5cb780",
     "src\\geometry.c": "22fb0ec306d0fc6a864ba01fada5daaa53dc8569485780fe8f92fc102ab58f9d",
-    "tests\\compare_level.py": "ea01936749ee48b8f33078a901fdb73c42444d45ecae19d9c31c00ab9c9c0e76"
+    "tests\\compare_level.py": "d97fd73c7b197088072e50f10bc93acfad37386d6c15b27272f9441da68fee7f"
   }
 }

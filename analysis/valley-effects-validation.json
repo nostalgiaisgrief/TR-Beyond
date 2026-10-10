@@ -1,0 +1,12 @@
+[
+  {
+    "build": "release",
+    "stomp_cases": 4000,
+    "bounce_cases": 1000
+  },
+  {
+    "build": "_debug",
+    "stomp_cases": 4000,
+    "bounce_cases": 1000
+  }
+]

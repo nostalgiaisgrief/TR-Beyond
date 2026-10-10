@@ -65,7 +65,7 @@ static int transforms(const TombVisual *v,int object,const TombActor *a,int16_t 
             if(flags&28)return 0;
             translate(&m,tomb_long(u32(tree+4)),tomb_long(u32(tree+8)),tomb_long(u32(tree+12)));
         }
-        angles(&m,pose.rotation[j],s);if((object==7 && j==3) || (object==8 && j==14))rotate(&m,1,head,s);Matrix centre=m;
+        angles(&m,pose.rotation[j],s);if((object==7 && j==3) || (object==8 && j==14) || (object==18 && (j==11 || j==12)) || (object==19 && j==22) || (object==24 && j==3) || (object==27 && j==7))rotate(&m,1,head,s);Matrix centre=m;
         if((int)j==joint) {
             translate(&centre,point[0],point[1],point[2]);
             point[0]=a->x+tomb_asr(centre.m[0][3],14);point[1]=a->y+tomb_asr(centre.m[1][3],14);point[2]=a->z+tomb_asr(centre.m[2][3],14);return 1;
@@ -116,8 +116,8 @@ int tomb_doors_collide(TombObjects *w,TombActor *a,TombContact *c,TombAnimContex
       if(pass){const unsigned char *p=portals->data+32*(pass-1);room=(int)(p[0]|(unsigned)p[1]<<8);}
       for(int next=w->enemies?w->enemies->room_head[room]:(int)w->count-1;next>=0;next=w->enemies?w->enemies->room_next[next]:next-1) {
         size_t i=(size_t)next;
-        TombObject *o=w->items+i;int enemy=tomb_enemy_object(o->object),blade=o->object==36;
-        if((!enemy && !blade && (o->object<57 || o->object>64 || !(c->flags&8))) || !(o->actor.flags&32) || (o->actor.flags&6)==6)continue;
+        TombObject *o=w->items+i;int enemy=tomb_enemy_object(o->object),blade=o->object==36,hazard=o->object==24 || o->object==37 || o->object==38 || o->object==53;
+        if((!enemy && !blade && !hazard && (o->object<57 || o->object>64 || !(c->flags&8))) || !(o->actor.flags&32) || (o->actor.flags&6)==6)continue;
         TombCreature *creature=enemy && w->enemies?w->enemies->items+i:NULL;
         if(o->actor.room!=room || llabs((long long)a->x-o->actor.x)>=4096 || llabs((long long)a->y-o->actor.y)>=4096 || llabs((long long)a->z-o->actor.z)>=4096)continue;
         TombPose pose;if(!tomb_object_pose(w->visual,&o->actor,&pose))return 0;
@@ -133,10 +133,15 @@ int tomb_doors_collide(TombObjects *w,TombActor *a,TombContact *c,TombAnimContex
             if(ds[d].radius>0 && ls[l].radius>0 && dx*dx+dy*dy+dz*dz<r*r)touching|=1u<<d;
         }
         if(creature)creature->touch=touching;
+        if(hazard){
+            w->enemies->items[i].touch=touching;
+            /* Rolling balls push airborne Lara; stopped balls remain solid. */
+            if(o->object!=24 && !(o->object==38 && ((o->actor.flags&6)!=2 || (a->flags&8))))continue;
+        }
         if(blade){w->enemies->items[i].touch=touching;if((o->actor.flags&6)==2)continue;}
         int32_t dx=a->x-o->actor.x,dz=a->z-o->actor.z;
         if(!touching || !(c->flags&8) || !tomb_object_push(&o->actor,pose.bounds,a,enemy?0:100,ctx->sine_quarter))continue;
-        if(!blade && (creature?creature->health>0:o->actor.current!=o->actor.goal) && (c->flags&16)) {
+        if(!blade && !hazard && (creature?creature->health>0:o->actor.current!=o->actor.goal) && (c->flags&16)) {
             int cx=(pose.bounds[0]+pose.bounds[1])/2,cz=(pose.bounds[4]+pose.bounds[5])/2;
             int si=sn(ctx->sine_quarter,o->actor.yaw),co=sn(ctx->sine_quarter,o->actor.yaw+16384);
             dx-=tomb_asr(cx*co+cz*si,14);dz-=tomb_asr(cz*co-cx*si,14);

@@ -20,4 +20,7 @@ TOMB_EXPORT int tomb_dos_camera_move(TombDosCamera *,const TombLevel *,TombCamer
 /* One original 30 Hz camera update. Bounds are the DOS interpolated bounds of
    the focus item. Callers interpolate only the resulting presentation states. */
 TOMB_EXPORT int tomb_dos_camera_tick(TombDosCamera *,const TombLevel *,const TombActor *,const int16_t bounds[6],const int16_t *sine,const TombCameraRequest *);
+TOMB_EXPORT int tomb_dos_camera_stomp(const TombCameraPoint *,const TombActor *,int previous);
+TOMB_EXPORT int tomb_dos_camera_move_effects(TombDosCamera *,const TombLevel *,TombCameraPoint,int speed,int *bounce,uint32_t *random);
+int tomb_dos_camera_tick_effects(TombDosCamera *,const TombLevel *,const TombActor *,const int16_t[6],const int16_t *,const TombCameraRequest *,int *bounce,uint32_t *random);
 #endif

@@ -7,7 +7,7 @@ static int empty(TombScreenRect r){return r.left>=r.right || r.bottom>=r.top;}
 static TombScreenRect intersect(TombScreenRect a,TombScreenRect b){
     return (TombScreenRect){a.left>b.left?a.left:b.left,a.bottom>b.bottom?a.bottom:b.bottom,a.right<b.right?a.right:b.right,a.top<b.top?a.top:b.top};
 }
-int tomb_room_visibility(const TombVisual *v,int room,const double eye[3],const double view[16],int width,int height,TombScreenRect *out) {
+int tomb_room_visibility_focal(const TombVisual *v,int room,const double eye[3],const double view[16],int width,int height,double focal,TombScreenRect *out) {
     if(!v || !v->portals || !out || room<0 || (size_t)room>=v->room_count || width<=0 || height<=0)return 0;
     memset(out,0,v->room_count*sizeof *out);out[room]=(TombScreenRect){0,0,width,height};
     /* Rectangles only grow, so cycles converge. Expansion through another
@@ -38,8 +38,8 @@ int tomb_room_visibility(const TombVisual *v,int room,const double eye[3],const 
                 if(!count)continue;
                 double left=width,bottom=height,right=0,top=0;
                 for(int k=0;k<count;k++) {
-                    double x=width*.5+clipped[k][0]*tomb_preview_aspect_focal(height)/(-clipped[k][2]);
-                    double y=height*.5+clipped[k][1]*tomb_preview_aspect_focal(height)/(-clipped[k][2]);
+                    double x=width*.5+clipped[k][0]*focal/(-clipped[k][2]);
+                    double y=height*.5+clipped[k][1]*focal/(-clipped[k][2]);
                     left=fmin(left,x);right=fmax(right,x);bottom=fmin(bottom,y);top=fmax(top,y);
                 }
                 TombScreenRect aperture={(int)floor(fmin(width,fmax(0,left))),(int)floor(fmin(height,fmax(0,bottom))),(int)ceil(fmax(0,fmin(width,right))),(int)ceil(fmax(0,fmin(height,top)))};
@@ -69,3 +69,5 @@ int tomb_static_visible(const TombStaticDef *def,const double view[16],int width
     }
     return projected && left<=room.right && right>=room.left && bottom<=room.top && top>=room.bottom;
 }
+
+int tomb_room_visibility(const TombVisual *v,int room,const double eye[3],const double view[16],int width,int height,TombScreenRect *out){return tomb_room_visibility_focal(v,room,eye,view,width,height,tomb_preview_aspect_focal(height),out);}

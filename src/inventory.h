@@ -3,6 +3,7 @@
 #include "objects.h"
 typedef struct TombInventory {
     int16_t counts[11]; /* World IDs 84..94; ammunition boxes until weapon owned. */
+    int16_t scion; /* Uses the former alignment padding; saved layout unchanged. */
     int32_t ammo[4]; /* Pistols, shotgun pellets, magnums, uzis. */
     unsigned pickups,ticks;
     int last_pickup,pickup_ticks;

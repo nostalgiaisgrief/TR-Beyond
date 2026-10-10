@@ -12,6 +12,11 @@ typedef struct TombRoomPortals {
     const unsigned char *data;
     size_t count;
 } TombRoomPortals;
+typedef struct TombRoomLights {
+    const unsigned char *data;
+    size_t count;
+    int16_t ambient;
+} TombRoomLights;
 typedef struct TombVisual {
     const TombLevel *level;
     TombMeshView *rooms,*meshes;
@@ -19,6 +24,7 @@ typedef struct TombVisual {
     const unsigned char *tiles,*textures,*sprite_textures,*models,*trees,*frames,*animations,*palette;
     size_t tile_count,texture_count,sprite_texture_count,model_count,tree_words,frame_words,animation_count;
     TombRoomPortals *portals;
+    TombRoomLights *lighting;
 } TombVisual;
 typedef struct TombModel {
     uint32_t id,tree_word,frame_offset;

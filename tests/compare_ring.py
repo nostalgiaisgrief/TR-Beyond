@@ -60,8 +60,9 @@ def main():
   for keys in (0,1):
    inv=Inventory();inv.counts[0]=1
    for q in range(8):inv.quest[q]=1
+   inv.scion=1
    r=Ring();assert d.tomb_ring_init_keys(C.byref(r),C.byref(inv))
-   addresses={114:0xc302c,115:0xc306c,116:0xc30ac,117:0xc30ec,133:0xc312c,134:0xc316c,135:0xc31ac,136:0xc31ec}
+   addresses={114:0xc302c,115:0xc306c,116:0xc30ac,117:0xc30ec,133:0xc312c,134:0xc316c,135:0xc31ac,136:0xc31ec,150:0xc2fec}
    for item in r.items[:r.count]:assert bytes(item)==bytes(o.uc.mem_read(addresses[item.object],56)),('quest descriptor',item.object)
    o.install(r);o.write(0xc3814,0,4);o.call(0x240bc,RO,2,LI,r.count,(0,MO));o.call(0x242c0,RO,24)
    # Ring type itself is external to the compact native Ring structure.

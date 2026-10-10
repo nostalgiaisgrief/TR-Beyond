@@ -17,7 +17,7 @@ class Mesh(C.Structure):
 class Visual(C.Structure):
     _fields_=[('level',C.POINTER(Level)),('rooms',C.POINTER(Mesh)),('meshes',C.POINTER(Mesh)),('room_count',SZ),('mesh_count',SZ)]+[(n,P) for n in
         ('tiles','textures','sprite_textures','models','trees','frames','animations','palette')]+[(n,SZ) for n in
-        ('tile_count','texture_count','sprite_texture_count','model_count','tree_words','frame_words','animation_count')]+[('portals',C.c_void_p)]
+        ('tile_count','texture_count','sprite_texture_count','model_count','tree_words','frame_words','animation_count')]+[('portals',C.c_void_p),('lighting',C.c_void_p)]
 class Model(C.Structure):
     _fields_=[('id',U32),('tree_word',U32),('frame_offset',U32),('mesh_count',U16),('mesh_start',U16),('animation',U16)]
 class Pose(C.Structure):

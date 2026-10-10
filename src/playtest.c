@@ -2,6 +2,7 @@
 #include "fixed.h"
 #include "object_contact.h"
 #include "city.h"
+#include "peru.h"
 #include "hazards.h"
 #include "enemies.h"
 #include "combat.h"
@@ -20,7 +21,10 @@ static void event(void *user,int kind,int16_t id,TombActor *actor) {
     else if(kind==7) {++p->sound_stops;sound_request(p,7,id,2,actor);}
     else if(kind==6 && id==3) {++p->bubble_events;sound_request(p,6,3,1,actor);}
     else if(kind==6 && id==0) actor->yaw=tomb_word((int)actor->yaw-32768); /* DOS 0x1de74 */
+    else if(kind==6 && id==2){actor->current=actor->goal=2;actor->animation=11;actor->frame=185;if(p->objects)p->objects->peru->scion_item=-1;}
+    else if(kind==6 && id==4 && p->objects)p->objects->progress->complete=1;
     else if(kind==6 && id==12) p->animation.weapon_status=0;
+    else if(kind==6 && id==1) sound_request(p,8,1,0,actor); /* Ground impact, consumed by the camera. */
     else { p->blocked=1; p->status="Animation effect not reconstructed"; }
 }
 static void air_sound(void *user,int kind,int16_t id,TombActor *actor) {
@@ -240,7 +244,12 @@ static int death_tick(TombPlaytest *p) {
     p->blocked=0;p->lara.health=-1;p->lara.air=-1;p->dead_ticks++;
     p->gym.camera=0;
     if(p->gym.current_track){p->gym.current_track=0;p->gym.audio_serial++;}
-    if(p->lara.water_status) {
+    if(a->current==46){
+        a->goal=46;p->movement.lean=0;p->door_hit_ticks=0;
+        p->lara.head_yaw=p->lara.head_pitch=p->lara.torso_yaw=p->lara.torso_pitch=0;
+        p->camera_request=tomb_camera_control(46,0,0);
+        tomb_animate(a,&p->animation);p->status="Lara died";
+    } else if(p->lara.water_status) {
         a->goal=44;p->water.health=-1;p->water.air=-1;p->water.input=0;
         if(a->current==44) {
             a->fall_speed=tomb_word(a->fall_speed-8);if(a->fall_speed<0)a->fall_speed=0;
@@ -264,7 +273,7 @@ static int death_tick(TombPlaytest *p) {
 int tomb_playtest_init(TombPlaytest *p,const TombLevel *l,const int16_t *sine,const TombVisual *visual) {
     if(!p || !l || !sine || !visual || visual->level!=l) return 0;
     memset(p,0,sizeof *p); p->level=l; p->visual=visual;
-    tomb_pistols_init(&p->pistols);tomb_inventory_init(&p->inventory);
+    tomb_pistols_init(&p->pistols);tomb_inventory_init(&p->inventory);p->weapon_type=p->requested_weapon=1;
     if(!tomb_lara_start(l,&p->lara)) return 0;
     tomb_hud_init(&p->hud,p->lara.health);
     p->movement.health=p->lara.health;
@@ -412,6 +421,7 @@ int tomb_playtest_tick(TombPlaytest *p,uint32_t input) {
     p->sound_count=0;
     p->camera_request=tomb_camera_control(p->lara.actor.current,p->lara.water_status,p->lara.pitch);
     if(p->objects)tomb_objects_camera_begin(p->objects);
+    if(p->objects && !tomb_peru_hazards(p->objects,&p->animation,&p->lara.actor,&p->lara.health)){p->blocked=1;p->status="Peru object service unavailable";return 0;}
     if(p->objects && !tomb_hazards_tick(p->objects,&p->animation,&p->lara.actor,&p->lara.health)) {p->blocked=1;p->status="Hazard service unavailable";return 0;}
     if(p->objects && !tomb_objects_tick(p->objects,&p->animation)) {
         p->blocked=1;p->status="Object animation unavailable";return 0;
@@ -419,7 +429,9 @@ int tomb_playtest_tick(TombPlaytest *p,uint32_t input) {
     if(p->objects && !tomb_enemies_tick(p->objects,&p->animation,&p->lara)) {
         p->blocked=1;p->status="Enemy service unavailable";return 0;
     }
-    int ok=playtest_tick(p,input);
+    int ok;
+    if(p->objects && p->objects->peru->scion_item>=0){ok=tomb_animate(&p->lara.actor,&p->animation);p->status="Scion pickup";}else ok=playtest_tick(p,input);
+    if(ok && p->objects)ok=tomb_peru_lara(p,input);
     if(ok && p->objects && p->lara.health>0) {
         ok=tomb_pickups_tick(p,input);
         if(ok)ok=tomb_city_interact(p,input);

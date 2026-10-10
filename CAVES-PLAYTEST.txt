@@ -1,3 +1,74 @@
+PLAYTEST 35 - LOST VALLEY AND TOMB OF QUALOPEC
+Lost Valley now supports all three cogs, their sockets, the machinery lever,
+animated gears and water diversion. Room swaps update geometry, portals,
+lighting, collision, water flags and navigation together. Complete the level
+and press S/Enter to continue into Tomb of Qualopec with carried equipment.
+
+Qualopec now supports both moving puzzle pillars, the rolling boulder, spikes,
+falling ceilings, mummies and Larson's movement/shooting/death behaviour.
+Collecting the Scion plays its original animation and camera sequence, adds
+it to inventory, and activates the escape room swaps and trap triggers.
+Save/load preserves the flipped world, machinery and Scion sequence state.
+
+Choose either level from New Game. Full uninterrupted DOS route comparisons
+remain pending. Qualopec's ending cinematic and progression into St. Francis'
+Folly remain unfinished. Water-current trigger forces remain unsupported.
+The following entries describe earlier builds and may be superseded above.
+
+PLAYTEST 34 - FIXED-CAMERA INTERPOLATION
+Fixed jitter while a static camera follows Lara. Speed-one fixed shots still
+snap the viewpoint, but retain the previous look-at target for interpolation.
+This keeps camera aim on the same presentation timeline as Lara. Original
+30 Hz camera positions, triggers and target calculations are unchanged.
+
+PLAYTEST 33 - RENDER INTERPOLATION
+Lara, enemies and moving models now interpolate position, orientation and
+articulated poses between gameplay ticks, using the same fraction as the
+camera. Weapon aiming and head movement are included; moving effects also
+interpolate their positions. Gameplay and animation events remain at 30 Hz.
+Resets, level loads, new entities and large relocations clear stale history.
+
+PLAYTEST 32 - LIGHTING SPECKLE FIX
+Fixed triangular speckling introduced by the palette lighting shader.
+Perspective interpolation could move an exactly constant shade just below
+its palette boundary, making pixels alternate between brightness levels.
+The lookup now tolerates sub-integer rounding noise. Geometry is unchanged.
+
+PLAYTEST 31 - MODEL LIGHTING
+Lara, enemies and animated objects now use original room ambient lighting,
+local light direction and mesh normals. Static models use their placed
+intensity and baked vertex shades. Inventory models use the original ring
+light, with a brighter selected item. Original palette shade tables now
+colour both models and room geometry; distance shading starts at 12 blocks.
+Requires a graphics driver with OpenGL 2.0 support. Gameplay is unchanged.
+
+PLAYTEST 30 - LOST VALLEY ENEMIES
+All six wolves, six raptors and the T. rex now use the original creature logic.
+Fixed Valley wolves entering Caves animation indices when killed: death now
+uses the loaded wolf model's own animation base, avoiding the sliding loop.
+Raptors and the T. rex activate from level triggers, navigate, attack and die.
+Pistols and the shotgun work against both dinosaurs. T. rex footsteps cause
+the original camera bump; its fatal bite uses Lara's dedicated death sequence.
+Choose Lost Valley from New Game for a fresh test. Valley machinery, cog
+puzzles, room flipping and full-route acceptance remain unfinished.
+
+PLAYTEST 29 - NEW GAME LEVEL SELECTION
+New Game opens Choose Starting Level with all campaign levels and Lara's Home.
+Up/Down or Numpad 8/2 selects; S/Enter starts; E/Escape returns to the passport.
+Each selection starts fresh. Later-level gameplay is still unfinished.
+
+PLAYTEST 28 - SHOTGUN
+Collect the shotgun, open inventory with E, select Shotgun with S/Enter.
+Space draws/holsters the selected weapon; S/Enter fires. The pump cycle is
+automatic. Select Pistols in inventory to switch back. Empty shotgun ammunition
+also requests pistols. The ammo display counts shells (six pellets each).
+New saves preserve weapon selection; earlier version-1 saves remain readable.
+At playtest 28, dinosaurs and Valley machinery were unfinished; see playtest 30.
+
+PLAYTEST 27 - LARA'S HOME PHOTO
+Select Lara's Home once to raise the photo, then select again to enter.
+Back lowers the photo without leaving the title screen.
+
 PLAYTEST 26 - MAIN-LEVEL CD AUDIO
 
 New level starts and R restart now select the original DOS background track.
@@ -84,7 +155,7 @@ return to the normal camera; Lara's head/torso relax back to centre.
 S or Enter: action, shoot, collect, operate switches, grab/hold, select/use
 inventory items, return from open compass, continue after level completion.
 Hold S/Enter + Numpad 8 to climb when hanging or at a suitable edge.
-Space: draw/holster pistols.
+Space: draw/holster the selected weapon.
 E or Esc: open inventory, back out/close inventory.
 Left/Right arrows: inventory rotation only. Up/Down: inventory ring change.
 P: pause/resume gameplay.

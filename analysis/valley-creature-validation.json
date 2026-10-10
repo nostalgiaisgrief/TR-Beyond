@@ -1,0 +1,18 @@
+[
+  {
+    "build": "release",
+    "controller_cases": {
+      "7": 4000,
+      "18": 4000,
+      "19": 4000
+    }
+  },
+  {
+    "build": "_debug",
+    "controller_cases": {
+      "7": 4000,
+      "18": 4000,
+      "19": 4000
+    }
+  }
+]

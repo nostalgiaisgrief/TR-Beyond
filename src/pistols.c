@@ -49,3 +49,54 @@ void tomb_pistols_tick(TombPistols *g,int toggle,int action,int alive,int water,
         fire_arm(&g->right,g,action,fire,sound,user);fire_arm(&g->left,g,action,fire,sound,user);
     }
 }
+/* DOS DrawShotgun 2b200, UndrawShotgun 2b2a4 and AnimateShotgun 2b5c0.
+   The fire callback emits the six pellets and returns whether any fired. */
+void tomb_shotgun_tick(TombPistols *g,int toggle,int action,int alive,int water,TombGunFire fire,TombGunSound sound,void *user) {
+    if(g->left.flash>0)--g->left.flash;if(g->right.flash>0)--g->right.flash;
+    if(!alive)g->status=0;
+    else if((water && g->status==4) || (!water && toggle)) {
+        if(!g->status){g->status=2;g->left.frame=g->right.frame=0;}
+        else if(g->status==4)g->status=3;
+    }
+    int frame=g->left.frame,active=g->status;
+    if(g->status==2) {
+        ++frame;
+        if(frame<13 || frame>47)frame=13;
+        else if(frame==23){g->drawn=3;if(sound)sound(user,6);}
+        else if(frame==47){
+            g->status=4;int16_t lf=g->left.flash,rf=g->right.flash;
+            memset(&g->left,0,sizeof g->left);memset(&g->right,0,sizeof g->right);
+            g->left.flash=lf;g->right.flash=rf;g->target=-1;
+            g->head_yaw=g->head_pitch=g->torso_yaw=g->torso_pitch=0;frame=0;
+        }
+    } else if(g->status==3) {
+        if(!frame)frame=80;
+        else if(frame>0 && frame<13){if(++frame==13)frame=114;}
+        else if(frame==47)frame=114;
+        else if(frame>47 && frame<80){++frame;if(frame==60)frame=0;else if(frame==80)frame=114;}
+        else if(frame>=114 && frame<127){if(++frame==127)frame=80;}
+        else if(frame>=80 && frame<114){
+            ++frame;
+            if(frame==101){g->drawn=0;if(sound)sound(user,6);}
+            else if(frame==114){frame=0;g->status=0;g->target=-1;g->left.lock=g->right.lock=0;}
+        }
+        g->torso_yaw-=g->torso_yaw/2;g->torso_pitch-=g->torso_pitch/2;
+        g->head_yaw=g->head_pitch=0;
+    } else if(g->status==4) {
+        tomb_pistols_aim(&g->left,g->target_yaw,g->target_pitch);
+        if(g->left.lock){g->torso_yaw=g->left.yaw/2;g->torso_pitch=g->left.pitch/2;g->head_yaw=g->head_pitch=0;}
+        if(g->left.lock) {
+            if(frame>=0 && frame<13){if(++frame==13)frame=47;}
+            else if(frame==47){if(action){if(!fire || fire(user,g->left.yaw,g->left.pitch)){if(sound)sound(user,3);}++frame;}}
+            else if(frame>47 && frame<80){++frame;if(frame==80)frame=47;else if(frame==57 && sound)sound(user,9);}
+            else if(frame>=114 && frame<127){if(++frame==127)frame=0;}
+        } else {
+            if(!frame && action)frame=1;
+            else if(frame>0 && frame<13){if(++frame==13)frame=action?47:114;}
+            else if(frame==47){if(action){if(!fire || fire(user,g->left.yaw,g->left.pitch)){if(sound)sound(user,3);}++frame;}else frame=114;}
+            else if(frame>47 && frame<80){++frame;if(frame==60)frame=0;else if(frame==80)frame=114;else if(frame==57 && sound)sound(user,9);}
+            else if(frame>=114 && frame<127){if(++frame==127)frame=0;}
+        }
+    }
+    if(active>=2 && active<=4)g->left.frame=g->right.frame=(int16_t)frame;
+}

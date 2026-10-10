@@ -37,6 +37,7 @@ $libraryName = if ($Debug) { 'step_test_debug.dll' } else { 'step_test.dll' }
     (Join-Path $projectRoot 'src\hazards.c') `
     (Join-Path $projectRoot 'src\preview_camera.c') `
     (Join-Path $projectRoot 'src\dos_camera.c') `
+    (Join-Path $projectRoot 'src\peru.c') `
     (Join-Path $projectRoot 'src\objects.c') `
     (Join-Path $projectRoot 'src\city.c') `
     (Join-Path $projectRoot 'src\object_contact.c') `
@@ -57,6 +58,7 @@ $libraryName = if ($Debug) { 'step_test_debug.dll' } else { 'step_test.dll' }
     (Join-Path $projectRoot 'src\item_height.c') `
     (Join-Path $projectRoot 'src\lara_start.c') `
     (Join-Path $projectRoot 'src\visual.c') `
+    (Join-Path $projectRoot 'src\lighting.c') `
     (Join-Path $projectRoot 'tests\step_bridge.c') `
     -o (Join-Path $buildDir $libraryName)
 if ($LASTEXITCODE -ne 0) { throw "Animation/collision compilation failed: $LASTEXITCODE" }

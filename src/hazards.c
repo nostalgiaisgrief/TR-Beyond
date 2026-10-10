@@ -1,6 +1,7 @@
 /* Original falling block 0x3a728, dart emitter 0x3ac80 and dart 0x3ae20. */
 #include "hazards.h"
 #include "enemies.h"
+#include "pistols.h"
 #include "object_contact.h"
 #include "fixed.h"
 #include <stdlib.h>
@@ -67,7 +68,10 @@ static int floor_at(TombObjects *w,TombActor *a,int32_t *height) {
 }
 int tomb_hazards_tick(TombObjects *w,TombAnimContext *c,TombActor *lara,int16_t *health) {
     if(!w->hazards)return 1;
-    for(int i=0;i<256;i++){TombHazardEffect *e=w->hazards->effects+i;int frames;if(e->active && tomb_hazard_sprite(w->visual,e->id,e->frame,&frames)>=0)tomb_hazard_effect_tick(e,frames,c->sine_quarter);}
+    for(int i=0;i<256;i++){TombHazardEffect *e=w->hazards->effects+i;int frames;
+        if(e->active && e->id==166){if(!--e->counter)e->active=0;else e->speed=(int16_t)tomb_control_random(&w->enemies->random);}
+        else if(e->active && tomb_hazard_sprite(w->visual,e->id,e->frame,&frames)>=0)tomb_hazard_effect_tick(e,frames,c->sine_quarter);
+    }
     /* New darts enter the active list at its head, and first move next tick. */
     for(int i=TOMB_DART_CAPACITY-1;i>=0;i--) {
         TombDart *d=w->hazards->darts+i;if(!d->item.active)continue;

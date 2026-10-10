@@ -3,9 +3,10 @@
 #include "fixed.h"
 #include <string.h>
 int tomb_quest_slot(int id){if(id>=110 && id<=117)return (id-110)%4;if(id>=129 && id<=136)return 4+(id-129)%4;return -1;}
-int tomb_pickup_object(int id){return (id>=110 && id<=113) || (id>=129 && id<=132) || (id>=84 && id<=87) || (id>=89 && id<=91) || id==93 || id==94;}
+int tomb_pickup_object(int id){return id==143 || (id>=110 && id<=113) || (id>=129 && id<=132) || (id>=84 && id<=87) || (id>=89 && id<=91) || id==93 || id==94;}
 void tomb_inventory_init(TombInventory *i){memset(i,0,sizeof *i);i->counts[0]=1;i->ammo[0]=1000;i->last_pickup=-1;i->chosen=-1;}
 int tomb_inventory_add(TombInventory *i,int id) {
+    if(id==143 || id==150){++i->scion;return 1;}
     int quest=tomb_quest_slot(id);if(quest>=0){++i->quest[quest];return 1;}
     if(id>=99 && id<=109)id-=15;
     if(!tomb_pickup_object(id))return 0;

@@ -8,10 +8,11 @@
 #include "inventory.h"
 #include "progression.h"
 #include "city.h"
+#include "peru.h"
 #include <stdlib.h>
 #include <string.h>
 static int is_door(int id){return id>=57 && id<=64;}
-int tomb_object_supported(int id){return tomb_pickup_object(id) || tomb_enemy_object(id) || id==35 || id==36 || id==40 || (id>=68 && id<=70) || id==55 || id==56 || id==48 || id==65 || id==66 || (id>=118 && id<=125) || (id>=137 && id<=140) || is_door(id);}
+int tomb_object_supported(int id){return tomb_peru_object(id) || tomb_pickup_object(id) || tomb_enemy_object(id) || id==35 || id==36 || id==40 || (id>=68 && id<=70) || id==55 || id==56 || id==48 || id==65 || id==66 || (id>=118 && id<=125) || (id>=137 && id<=140) || is_door(id);}
 #define supported tomb_object_supported
 int tomb_trigger_active(TombObject *o) {
     int normal=!(o->flags&0x4000);
@@ -103,8 +104,8 @@ int tomb_object_animate_required(TombObject *o,TombAnimContext *c,int16_t *requi
         int op=c->commands[at++];
         if(op==4)continue;
         if(op==1){if((size_t)at+3>c->command_count)return 0;at+=3;continue;}
-        if(op!=5 || (size_t)at+2>c->command_count)return 0;
-        if(a->frame==c->commands[at]){if(!c->event)return 0;c->event(c->user,5,c->commands[at+1],a);}
+        if((op!=5 && op!=6) || (size_t)at+2>c->command_count)return 0;
+        if(a->frame==c->commands[at]){if(!c->event)return 0;c->event(c->user,op,c->commands[at+1],a);}
         at+=2;
     }
     if(a->flags&8){a->fall_speed=tomb_word(a->fall_speed+(a->fall_speed<128?6:1));a->y+=a->fall_speed;}
@@ -199,13 +200,14 @@ static int item_reset(TombObjects *w,size_t i) {
 }
 int tomb_objects_init(TombObjects *w,TombLevel *l,const TombVisual *v) {
     memset(w,0,sizeof *w);w->camera.index=w->camera.last=w->camera.target=w->last_target=-1;w->level=l;w->visual=v;w->count=l->item_count;
+    w->peru=calloc(1,sizeof *w->peru);if(!w->peru)return 0;w->peru->effect=w->peru->scion_item=-1;
     w->items=calloc(w->count,sizeof *w->items);w->doors=calloc(w->count,sizeof *w->doors);
     w->box_overlap=calloc(l->box_count,sizeof *w->box_overlap);
-    if(!w->items || !w->doors || !w->box_overlap){free(w->items);free(w->doors);free(w->box_overlap);memset(w,0,sizeof *w);return 0;}
+    if(!w->items || !w->doors || !w->box_overlap){free(w->peru);free(w->items);free(w->doors);free(w->box_overlap);memset(w,0,sizeof *w);return 0;}
     for(size_t i=0;i<l->box_count;i++)w->box_overlap[i]=l->boxes[i].overlap;
     for(size_t i=0;i<w->count;i++)if(!item_reset(w,i))goto fail;
     for(size_t i=0;i<w->count;i++)if(is_door(w->items[i].object) && !door_init(w,i))goto fail;
-    for(size_t i=0;i<w->count;i++)if(w->items[i].object==48 && (w->items[i].actor.flags&6)!=6 && !tomb_block_floor(w,i,-1024))goto fail;
+    for(size_t i=0;i<w->count;i++)if((w->items[i].object==48 || w->items[i].object==52) && (w->items[i].actor.flags&6)!=6 && !tomb_block_floor(w,i,w->items[i].object==52?-2048:-1024))goto fail;
     w->hazards=calloc(1,sizeof *w->hazards);if(!w->hazards)goto fail;
     w->progress=calloc(1,sizeof *w->progress);if(!w->progress)goto fail;
     if(!tomb_enemies_init(w))goto fail;
@@ -213,6 +215,7 @@ int tomb_objects_init(TombObjects *w,TombLevel *l,const TombVisual *v) {
 fail:tomb_objects_free(w);return 0;
 }
 static void restore(TombObjects *w) {
+    if(w->peru && w->peru->flipped)tomb_flip_map(w,0);
     if(w->doors)for(size_t i=w->count;i>0;i--)for(unsigned j=w->doors[i-1].count;j>0;j--) {
         TombDoorPart *p=w->doors[i-1].parts+j-1;*get_sector(w->level,p->ref)=p->saved;
     }
@@ -220,21 +223,22 @@ static void restore(TombObjects *w) {
 }
 void tomb_objects_reset(TombObjects *w) {
     if(w->progress)memset(w->progress,0,sizeof *w->progress);
-    restore(w);w->deferred_actions=0;if(w->hazards)memset(w->hazards,0,sizeof *w->hazards);
+    restore(w);memset(w->peru,0,sizeof *w->peru);w->peru->effect=w->peru->scion_item=-1;w->deferred_actions=0;if(w->hazards)memset(w->hazards,0,sizeof *w->hazards);
     memset(&w->camera,0,sizeof w->camera);memset(w->camera_once,0,sizeof w->camera_once);
     w->camera.index=w->camera.last=w->camera.target=w->last_target=-1;
-    for(size_t i=0;i<w->count;i++){item_reset(w,i);if(is_door(w->items[i].object) && w->doors[i].count)door_set(w,w->doors+i,0);else if(w->items[i].object==48){w->doors[i].count=0;if((w->items[i].actor.flags&6)!=6)tomb_block_floor(w,i,-1024);}}
+    for(size_t i=0;i<w->count;i++){item_reset(w,i);if(is_door(w->items[i].object) && w->doors[i].count)door_set(w,w->doors+i,0);else if(w->items[i].object==48 || w->items[i].object==52){w->doors[i].count=0;if((w->items[i].actor.flags&6)!=6)tomb_block_floor(w,i,w->items[i].object==52?-2048:-1024);}}
     tomb_enemies_reset(w);
 }
 void tomb_objects_free(TombObjects *w) {
     if(w->level)restore(w);
-    tomb_enemies_free(w);free(w->items);free(w->doors);free(w->box_overlap);free(w->hazards);free(w->progress);memset(w,0,sizeof *w);
+    tomb_enemies_free(w);free(w->items);free(w->doors);free(w->box_overlap);free(w->hazards);free(w->progress);free(w->peru);memset(w,0,sizeof *w);
 }
 int tomb_objects_tick(TombObjects *w,TombAnimContext *c) {
     /* Active list insertion is at its head in DOS: descending activation order
        is immaterial to these independent doors; switch timing still runs before Lara. */
     for(size_t i=0;i<w->count;i++) {
         TombObject *o=w->items+i;if(!o->active)continue;
+        if(o->object==52 || (o->object>=74 && o->object<=76)){if(!tomb_peru_tick(w,i,c))return 0;continue;}
         if(o->object==48){if(!tomb_block_tick(w,i,c))return 0;continue;}
         if(o->object==65 || o->object==66){tomb_trapdoor_control(o);if(!tomb_object_animate(o,c))return 0;w->level->items[i].state=o->actor.current;continue;}
         if(o->object!=55 && o->object!=56 && !is_door(o->object))continue;
@@ -272,12 +276,13 @@ static int trigger(TombObjects *w,size_t index,int grounded,int heavy,int weapon
     if(index>=l->floor_count)return 0;
     unsigned header=l->floor_data[index];if((header&255)!=4)return 1;
     unsigned type=(header>>8)&63;
-    if(heavy){if(type!=5)return 1;}else if(type!=0 && type!=1 && type!=2 && type!=3 && type!=6)return 1;
+    if(heavy){if(type!=5)return 1;}else if(type!=0 && type!=1 && type!=2 && type!=3 && type!=4 && type!=6)return 1;
     if((type==1 || type==6) && !grounded)return 1;
     if(l->floor_count-index<3)return 0;
     uint16_t flags=l->floor_data[index+1];size_t at=index+2;
     size_t switch_id=0;
     if(type==3){switch_id=l->floor_data[at++]&1023;if(switch_id>=w->count)return 0;if(!tomb_key_trigger(w->items+switch_id,weapon))return 1;}
+    if(type==4){unsigned id=l->floor_data[at++]&1023;if(id>=w->count || (w->items[id].actor.flags&6)!=6)return 1;}
     if(type==2){switch_id=l->floor_data[at++]&1023;if(switch_id>=w->count || (w->items[switch_id].object!=55 && w->items[switch_id].object!=56))return 0;}
     /* Validate the list completely before altering timers, latches or switches. */
     size_t first=at;int ended=0;
@@ -301,10 +306,11 @@ static int trigger(TombObjects *w,size_t index,int grounded,int heavy,int weapon
     }
     if(w->camera.active)w->camera.target=target;
     if(type==2 && !tomb_switch_trigger(w->items+switch_id,(int16_t)(flags&255)))return 1;
+    int flip=0,effect=-1;
     at=first;
     while(at<l->floor_count) {
         unsigned word=l->floor_data[at++],action=(word&0x3fff)>>10,id=word&1023;
-        if(action==0 && (is_door(w->items[id].object) || w->items[id].object==35 || w->items[id].object==36 || w->items[id].object==40 || w->items[id].object==65 || w->items[id].object==66))tomb_object_trigger(w->items+id,(int)type,flags);
+        if(action==0 && ((tomb_peru_object(w->items[id].object) && w->items[id].object!=24) || is_door(w->items[id].object) || w->items[id].object==35 || w->items[id].object==36 || w->items[id].object==40 || w->items[id].object==65 || w->items[id].object==66))tomb_object_trigger(w->items+id,(int)type,flags);
         else if(action==0 && tomb_enemy_object(w->items[id].object))tomb_enemies_trigger(w,id,(int)type,flags);
         else if(action==1) {
             word=l->floor_data[at++];
@@ -316,10 +322,13 @@ static int trigger(TombObjects *w,size_t index,int grounded,int heavy,int weapon
                     if(word&0x100)w->camera_once[id/8]|=(uint8_t)(1u<<(id%8));
                 }
             }
-        } else if(action==7 || action==8 || action==10)tomb_progress_action(w->progress,(int)action,(int)id,flags,(int)type);
+        } else if(action>=3 && action<=5)flip|=tomb_flip_action(w,(int)action,(int)id,(int)type,flags);
+        else if(action==9)effect=(int)id;
+        else if(action==7 || action==8 || action==10)tomb_progress_action(w->progress,(int)action,(int)id,flags,(int)type);
         else if(action!=6)++w->deferred_actions;
         if(word&0x8000)break;
     }
+    if(flip){if(!tomb_flip_map(w,1))return 0;if(effect>=0){w->peru->effect=effect;w->peru->effect_ticks=0;}}
     w->camera.target=target;
     if(!w->camera.active && target>=0 && (w->items[target].actor.flags&64) && target!=w->last_target)w->camera.target=-1;
     return 1;

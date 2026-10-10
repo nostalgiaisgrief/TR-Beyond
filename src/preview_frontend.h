@@ -1,7 +1,7 @@
 /* Win32/GL adapter for the original option ring and passport.
    Included after font/ring helpers; all gameplay remains in the C runtime. */
 static void frontend_free(void){
- if(title_visual){glDeleteTextures((GLsizei)title_visual->tile_count,title_tiles);glDeleteTextures((GLsizei)title_visual->tile_count,title_font_tiles);}
+ if(title_visual){glDeleteTextures((GLsizei)(title_visual->tile_count*2+1),title_tiles);glDeleteTextures((GLsizei)title_visual->tile_count,title_font_tiles);}
  free(title_tiles);free(title_font_tiles);tomb_visual_free(title_visual);tomb_level_free(title_level);glDeleteTextures(1,&title_backdrop);
 }
 static int frontend_assets(void){
@@ -28,7 +28,7 @@ static void frontend_backdrop(void){
  glEnable(GL_TEXTURE_2D);glDisable(GL_ALPHA_TEST);glBindTexture(GL_TEXTURE_2D,title_backdrop);glColor3f(1,1,1);
  glBegin(GL_QUADS);glTexCoord2f(0,0);glVertex2d((width-height*4.0/3)/2,0);glTexCoord2f(640.f/1024,0);glVertex2d((width+height*4.0/3)/2,0);glTexCoord2f(640.f/1024,480.f/512);glVertex2d((width+height*4.0/3)/2,height);glTexCoord2f(0,480.f/512);glVertex2d((width-height*4.0/3)/2,height);glEnd();glDisable(GL_TEXTURE_2D);
 }
-static const char *frontend_name(int id){switch(id){case 71:case 81:return "Game";case 73:return "Lara's Home";case 95:return "Detail Levels";case 96:return "Sound";case 97:return "Controls";default:return tomb_inventory_name(id);}}
+static const char *frontend_name(int id){if(level_number==3 && id==114)return "Machine Cog";switch(id){case 71:case 81:return "Game";case 73:return "Lara's Home";case 95:return "Detail Levels";case 96:return "Sound";case 97:return "Controls";default:return tomb_inventory_name(id);}}
 static void refresh_slots(void){char path[MAX_PATH];for(int i=0;i<16;i++){save_path(path,i);save_levels[i]=tomb_save_level(path);}}
 static void frontend_title(void){
  audio_stop();title_mode=1;death_menu=0;play.quest_request=0;inventory_begin();options_ring=1;tomb_ring_init_options(&inventory_ring,1);inventory_sound();refresh_slots();
@@ -37,7 +37,7 @@ static void frontend_execute(int id){
  char path[MAX_PATH];int action=menu_action;menu_action=0;
  if(id==73){load_game_level(0,0,NULL);return;}
  if(action==1){save_path(path,slot_current);if(!load_game_level(save_levels[slot_current],0,path)){inventory_begin();options_ring=1;tomb_ring_init_options(&inventory_ring,title_mode);}}
- else if(action==2){if(title_mode || level_number==0)load_game_level(1,0,NULL);else{save_path(path,slot_current);if(!tomb_save_write(path,level_number,&play,&objects,&camera,&level_inventory)){inventory_begin();strcpy(menu_error,"Could not save game");}}}
+ else if(action==2){if(title_mode || level_number==0){if(!load_game_level(new_game_level,0,NULL)){inventory_begin();options_ring=1;tomb_ring_init_options(&inventory_ring,title_mode);}}else{save_path(path,slot_current);if(!tomb_save_write(path,level_number,&play,&objects,&camera,&level_inventory)){inventory_begin();strcpy(menu_error,"Could not save game");}}}
  else if(action==3){if(title_mode)running=0;else frontend_title();}
 }
 static const int frontend_binding_order[13]={0,1,2,3,4,5,6,7,8,9,11,10,12};
@@ -48,6 +48,13 @@ static int frontend_input(unsigned *input){
  if(r->motion.status!=8 || !r->ready)return 0;
  if(i->object==71){
   int page=(i->frame-i->open_frame)/5;
+  if(new_game_menu){
+   if(*input&16 && new_game_level>0)new_game_level--;
+   if(*input&32 && new_game_level<LEVEL_CHOICE_COUNT-1)new_game_level++;
+   if(*input&TOMB_RING_BACK)new_game_menu=0;
+   else if(*input&TOMB_RING_SELECT){new_game_menu=0;menu_action=2;tomb_ring_finish_item(r,71);}
+   *input=0;return 0;
+  }
   if(slot_menu){
    if(*input&16 && slot_current>0)slot_current--;if(*input&32 && slot_current<15)slot_current++;
    if(*input&TOMB_RING_BACK){slot_menu=0;menu_error[0]=0;}
@@ -62,9 +69,12 @@ static int frontend_input(unsigned *input){
   else if(death_menu && (*input&TOMB_RING_BACK)){*input=0;}
   else if(*input&TOMB_RING_SELECT){
    if(page==0 || (page==1 && !title_mode && level_number!=0)){slot_menu=1;slot_current=0;menu_error[0]=0;refresh_slots();}
+   else if(page==1 && (title_mode || level_number==0)){new_game_menu=1;new_game_level=1;menu_error[0]=0;}
    else{menu_action=page+1;tomb_ring_finish_item(r,71);}*input=0;
   }
- }else if(i->object==73){tomb_ring_finish_item(r,73);*input=0;}
+ }else if(i->object==73){
+  if(*input&TOMB_RING_SELECT){tomb_ring_finish_item(r,73);*input=0;}
+ }
  else if(i->object>=95 && i->object<=97){
   int rows=i->object==95?3:i->object==96?2:13;
   if(i->object==95){if(*input&16 && option_row<2)option_row++;if(*input&32 && option_row>0)option_row--;}
@@ -155,6 +165,15 @@ static void frontend_overlay(void){
  if(r->motion.status!=8 || !r->ready)return;
  TombDialogEntry entries[32];
  if(i->object==71){
+  if(new_game_menu){
+   int first=new_game_level>=10?new_game_level-9:0;
+   tomb_dialog_layout(71,new_game_level-first,1,entries);
+   frontend_entry(entries," ",0);frontend_entry(entries+1,"Choose Starting Level",0);
+   for(int row=0;row<10 && first+row<LEVEL_CHOICE_COUNT;row++)frontend_entry(entries+row+2,level_choices[first+row].name,0);
+   if(first>0)ui_text(0,-282,"[",TOMB_TEXT_CENTRE|TOMB_TEXT_BOTTOM);
+   if(first+10<LEVEL_CHOICE_COUNT)ui_text(0,-88,"]",TOMB_TEXT_CENTRE|TOMB_TEXT_BOTTOM);
+   return;
+  }
   int page=(i->frame-14)/5;
   const char *label=page==0?"Load Game":page==1?(title_mode || level_number==0?"New Game":"Save Game"):(title_mode?"Exit Game":"Exit to Title");
   int first=slot_current>=10?slot_current-9:0;

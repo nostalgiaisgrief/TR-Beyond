@@ -1,11 +1,13 @@
 #include "enemies.h"
 #include "pistols.h"
+#include "peru.h"
+#include "dos_camera.h"
 #include "hazards.h"
 #include "fixed.h"
 #include "object_contact.h"
 #include <stdlib.h>
 #include <string.h>
-int tomb_enemy_object(int id){return id>=7 && id<=9;}
+int tomb_enemy_object(int id){return (id>=7 && id<=9) || id==18 || id==19 || id==24 || id==27;}
 static int slot(const TombEnemies *e,size_t id){for(int k=0;k<8;k++)if(e->slots[k]==(int)id)return k;return -1;}
 static int32_t distance(const TombEnemies *e,const TombActor *a) {
     int32_t x=tomb_asr(a->x-e->camera[0],8),y=tomb_asr(a->y-e->camera[1],8),z=tomb_asr(a->z-e->camera[2],8);
@@ -13,6 +15,7 @@ static int32_t distance(const TombEnemies *e,const TombActor *a) {
 }
 int tomb_enemies_activate(TombObjects *w,size_t id,int always) {
     TombEnemies *e=w->enemies;if(!e || id>=w->count || !tomb_enemy_object(w->items[id].object))return 0;
+    if(w->items[id].object==24)return 1;
     if(slot(e,id)>=0)return 1;
     int use=-1;for(int k=0;k<8;k++)if(e->slots[k]<0){use=k;break;}
     if(use<0) {
@@ -55,9 +58,10 @@ void tomb_enemies_reset(TombObjects *w) {
     for(size_t j=0;j<w->count;j++) {
         e->next[j]=-1;TombObject *o=w->items+j;int room=o->actor.room;
         e->room_id[j]=room;e->room_next[j]=e->room_head[room];e->room_head[room]=(int)j;
+        if(o->object==38 || o->object==53){TombCreature *c=e->items+j;c->health=o->object==24?18:-16384;TombSectorRef r;TombHeights h;if(tomb_find_sector(w->level,o->actor.x,o->actor.y,o->actor.z,o->actor.room,&r) && tomb_static_heights(w->level,r,o->actor.x,o->actor.z,0,&h))c->floor=h.floor;continue;}
         if(!tomb_enemy_object(o->object))continue;
-        TombCreature *c=e->items+j;c->health=o->object==7?6:o->object==8?20:1;
-        o->actor.yaw=tomb_word((int)o->actor.yaw+tomb_asr((int)tomb_control_random(&e->random)-16384,1));
+        TombCreature *c=e->items+j;c->health=o->object==24?18:o->object==27?50:o->object==7?6:o->object==18?100:o->object==8 || o->object==19?20:1;
+        if(o->object!=24)o->actor.yaw=tomb_word((int)o->actor.yaw+tomb_asr((int)tomb_control_random(&e->random)-16384,1));
         if(o->object==7)o->actor.frame=96;
         TombSectorRef ref;TombHeights h;if(tomb_find_sector(w->level,o->actor.x,o->actor.y,o->actor.z,o->actor.room,&ref) && tomb_static_heights(w->level,ref,o->actor.x,o->actor.z,0,&h))c->floor=h.floor;
         if(o->active){add(w,j);tomb_enemies_activate(w,j,1);}
@@ -84,6 +88,11 @@ int tomb_enemies_tick(TombObjects *w,TombAnimContext *ctx,TombLaraStart *lara) {
             if(!tomb_enemies_activate(w,(size_t)index,0)){previous=index;index=next;continue;}
             o->actor.flags=(o->actor.flags&~6u)|2;
         }
+        if(o->object==24){
+            tomb_mummy_control(o,c,&lara->actor);if(!tomb_object_animate(o,ctx))return 0;
+            if((o->actor.flags&6)==4){o->active=0;o->actor.flags&=(uint8_t)~1u;c->health=-16384;if(previous<0)e->head=next;else e->next[previous]=next;e->next[index]=-1;}else previous=index;
+            index=next;continue;
+        }
         int k=slot(e,(size_t)index);if(k<0){previous=index;index=next;continue;}
         TombNavigation *n=e->navigation+k;TombCreatureInfo info={0};int16_t turn=0;
         if(c->health>0) {
@@ -92,14 +101,37 @@ int tomb_enemies_tick(TombObjects *w,TombAnimContext *ctx,TombLaraStart *lara) {
             tomb_creature_mood(c,n,w->level,&o->actor,o->object,&info,&lara->actor,lara->health,lara->water_status,bounds[2],&e->random);
             turn=tomb_creature_turn(&o->actor,c,o->object==9?3640:c->maximum_turn);
         } else if(o->object==8)turn=tomb_creature_turn(&o->actor,c,182);
-        TombCreatureDecision d=tomb_creature_control(o,c,&info,turn,lara->health,&e->random,ctx);
-        if(d.damage){lara->health=tomb_word(lara->health-d.damage);lara->actor.flags|=16;}
-        if(d.blood){
-            int32_t bite[3]={0,o->object==7?-14:o->object==8?96:16,o->object==7?174:o->object==8?335:45};
-            if(!tomb_object_joint(w->visual,o->object,&o->actor,c->pitch,c->roll,c->head,o->object==7?6:o->object==8?14:4,bite,ctx->sine_quarter))return 0;
+        TombModel model;if(!tomb_visual_model(w->visual,o->object,&model))return 0;
+        int targetable=0;
+        if(o->object==27 && info.ahead && info.distance<0x3100000){TombCameraPoint from={o->actor.x,o->actor.y-768,o->actor.z,o->actor.room},to={lara->actor.x,lara->actor.y-768,lara->actor.z,lara->actor.room};targetable=tomb_dos_camera_los(w->level,&from,&to,0);}
+        TombCreatureDecision d=o->object==27?tomb_larson_control(o,c,&info,turn,&e->random,ctx,model.animation,targetable):tomb_creature_control(o,c,&info,turn,lara->health,&e->random,ctx,model.animation);
+        if(d.damage){lara->health=tomb_word(lara->health-d.damage);if(o->object!=18 || d.damage>=10000)lara->actor.flags|=16;}
+        if(o->object==18 && d.damage>=10000){
+            /* Lara's dedicated T. rex death is animation 1 of model 5. */
+            TombModel extra;if(!tomb_visual_model(w->visual,5,&extra) || (size_t)extra.animation+1>=ctx->animation_count)return 0;
+            TombActor *a=&lara->actor;a->x=o->actor.x;a->y=o->actor.y;a->z=o->actor.z;a->room=o->actor.room;a->yaw=o->actor.yaw;
+            a->animation=(int16_t)(extra.animation+1);a->frame=ctx->animations[a->animation].first_frame;a->current=a->goal=46;a->flags&=(uint8_t)~8u;
+            lara->pitch=0;lara->health=lara->air=-1;ctx->weapon_status=1;
+        }
+        if(o->object==27 && d.blood){
+            if(d.damage && ctx->event)ctx->event(ctx->user,5,50,&lara->actor);
+            if(d.damage){
+                int joint=tomb_control_random(&e->random)*25/32767;
+                int32_t point[3]={0,0,0};TombActor blood=lara->actor;
+                if(joint<15 && tomb_object_joint(w->visual,0,&lara->actor,lara->pitch,lara->lean,0,joint,point,ctx->sine_quarter)){blood.x=point[0];blood.y=point[1];blood.z=point[2];}
+                tomb_effect_spawn(w,158,&blood,lara->actor.speed,lara->actor.yaw);
+            }
+            int32_t muzzle[3]={-60,170,0};
+            if(tomb_object_joint(w->visual,27,&o->actor,c->pitch,c->roll,c->head,14,muzzle,ctx->sine_quarter))for(int j=0;j<256;j++)if(!w->hazards->effects[j].active){
+                w->hazards->effects[j]=(TombHazardEffect){muzzle[0],muzzle[1],muzzle[2],o->actor.room,166,0,3,0,tomb_word(o->actor.yaw+info.angle),1};break;
+            }
+        }else if(d.blood){
+            int32_t bite[3]={0,o->object==7?-14:o->object==8?96:o->object==19?66:16,o->object==7?174:o->object==8?335:o->object==19?318:45};
+            if(!tomb_object_joint(w->visual,o->object,&o->actor,c->pitch,c->roll,c->head,o->object==7?6:o->object==8?14:o->object==19?22:4,bite,ctx->sine_quarter))return 0;
             TombActor point=o->actor;point.x=bite[0];point.y=bite[1];point.z=bite[2];tomb_effect_spawn(w,158,&point,o->actor.speed,o->actor.yaw);
         }
-        int moved=tomb_creature_move(o,c,n,w,ctx,d.turn,d.tilt);if(moved<0)return 0;
+        int moved=tomb_creature_move(o,c,n,w,ctx,d.turn,o->object==27?0:d.tilt);if(moved<0)return 0;
+        if(o->object==18)o->actor.flags|=32;
         tomb_enemies_room_sync(w);
         w->level->items[index].state=o->actor.current;
         if(!moved){tomb_navigation_free(n);e->slots[k]=-1;if(previous<0)e->head=next;else e->next[previous]=next;e->next[index]=-1;}

@@ -57,7 +57,8 @@ void tomb_camera_box_shift(double *p,double *q,double tp,double tq,
 
 TombCameraRequest tomb_camera_control(int state,int water,int16_t pitch) {
     TombCameraRequest r={1536,0,12,0,0,pitch,-1,0};
-    if(state==39){r.angle=-23660;r.elevation=-2730;r.distance=1024;}
+    if(state==46){r.flags=1;r.angle=30940;r.elevation=-4550;}
+    else if(state==39){r.angle=-23660;r.elevation=-2730;r.distance=1024;}
     else if(state==42 || state==43){r.angle=-14560;r.elevation=-4550;r.distance=1024;}
     else if(state==40 || state==41){r.angle=14560;r.elevation=-4550;r.distance=1024;}
     else if(water==2)r.elevation=-4004;
@@ -72,15 +73,19 @@ TombCameraRequest tomb_camera_control(int state,int water,int16_t pitch) {
     }
     return r;
 }
-int tomb_camera_tick(TombFollowCamera *c,const TombLevel *l,const TombVisual *v,const TombActor *a,int object,const int16_t *sine,const TombCameraRequest *r) {
+int tomb_camera_tick_effects(TombFollowCamera *c,const TombLevel *l,const TombVisual *v,const TombActor *a,int object,const int16_t *sine,const TombCameraRequest *r,int *bounce,uint32_t *random) {
     int16_t bounds[6];if(!tomb_visual_item_bounds(v,object,a,bounds))return 0;
-    int first=!c->ready;int cut=first || c->dos.fixed!=(r->fixed_index>=0 && r->item_target) || (r->fixed_index>=0 && r->speed==1);if(first)c->dos.ready=0;
+    int first=!c->ready;int cut=first || c->dos.fixed!=(r->fixed_index>=0 && r->item_target);if(first)c->dos.ready=0;
+    /* A speed-one fixed shot snaps the eye, not its moving look-at target.
+       Resetting both every tick puts the aim ahead of interpolated actors. */
+    int cut_eye=cut || (r->fixed_index>=0 && r->speed==1);
     memcpy(c->previous_eye,c->eye,sizeof c->eye);memcpy(c->previous_target,c->target,sizeof c->target);
-    if(!tomb_dos_camera_tick(&c->dos,l,a,bounds,sine,r))return 0;
+    if(!tomb_dos_camera_tick_effects(&c->dos,l,a,bounds,sine,r,bounce,random))return 0;
     c->eye[0]=c->dos.eye.x;c->eye[1]=c->dos.eye.y+c->dos.shift;c->eye[2]=c->dos.eye.z;
     c->target[0]=c->dos.target.x;c->target[1]=c->dos.target.y;c->target[2]=c->dos.target.z;
     c->room=c->dos.eye.room;c->fixed_target=c->dos.fixed;c->ready=1;c->boom=length(c->eye,c->target);
-    if(cut){memcpy(c->previous_eye,c->eye,sizeof c->eye);memcpy(c->previous_target,c->target,sizeof c->target);}
+    if(cut_eye)memcpy(c->previous_eye,c->eye,sizeof c->eye);
+    if(cut)memcpy(c->previous_target,c->target,sizeof c->target);
     return 1;
 }
 /* Compatibility driver for tests/tools. The live preview supplies the original
@@ -122,3 +127,5 @@ int tomb_camera_interest(const TombActor *a,const int16_t ab[6],const TombActor 
  int d=tomb_word(head-*yaw);*yaw=tomb_word(*yaw+(d>728?728:d< -728?-728:d));
  d=tomb_word(tilt-*pitch);*pitch=tomb_word(*pitch+(d>728?728:d< -728?-728:d));return 1;
 }
+
+int tomb_camera_tick(TombFollowCamera *c,const TombLevel *l,const TombVisual *v,const TombActor *a,int object,const int16_t *sine,const TombCameraRequest *r){return tomb_camera_tick_effects(c,l,v,a,object,sine,r,NULL,NULL);}

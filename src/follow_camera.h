@@ -18,4 +18,5 @@ int tomb_scene_camera(TombFollowCamera *,const TombObjects *,const TombActor *,i
 int tomb_camera_tick(TombFollowCamera *,const TombLevel *,const TombVisual *,const TombActor *,int object,const int16_t *,const TombCameraRequest *);
 TOMB_EXPORT int tomb_camera_interest(const TombActor *,const int16_t[6],const TombActor *,const int16_t[6],int16_t *,int16_t *);
 TombCameraRequest tomb_camera_control(int state,int water,int16_t pitch);
+int tomb_camera_tick_effects(TombFollowCamera *,const TombLevel *,const TombVisual *,const TombActor *,int,const int16_t *,const TombCameraRequest *,int *,uint32_t *);
 #endif

@@ -35,6 +35,7 @@ int tomb_ring_init_keys(TombRing *r,const TombInventory *inv){
   TombRingItem item={q<4?114+q:133+q-4,1,0,0,0,1,1,0,7200,0,-4352,0,0,0,0,0,256,0,UINT32_MAX,UINT32_MAX,q<4?108-q:101+q-4};
   int at=r->count++;while(at>0 && r->items[at-1].order>item.order){r->items[at]=r->items[at-1];--at;}r->items[at]=item;
  }
+ if(inv->scion)r->items[r->count++]=(TombRingItem){150,1,0,0,0,1,1,0,7200,0,-4352,0,0,0,0,0,256,0,UINT32_MAX,UINT32_MAX,109};
  if(!r->count)return 0;
  r->step=tomb_word(65536/r->count);r->left_adder=(int16_t)(r->step/24);r->right_adder=(int16_t)-r->left_adder;
  r->camera_y=-1536;r->angle=16384;setup(r,32,0,1);
@@ -133,7 +134,7 @@ void tomb_ring_tick(TombRing *r,unsigned input) {
   r->ready=!moving;
   if(r->ready && ((input&TOMB_RING_BACK) || (i->object==72 && (input&TOMB_RING_SELECT)))) {
    i->goal=i->object==72?i->frames-1:i->object==71 && i->frame==24?29:0;i->direction=i->goal?1:-1;setup(r,0,11,10);r->ready=0;
-  } else if(r->ready && (i->object==99 || i->object==108 || i->object==109 || tomb_quest_slot(i->object)>=0)) {r->chosen=i->object;setup(r,0,11,12);r->ready=0;}
+  } else if(r->ready && (i->object==99 || i->object==100 || i->object==108 || i->object==109 || tomb_quest_slot(i->object)>=0)) {r->chosen=i->object;setup(r,0,11,12);r->ready=0;}
  } else if(status==11) {
   int moving=0;for(int t=0;t<2;t++)moving=tomb_ring_animate(i);
   if(!moving){if(i->object==71){i->object=81;i->frame=0;i->meshes=i->initial_meshes;}int target=r->motion.target;setup(r,16,target,target);tomb_ring_select(r,1);}

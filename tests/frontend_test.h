@@ -3,8 +3,27 @@ static void frontend_frames(int count){for(int t=0;t<count;t++)inventory_tick(0)
 static int frontend_check(void){
 #define CHECK(x) do{if(!(x)){FILE *f=fopen("build/frontend-test.txt","w");if(f){fprintf(f,"Failed line %d: %s (title=%d options=%d status=%d frame=%d ready=%d slot=%d action=%d)\n",__LINE__,#x,title_mode,options_ring,inventory_ring.motion.status,inventory_ring.items[inventory_ring.current].frame,inventory_ring.ready,slot_menu,menu_action);fclose(f);}return 0;}}while(0)
  char path[MAX_PATH];for(int i=0;i<16;i++){save_path(path,i);DeleteFileA(path);}
+ /* Home stays raised until a second selection; backing out lowers the photo. */
+ frontend_title();frontend_frames(32);
+ while(inventory_ring.items[inventory_ring.current].object!=73){inventory_tick(TOMB_RING_RIGHT);frontend_frames(32);}
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(120);
+ CHECK(title_mode && inventory_open && inventory_ring.motion.status==8 && inventory_ring.ready);
+ CHECK(inventory_ring.items[inventory_ring.current].object==73);
+ CHECK(inventory_ring.items[inventory_ring.current].yoff==inventory_ring.items[inventory_ring.current].selected_yoff);
+ inventory_tick(TOMB_RING_BACK);frontend_frames(90);
+ CHECK(title_mode && inventory_open && inventory_ring.motion.status==1);
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(90);
+ CHECK(title_mode && inventory_ring.ready && inventory_ring.motion.status==8);
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(100);
+ CHECK(!title_mode && !inventory_open && level_number==0 && play.lara.health==1000);
  frontend_title();frontend_frames(20);CHECK(title_mode && inventory_ring.count==5 && inventory_ring.motion.status==1);
  inventory_tick(TOMB_RING_SELECT);frontend_frames(90);CHECK(inventory_ring.ready && inventory_ring.items[0].object==71 && inventory_ring.items[0].frame==19);
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(30);CHECK(title_mode && inventory_open && new_game_menu && new_game_level==1);
+ inventory_tick(16);CHECK(new_game_level==0);inventory_tick(16);CHECK(new_game_level==0);
+ for(int n=1;n<LEVEL_CHOICE_COUNT;n++){inventory_tick(32);CHECK(new_game_level==n);frontend_overlay();}
+ inventory_tick(32);CHECK(new_game_level==LEVEL_CHOICE_COUNT-1);
+ inventory_tick(TOMB_RING_BACK);CHECK(!new_game_menu && title_mode && inventory_ring.ready);
+ inventory_tick(TOMB_RING_SELECT);CHECK(new_game_menu && new_game_level==1);
  inventory_tick(TOMB_RING_SELECT);frontend_frames(100);CHECK(!title_mode && !inventory_open && level_number==1 && play.lara.health==1000);
  CHECK(objects.progress->music.current_track==57);
  /* Exercise the real CD asset/device adapter, with playback suspended. */
@@ -37,6 +56,22 @@ static int frontend_check(void){
  inventory_tick(TOMB_RING_SELECT);CHECK(binding_wait);
  /* Controls edit consumes the binding press instead of activating gameplay. */
  option_row=0;binding_wait=1;unsigned old=bindings[0];window_proc(NULL,WM_KEYDOWN,'T',1);CHECK(bindings[0]=='T' && !binding_wait);bindings[0]=old;
+ /* Select the shotgun through the actual ring, then draw every original pose. */
+ CHECK(load_game_level(3,0,NULL));tomb_inventory_add(&play.inventory,85);
+ inventory_begin();frontend_frames(32);
+ while(inventory_ring.items[inventory_ring.current].object!=100){inventory_tick(TOMB_RING_RIGHT);frontend_frames(32);}
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(160);CHECK(!inventory_open && play.requested_weapon==4);
+ play.movement_only=1;
+ for(int t=0;t<50;t++)CHECK(tomb_playtest_tick(&play,0));CHECK(play.weapon_type==4 && play.pistols.status==4);
+ for(int frame=0;frame<127;frame++){play.pistols.left.frame=play.pistols.right.frame=(int16_t)frame;play.pistols.drawn=frame<101?3:0;CHECK(lara());}
+ CHECK(glGetError()==GL_NO_ERROR);
+ /* A non-Caves choice starts fresh, without carrying the prior inventory. */
+ frontend_title();frontend_frames(32);inventory_tick(TOMB_RING_SELECT);frontend_frames(90);
+ if(inventory_ring.items[0].frame==14){inventory_tick(TOMB_RING_RIGHT);frontend_frames(30);}
+ CHECK(inventory_ring.items[0].frame==19);inventory_tick(TOMB_RING_SELECT);CHECK(new_game_menu);
+ for(int n=1;n<LEVEL_CHOICE_COUNT-1;n++)inventory_tick(32);
+ inventory_tick(TOMB_RING_SELECT);frontend_frames(100);
+ CHECK(!title_mode && !inventory_open && level_number==LEVEL_CHOICE_COUNT-1 && play.lara.health==1000 && !play.inventory.counts[1]);
  for(int i=0;i<16;i++){save_path(path,i);DeleteFileA(path);}FILE *f=fopen("build/frontend-test.txt","w");if(f){fputs("PASS: title/new game, options transfer, passport/save/load, cross-level block restore, death passport/exit, binding capture\n",f);fclose(f);}return 1;
 #undef CHECK
 }

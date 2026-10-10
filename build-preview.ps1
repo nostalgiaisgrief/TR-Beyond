@@ -6,11 +6,16 @@ $compiler = Join-Path $PSScriptRoot 'work\toolchain\zig-x86_64-windows-0.15.2\zi
 $optimization = if ($Debug) { '-O0' } else { '-O2' }
 $outputName = if ($Debug) { 'tomb_preview_debug.exe' } else { 'tomb_preview.exe' }
 $sourceNames = @('enemies.c','creature_move.c','navigation.c','creature.c','pistols.c','hazards.c','dos_camera.c','object_contact.c','objects.c','slide.c','sound_win.c','sound.c','preview.c','room_visibility.c','gym.c','follow_camera.c','air.c','water.c','ledge.c','playtest.c','movement.c','animation.c','ground.c','collision.c','terrain.c','static.c','preview_pose.c','preview_camera.c','level.c','visual.c','lara_start.c','geometry.c','item_height.c')
-$sourceNames += 'ui_dialog.c','save.c','city.c','combat.c','combat_fixture.c','interface.c','ring.c','text.c','inventory.c','pickup.c','pickup_runtime.c','progression.c'
+$sourceNames += 'peru.c','render_interpolation.c','lighting.c','ui_dialog.c','save.c','city.c','combat.c','combat_fixture.c','interface.c','ring.c','text.c','inventory.c','pickup.c','pickup_runtime.c','progression.c'
 $sources = $sourceNames | ForEach-Object { Join-Path $PSScriptRoot "src\$_" }
 & $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic @sources -lopengl32 -lgdi32 -luser32 -lwinmm -lavrt '-Wl,--subsystem,windows' -o (Join-Path $PSScriptRoot "build\$outputName")
 if ($LASTEXITCODE -ne 0) { throw "Preview compilation failed: $LASTEXITCODE" }
 Write-Output "Built $outputName"
+foreach ($lightingLevel in @(0,1,2,3)) {
+    $lightingProcess = Start-Process -FilePath (Join-Path $PSScriptRoot "build\$outputName") -ArgumentList "--level $lightingLevel --lighting-test" -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -Wait -PassThru
+    if ($lightingProcess.ExitCode -ne 0) { throw "GPU lighting validation failed: level $lightingLevel" }
+    Write-Output "PASS: GPU palette and transparency, level $lightingLevel"
+}
 
 
 
@@ -65,6 +70,12 @@ foreach ($inputArgs in @('--window-input-test','--window-input-test --caves')) {
 }
 Write-Output 'PASS: gym/Caves Windows input and switch camera integration'
 
+$shotgunTest = if ($Debug) { 'shotgun_test_debug.exe' } else { 'shotgun_test.exe' }
+& $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic -I (Join-Path $PSScriptRoot 'src') @playtestSources (Join-Path $PSScriptRoot 'tests\shotgun_test.c') -o (Join-Path $PSScriptRoot "build\$shotgunTest")
+if ($LASTEXITCODE -ne 0) { throw 'Shotgun test compilation failed' }
+& (Join-Path $PSScriptRoot "build\$shotgunTest") (Join-Path $PSScriptRoot 'work\reference-assets\DATA\LEVEL3A.PHD') (Join-Path $PSScriptRoot 'work\reference-assets\sine.bin')
+if ($LASTEXITCODE -ne 0) { throw 'Shotgun integration failed' }
+
 $combatTest = if ($Debug) { 'combat_test_debug.exe' } else { 'combat_test.exe' }
 & $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic -I (Join-Path $PSScriptRoot 'src') @playtestSources (Join-Path $PSScriptRoot 'tests\combat_test.c') -o (Join-Path $PSScriptRoot "build\$combatTest")
 if ($LASTEXITCODE -ne 0) { throw 'Combat test compilation failed' }
@@ -91,6 +102,10 @@ $cityTransition = Start-Process -FilePath (Join-Path $PSScriptRoot "build\$outpu
 if ($cityTransition.ExitCode -ne 0) { throw "City to Lost Valley transition failed: $($cityTransition.ExitCode)" }
 Write-Output 'PASS: City actual exit, Enter continuation, Lost Valley load, inventory carry and level-state reset'
 
+$valleyTransition = Start-Process -FilePath (Join-Path $PSScriptRoot "build\$outputName") -ArgumentList '--level 3 --transition-test --capture build/valley-transition-check.ppm' -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -Wait -PassThru
+if ($valleyTransition.ExitCode -ne 0) { throw "Valley to Qualopec transition failed: $($valleyTransition.ExitCode)" }
+Write-Output 'PASS: Valley actual exit, Enter continuation, Qualopec load and inventory carry'
+
 $saveTest = if ($Debug) { 'save_test_debug.exe' } else { 'save_test.exe' }
 & $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic -I (Join-Path $PSScriptRoot 'src') @playtestSources (Join-Path $PSScriptRoot 'tests\save_test.c') -o (Join-Path $PSScriptRoot "build\$saveTest")
 if ($LASTEXITCODE -ne 0) { throw 'Save test compilation failed' }
@@ -99,3 +114,27 @@ if ($LASTEXITCODE -ne 0) { throw 'Save state test failed' }
 $frontProcess = Start-Process -FilePath (Join-Path $PSScriptRoot "build\$outputName") -ArgumentList '--frontend-test' -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -Wait -PassThru
 if ($frontProcess.ExitCode -ne 0) { throw 'Front-end menu integration failed; see build/frontend-test.txt' }
 Get-Content -LiteralPath (Join-Path $PSScriptRoot 'build\frontend-test.txt')
+
+$valleyTest = if ($Debug) { 'valley_enemies_test_debug.exe' } else { 'valley_enemies_test.exe' }
+& $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic -I (Join-Path $PSScriptRoot 'src') @playtestSources (Join-Path $PSScriptRoot 'tests\valley_enemies_test.c') -o (Join-Path $PSScriptRoot "build\$valleyTest")
+if ($LASTEXITCODE -ne 0) { throw 'Valley enemies compilation failed' }
+& (Join-Path $PSScriptRoot "build\$valleyTest") (Join-Path $PSScriptRoot 'work\reference-assets\DATA\LEVEL3A.PHD') (Join-Path $PSScriptRoot 'work\reference-assets\sine.bin')
+if ($LASTEXITCODE -ne 0) { throw 'Valley enemies integration failed' }
+
+$interpolationTest = if ($Debug) { 'render_interpolation_test_debug.exe' } else { 'render_interpolation_test.exe' }
+& $compiler cc -target x86_64-windows-gnu -std=c11 $optimization -g -Wall -Wextra -Werror -pedantic -I (Join-Path $PSScriptRoot 'src') (Join-Path $PSScriptRoot 'src/render_interpolation.c') (Join-Path $PSScriptRoot 'tests/render_interpolation_test.c') -o (Join-Path $PSScriptRoot "build/$interpolationTest")
+if ($LASTEXITCODE -ne 0) { throw 'Interpolation test compilation failed' }
+& (Join-Path $PSScriptRoot "build/$interpolationTest")
+if ($LASTEXITCODE -ne 0) { throw 'Interpolation test failed' }
+foreach ($interpolationLevel in @(0,1,2,3,4,12,13)) {
+    $interpolationProcess = Start-Process -FilePath (Join-Path $PSScriptRoot "build/$outputName") -ArgumentList "--level $interpolationLevel --interpolation-test" -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -Wait -PassThru
+    if ($interpolationProcess.ExitCode -ne 0) { throw "Live interpolation test failed: level $interpolationLevel" }
+    Write-Output "PASS: live render interpolation, level $interpolationLevel"
+}
+
+& (Join-Path $PSScriptRoot 'tools/test-peru.ps1') -Debug:$Debug
+foreach ($peruLevel in @(3,4)) {
+    $peruProcess=Start-Process -FilePath (Join-Path $PSScriptRoot "build/$outputName") -ArgumentList "--level $peruLevel --peru-test" -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -Wait -PassThru
+    if($peruProcess.ExitCode -ne 0){throw "Peru render validation failed: $peruLevel"}
+    Get-Content -LiteralPath (Join-Path $PSScriptRoot 'build/peru-render.txt')
+}

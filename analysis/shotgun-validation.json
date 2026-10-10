@@ -1,0 +1,12 @@
+[
+  {
+    "build": "release",
+    "shotgun_control_cases": 8000,
+    "six_pellet_spread_cases": 1500
+  },
+  {
+    "build": "_debug",
+    "shotgun_control_cases": 8000,
+    "six_pellet_spread_cases": 1500
+  }
+]
